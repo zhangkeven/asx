@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Main from '@/pages/main'
 import Seemore from '@/pages/seemore/seemore'
+import About from '@/pages/about/about'
 Vue.use(Router)
 
 export default new Router({
@@ -15,6 +16,11 @@ export default new Router({
       path: '/Seemore',
       name: 'Seemore',
       component: Seemore
+    },
+    {
+      path: '/About',
+      name: 'About',
+      component: About
     }
   ]
 })

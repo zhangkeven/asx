@@ -23,4 +23,8 @@ a{
   color: #000;
   font-family:Microsoft YaHei;
 }
-
+html{
+  font-family:Microsoft YaHei;
+}
+@media (min-width:768px) {html{font-size:12.66px;}}
+@media (min-width:769px) {html{font-size:16px;}}

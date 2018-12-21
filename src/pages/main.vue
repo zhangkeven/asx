@@ -6,7 +6,7 @@
           <img src="../assets/img/logo.png" alt="">
         </div>
       </div>
-      <div class="nav">
+      <div v-bind:class="nav">
         <a href="javascript:">首页</a>
         <a href="javascript:">明星产品</a>
         <a href="javascript:">料理教室</a>
@@ -124,7 +124,7 @@
       <p class="recipesEh">Recipes</p>
       <div class="recipesConent">
         <div class="swiper-button-color1"></div>
-        <div style="width: 91%">
+        <div class="recipesSwiper">
           <div class="swiper-container1" id="swiper-container">
             <div class="swiper-wrapper">
               <!--<div class="swiper-slide" ><a href=""><img class="bannerImg" src="../assets/img/banner.png" alt=""></a></div>-->
@@ -401,6 +401,7 @@
       currentTab: 1,
       isActive: false,
       topNav: 'topNavBg',
+      nav:'nav',
       imgs:[
         {imgUrl:'../assets/img/banner.png',url:'http://www.baidu.com'},
         {imgUrl:'../assets/img/banner.png',url:'http://www.baidu.com'},
@@ -417,9 +418,11 @@
       console.log(scrollTop);
       console.log($('.topLeft')[0]);
       if (scrollTop > 0){
-        this.topNav = 'topNavBg1'
+        this.topNav = 'topNavBg1';
+        this.nav = 'nav1';
       } else {
-        this.topNav = 'topNavBg'
+        this.topNav = 'topNavBg';
+        this.nav = 'nav';
       }
     },
     seeMore(){
@@ -512,8 +515,120 @@
 }
 </script>
 <style>
- body{
-   min-width: 69rem;
+ @media screen and (max-width:768px) {
+   body{
+     min-width: 72rem;
+     width: 100%;
+   }
+   .recipesConent{
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: center;
+     width: 110%;
+   }
+   .recipesSwiper{
+     width: 91%;
+   }
+   .swiper-button-color{
+     background: url("../assets/img/go(1).png") no-repeat;
+     width: 1.25rem;
+     height: 2.4rem;
+     cursor: pointer;
+     display: none;
+   }
+   .swiper-button-color1{
+     background: url("../assets/img/go2.png") no-repeat;
+     width: 1.25rem;
+     height: 2.4rem;
+     cursor: pointer;
+     display: none;
+   }
+   .swiper-img-prev{
+     background: url("../assets/img/go2.png") no-repeat;
+     width: 1.2rem;
+     height: 3.2rem;
+     cursor: pointer;
+   }
+   .swiper-img-next{
+     background: url("../assets/img/go(1).png") no-repeat;
+     width: 1.5rem;
+     height: 3.0rem;
+     cursor: pointer;
+   }
+   .nav{
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     justify-content: space-between;
+   }
+   .nav1{
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     justify-content: space-between;
+     width:42%;
+   }
+ }
+ @media screen and (min-width: 769px) {
+   body{
+     min-width: 72rem;
+     width: 100%;
+   }
+   .recipesConent{
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     align-items: center;
+     width: 110%;
+   }
+   .recipesSwiper{
+     width: 91%;
+   }
+   .swiper-img-prev{
+     background: url("../assets/img/go2.png") no-repeat;
+     width: 1.25rem;
+     height: 2.4rem;
+     cursor: pointer;
+   }
+   .swiper-img-next{
+     background: url("../assets/img/go(1).png") no-repeat;
+     width: 1.25rem;
+     height: 2.4rem;
+     cursor: pointer;
+   }
+   .nav{
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     justify-content: space-between;
+   }
+   .nav1{
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     justify-content: space-between;
+     width:55%;
+   }
+   .swiper-button-color{
+     background: url("../assets/img/go(1).png") no-repeat;
+     width: 1.25rem;
+     height: 2.4rem;
+     cursor: pointer;
+   }
+   .swiper-button-color1{
+     background: url("../assets/img/go2.png") no-repeat;
+     width: 1.25rem;
+     height: 2.4rem;
+     cursor: pointer;
+   }
+ }
+ .main{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   width: 100%;
+   /*width: 120rem;*/
  }
  .mask{
    width: 100%;
@@ -556,28 +671,9 @@
    /* Fix of Webkit flickering */
    z-index: 1;
  }
- .swiper-button-color{
-   background-image: url("../assets/img/go(1).png");
-   width: 1.25rem;
-   height: 2.4rem;
-   cursor: pointer;
- }
- .swiper-button-color1{
-   background-image: url("../assets/img/go2.png");
-   width: 1.25rem;
-   height: 2.4rem;
-   cursor: pointer;
- }
-  .main{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    /*width: 120rem;*/
-  }
   .topNavBg{
     width: 70.5%;
-    min-width: 69rem;
+    min-width: 72rem;
     background-color: #ffffff;
     display: flex;
     flex-direction: row;
@@ -591,7 +687,7 @@
   }
   .topNavBg1{
     width: 96%;
-    min-width: 69rem;
+    min-width: 72rem;
     background-color: #ffffff;
     display: flex;
     flex-direction: row;
@@ -609,18 +705,12 @@
     justify-content: flex-end;
     cursor: pointer;
   }
-  .nav{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
   .nav a{
     margin-right:2rem;
     font-size: 1rem;
     transition:color linear .5s;
   }
-  .nav a:hover{
+  .nav a:hover,.nav1 a:hover{
     color: #9f303d;
   }
   .nav p{
@@ -635,6 +725,18 @@
     cursor: pointer;
     font-size: 1rem;
   }
+ .nav1 p{
+   width: 5rem;
+   height: 2.5rem;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-color: #852833;
+   color: #ffffff;
+   border-radius: 0.5rem;
+   cursor: pointer;
+   font-size: 1rem;
+ }
   .bannerImg{
     width: 100%;
     /*height: 100%;*/
@@ -666,9 +768,13 @@
     flex: 1;
     outline:none;
   }
+ .searchBg img{
+   cursor: pointer;
+ }
   .navRight>img{
     margin-right:1.5rem;
     width: 1rem;
+    cursor: pointer;
   }
  .el-carousel__item h3 {
    color: #475669;
@@ -862,13 +968,6 @@
     font-size: 1.5rem;
     color: #666;
   }
-  .recipesConent{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    width: 110%;
-  }
   .useCh{
     margin-top: 1.875rem;
     font-size: 1.875rem;
@@ -943,19 +1042,6 @@
     width: 96%;
     padding:1.125rem 2%;
     background-color: #f8f8f8;
-  }
-
-  .swiper-img-prev{
-    background-image: url("../assets/img/go2.png");
-    width: 1.25rem;
-    height: 2.4rem;
-    cursor: pointer;
-  }
-  .swiper-img-next{
-    background-image: url("../assets/img/go(1).png");
-    width: 1.25rem;
-    height: 2.4rem;
-    cursor: pointer;
   }
   .media>div.swiper-container2>div.swiper-wrapper>div.swiper-slide>div>div>img{
     width: 100%;

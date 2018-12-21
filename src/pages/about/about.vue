@@ -433,16 +433,22 @@
 	div.main>div.about-conent>div.bottom-img{
 		display: flex;
 		flex-direction: row;
+		justify-content: space-between;
 		margin-top: 1.125rem;
 		margin-bottom: 6.625rem;
+		width: 100%;
 	}
-	div.main>div.about-conent>div.bottom-img>div:nth-child(2){
-		margin:0 0.375rem;
+	div.main>div.about-conent>div.bottom-img>img{
+		width: 32%;
 	}
 	div.main>div.about-conent>div.bottom-img>div{
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		width: 32%;
+	}
+	div.main>div.about-conent>div.bottom-img>div>img{
+		width: 100%;
 	}
 	div.main>div.about-conent>div.bottom-img>div>p{
 		color: #999;

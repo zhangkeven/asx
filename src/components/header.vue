@@ -10,7 +10,7 @@
       <a href="javascript:">明星产品</a>
       <a href="javascript:">料理教室</a>
       <a href="javascript:">使用者分享</a>
-      <a href="javascript:">关于我们</a>
+      <a href="javascript:" @click="goAbout()">关于我们</a>
       <p href="javascript:">我要购买</p>
     </div>
     <div class="nav-right">
@@ -30,7 +30,10 @@
       methods:{
         goMain(){
           this.$router.push({name:'Main',params:{}})
-        }
+        },
+				goAbout(){
+					this.$router.push({name:'About',params:{}})
+				},
       }
     }
 </script>

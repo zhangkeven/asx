@@ -64,7 +64,7 @@
       <p class="recommendCh">推荐专栏</p>
       <p class="recommendEh">Expert tips</p>
       <div class="recommendConent">
-        <div>
+        <div @click="goRecommend()">
           <img src="../assets/img/hdy.png" alt="">
           <div class="mask">
 
@@ -75,7 +75,7 @@
             <p class="issue">查看更多>></p>
           </div>
         </div>
-        <div>
+        <div @click="goRecommend()">
           <img src="../assets/img/xhs.png" alt="">
           <div class="mask">
 
@@ -86,7 +86,7 @@
             <p class="issue">查看更多>></p>
           </div>
         </div>
-        <div>
+        <div @click="goRecommend()">
           <img src="../assets/img/hyp.png" alt="">
           <div class="mask">
 
@@ -97,7 +97,7 @@
             <p class="issue">查看更多>></p>
           </div>
         </div>
-        <div>
+        <div @click="goRecommend()">
           <img src="../assets/img/sjd.png" alt="">
           <div class="mask">
 
@@ -337,7 +337,10 @@
     },
     goAbout(){
       this.$router.push({name:'About',params:{}})
-    }
+    },
+		goRecommend(){
+			this.$router.push({name:'Recommend',params:{}})
+		}
   },
   mounted () {
     window.addEventListener('scroll', this.handleScroll);

@@ -9,14 +9,14 @@
       <div v-bind:class="nav">
         <a href="javascript:">首页</a>
         <a href="javascript:">明星产品</a>
-        <a href="javascript:">料理教室</a>
+        <a href="javascript:" @click="goCoreyroom()">料理教室</a>
         <a href="javascript:">使用者分享</a>
         <a href="javascript:" @click="goAbout()">关于我们</a>
         <p href="javascript:">我要购买</p>
       </div>
       <div class="navRight">
         <div class="searchBg">
-          <input type="text">
+          <input type="text" @input="search" ref="inputVal" @keyup.enter="submit()">
           <img src="../assets/img/search.png" alt="">
         </div>
         <img src="../assets/img/person.png"  alt="">
@@ -304,7 +304,8 @@
     },
   data () {
     return {
-      msg: '这是主页',
+      searchText:'',
+			msg: '这是主页',
       currentTab: 1,
       isActive: false,
       topNav: 'topNavBg',
@@ -320,10 +321,15 @@
     }
   },
   methods: {
-    handleScroll () {
+    search(){
+    	console.log('input输入的值',this.$refs.inputVal.value);
+    	this.searchText=this.$refs.inputVal.value;
+			console.log('searchtext的值',this.searchText);
+    },
+		handleScroll () {
       var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
       console.log(scrollTop);
-      console.log($('.topLeft')[0]);
+      // console.log($('.topLeft')[0]);
       if (scrollTop > 0){
         this.topNav = 'topNavBg1';
         this.nav = 'nav1';
@@ -335,6 +341,12 @@
     seeMore(){
       this.$router.push({name:'Seemore',params:{id:'110',name:'tom'}})
     },
+		goCoreyroom() {
+			this.$router.push({
+				name: 'Coreyroom',
+				params: {}
+			})
+		},
     goAbout(){
       this.$router.push({name:'About',params:{}})
     },

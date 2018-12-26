@@ -96,5 +96,9 @@ module.exports = {
       jquery: "jquery",
       "window.jQuery": "jquery"
     })
-  ]
+  ],
+  externals: {
+    'BMap': 'BMap',
+    'AMap': 'AMap'
+  }
 }

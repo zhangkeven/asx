@@ -1145,7 +1145,7 @@
 	}
 	div.main>div.company-history>div.year-list>p:nth-child(1){
 		position: absolute;
-		left: 28.125rem;
+		left: 37%;
 		top: 12.5rem;
 	}
 	div.main>div.company-history>div.year-list>p:nth-child(2){
@@ -1185,7 +1185,7 @@
 	}
 	div.main>div.company-history>div.year-list>p:nth-child(9){
 		position: absolute;
-		left: 82rem;
+		/* left: 82rem; */
 		top:94.5rem;
 	}
 	div.main>div.company-history>div.year-list>p:nth-child(10){
@@ -1205,7 +1205,7 @@
 	}
 	div.main>div.company-history>div.year-list>p:nth-child(13){
 		position: absolute;
-		left: 85rem;
+		/* left: 85rem; */
 		top:135.5rem;
 	}
 	div.main>div.company-history>div.year-list>p:nth-child(14){
@@ -1230,12 +1230,12 @@
 	}
 	div.main>div.company-history>div.year-list>p:nth-child(18){
 		position: absolute;
-		left:86.5rem;
+		/* left:86.5rem; */
 		top:186.5rem;
 	}
 	div.main>div.company-history>div.year-list>p:nth-child(19){
 		position: absolute;
-		left: 90rem;
+		/* left: 90rem; */
 		top:197rem;
 	}
 	div.main>div.company-history>div.year-list>p:nth-child(20){

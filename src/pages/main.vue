@@ -10,7 +10,7 @@
         <a href="javascript:">首页</a>
         <a href="javascript:">明星产品</a>
         <a href="javascript:" @click="goCoreyroom()">料理教室</a>
-        <a href="javascript:">使用者分享</a>
+        <a href="javascript:" @click="goshare()">使用者分享</a>
         <a href="javascript:" @click="goAbout()">关于我们</a>
         <p href="javascript:">我要购买</p>
       </div>
@@ -344,6 +344,12 @@
 		goCoreyroom() {
 			this.$router.push({
 				name: 'Coreyroom',
+				params: {}
+			})
+		},
+		goshare(){
+			this.$router.push({
+				name: 'Share',
 				params: {}
 			})
 		},

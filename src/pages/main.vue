@@ -19,7 +19,7 @@
           <input type="text" @input="search" ref="inputVal" @keyup.enter="submit()">
           <img src="../assets/img/search.png" alt="">
         </div>
-        <img src="../assets/img/person.png"  alt="">
+        <img src="../assets/img/person.png" alt="">
         <img src="../assets/img/cart.png" alt="">
       </div>
     </div>

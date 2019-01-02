@@ -5,21 +5,33 @@ import Seemore from '@/pages/seemore/seemore'
 import Coreyroom from '@/pages/coreyroom/coreyRoom'
 import CoreyroomDetail from '@/pages/coreyroom/coreyroomDetail'
 import About from '@/pages/about/about'
+import Register from '@/pages/shoppingMall/register'
+ import Login from '@/pages/shoppingMall/login' 
 import Share from '@/pages/share/share'
 import Recommend from '@/pages/recommend/recommend'
 import RecommendDetail from '@/pages/recommend/recommendDetail'
 Vue.use(Router)
-import global from '@/assets/Global/global.js'
+import global from '@/assets/Global/global.js'  
 export default new Router({
-	routes: [{
+	routes: [
+		{
 			path: '/',
-			name: 'Main',
-			component: Main,
+			name: 'Login',
+			component: Login,
 			meta: {
-				title: "阿莎希",
+				title: "登录账号",
 				content: 'disable'
 			}
 		},
+// 		{
+// 			path: '/',
+// 			name: 'Main',
+// 			component: Main, 
+// 			meta: {
+// 				title: "阿莎希",
+// 				content: 'disable'
+// 			}
+// 		},
 		{
 			path: '/Seemore',
 			name: 'Seemore',
@@ -61,6 +73,24 @@ export default new Router({
 				content: 'disable'
 			}
 		},
+		{
+			path: '/Register',
+			name: 'Register',
+			component: Register,
+			meta: {
+				title: "注册账号",
+				content: 'disable'
+			}
+		},
+// 		{
+// 			path: '/Login',
+// 			name: 'Login',
+// 			component: Login,
+// 			meta: {
+// 				title: "登录账号",
+// 				content: 'disable'
+// 			}
+// 		},
 		{
 			path: '/Recommend',
 			name: 'Recommend',

@@ -27,10 +27,10 @@
 <script>
 	export default {
 		// name: "nav"
-		data(){
-			return{
-				inputVal:'',
-				searchText:''
+		data() {
+			return {
+				inputVal: '',
+				searchText: ''
 			}
 		},
 		methods: {
@@ -46,7 +46,7 @@
 					params: {}
 				})
 			},
-			goshare(){
+			goshare() {
 				this.$router.push({
 					name: 'Share',
 					params: {}
@@ -59,17 +59,17 @@
 				})
 			},
 			/*模糊搜索*/
-			search(){
-				console.log('input输入的值',this.$refs.inputVal.value);
-				this.searchText=this.$refs.inputVal.value
+			search() {
+				console.log('input输入的值', this.$refs.inputVal.value);
+				this.searchText = this.$refs.inputVal.value
 			},
-			submit(){
-      // 子组件中触发父组件方法ee并传值cc12345
-      this.$emit('listenChildEvent', this.searchText)
-    }
+			submit() {
+				// 子组件中触发父组件方法searchInput并传值
+				this.$emit('listenChildEvent', this.searchText)
+			}
 		},
-		mounted(){
-			
+		mounted() {
+
 		}
 	}
 </script>

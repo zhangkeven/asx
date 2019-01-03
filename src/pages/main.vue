@@ -79,7 +79,7 @@
           </div>
           <div>
             <p class="title">黄豆芽排骨汤</p>
-            <p class="cuisineConent">黄豆芽是属于高纤的蔬菜，如果只有一锅满满的蔬菜汤会觉得好像在吃草，我们放了一些红萝卜白萝卜......</p>
+            <p class="cuisineConent">黄豆芽是属于高纤的蔬菜，如果只有一锅满满的蔬菜汤会觉得好像在吃草，我们放了一些红萝卜白萝卜.......</p>
             <p class="issue">查看更多>></p>
           </div>
         </div>

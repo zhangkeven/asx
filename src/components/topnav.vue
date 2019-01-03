@@ -7,12 +7,12 @@
 				</div>
 			</div>
 			<div class="nav">
-				<a href="javascript:">首页</a>
+				<a href="javascript:" @click="goMain()">首页</a>
 				<a href="javascript:">明星产品</a>
 				<a href="javascript:" @click="goCoreyroom()">料理教室</a>
 				<a href="javascript:" @click="goshare()">使用者分享</a>
 				<a href="javascript:" @click="goAbout()">关于我们</a>
-				<p href="javascript:">我要购买</p>
+				<p href="javascript:" @click="goBuy()">我要购买</p>
 			</div>
 			<div class="navRight">
 				<div class="searchBg">
@@ -23,7 +23,6 @@
 				<img src="../assets/img/cart.png" alt="">
 			</div>
 		</div>
-		
 	</div>
 </template>
 
@@ -59,6 +58,9 @@
 					name: 'About',
 					params: {}
 				})
+			},
+			goBuy(){
+				this.$router.push({name:'Buy',params:{}})
 			},
 			/*模糊搜索*/
 			search() {

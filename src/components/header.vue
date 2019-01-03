@@ -11,7 +11,7 @@
 			<a href="javascript:" @click="goCoreyroom()">料理教室</a>
 			<a href="javascript:" @click="goshare()">使用者分享</a>
 			<a href="javascript:" @click="goAbout()">关于我们</a>
-			<p href="javascript:">我要购买</p>
+			<p href="javascript:" @click="goBuy()">我要购买</p>
 		</div>
 		<div class="nav-right">
 			<div class="search-Bg">
@@ -57,6 +57,9 @@
 					name: 'About',
 					params: {}
 				})
+			},
+			goBuy(){
+				this.$router.push({name:'Buy',params:{}})
 			},
 			/*模糊搜索*/
 			search() {

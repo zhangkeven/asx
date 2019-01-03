@@ -481,13 +481,7 @@
 }
 </script>
 <style>
-  .conent{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 62.5%;
-    min-width: 65rem;
-  }
+  
   .goShopping{
     display: flex;
     flex-direction: row;

@@ -1,32 +1,40 @@
 <template>
   <div class="main">
-    <div v-bind:class="topNav">
-      <div class="topLeft">
-        <div class="topLeftTitle">
-          <img src="../assets/img/logo.png" alt="">
-        </div>
-      </div>
-      <div v-bind:class="nav">
-        <a href="javascript:">首页</a>
-        <a href="javascript:">明星产品</a>
-        <a href="javascript:" @click="goCoreyroom()">料理教室</a>
-        <a href="javascript:" @click="goshare()">使用者分享</a>
-        <a href="javascript:" @click="goAbout()">关于我们</a>
-        <p href="javascript:">我要购买</p>
-      </div>
-      <div class="navRight">
-        <div class="searchBg">
-          <input type="text" @input="search" ref="inputVal" @keyup.enter="submit()">
-          <img src="../assets/img/search.png" alt="">
-        </div>
-        <img src="../assets/img/person.png" alt="">
-        <img src="../assets/img/cart.png" alt="">
-      </div>
-    </div>
+    <div v-bind:class="topBg">
+			<div v-bind:class="topNav" :style="windowBg">
+			  <div class="topLeft" @mouseenter="leavePerson()">
+			    <div class="topLeftTitle">
+			      <img src="../assets/img/logo.png" alt="">
+			    </div>
+			  </div>
+			  <div v-bind:class="nav" @mouseenter="leavePerson()">
+			    <a href="javascript:">首页</a>
+			    <a href="javascript:">明星产品</a>
+			    <a href="javascript:" @click="goCoreyroom()">料理教室</a>
+			    <a href="javascript:" @click="goshare()">使用者分享</a>
+			    <a href="javascript:" @click="goAbout()">关于我们</a>
+			    <p href="javascript:" @click="goBuy()">我要购买</p>
+			  </div>
+			  <div class="navRight">
+			    <div class="searchBg">
+			      <input type="text" @input="search" ref="inputVal" @keyup.enter="submit()" @mouseenter="leavePerson()">
+			      <img src="../assets/img/search.png" alt="">
+			    </div>
+			    <img src="../assets/img/person.png" alt="" @mouseenter="enterPerson()">
+			    <img src="../assets/img/cart.png" alt="" @mouseenter="leavePerson()">
+			  </div>
+			</div>
+			<div v-bind:class="chooseLogin"  v-show="showModal">
+				<div>
+					<p @click="goLogin()">登录</p>
+					<p @click="goRegister()">注册</p>
+				</div>
+			</div>
+		</div>
     <!--<div class="banner">-->
       <!--<img class="bannerImg" src="../assets/img/banner.png" alt="">-->
     <!--</div>-->
-    <div class="swiper-container" style="width: 100%">
+    <div class="swiper-container" style="width: 100%" @mouseenter="leavePerson()">
           <div class="swiper-wrapper">
             <!--<div class="swiper-slide" ><a href=""><img class="bannerImg" src="../assets/img/banner.png" alt=""></a></div>-->
             <div class="swiper-slide"  v-for="(item,index) in imgs" :key="index">
@@ -40,7 +48,7 @@
            <!--<div class="swiper-button-prev swiper-button-white"></div>-->
           <!--<div class="swiper-button-next swiper-button-white"></div>-->
     </div>
-    <div class="conent">
+    <div class="conent" @mouseenter="leavePerson()">
       <div class="goShopping">
         <div class="hlgBg">
           <img src="../assets/img/guo.png" alt="">
@@ -186,7 +194,7 @@
       <p class="useCh">使用心得</p>
       <p class="useEh">Customer reviews</p>
     </div>
-    <div class="swiper-container3" style="width: 100%">
+    <div class="swiper-container3" style="width: 100%" @mouseenter="leavePerson()">
       <div class="swiper-wrapper">
         <!--<div class="swiper-slide" ><a href=""><img class="bannerImg" src="../assets/img/banner.png" alt=""></a></div>-->
         <div class="swiper-slide"  v-for="(item,index) in imgs" :key="index">
@@ -237,7 +245,7 @@
         </div>
       </div>
     </div>
-    <div class="mediaBg">
+    <div class="mediaBg" @mouseenter="leavePerson()">
       <div class="media">
         <p>媒体报道</p>
         <div class="swiper-container2" style="width: 100%">
@@ -308,7 +316,10 @@
 			msg: '这是主页',
       currentTab: 1,
       isActive: false,
+			topBg:'top-bg',
+			chooseLogin:'chooseLogin',
       topNav: 'topNavBg',
+			windowBg:'background-color: #FFFFFF',
       nav:'nav',
       imgs:[
         {imgUrl:'../assets/img/banner.png',url:'http://www.baidu.com'},
@@ -317,11 +328,28 @@
         {imgUrl:'../assets/img/banner.png',url:'http://www.baidu.com'},
       ],
       newsList:['','','','',''],
-      mediaList:['','','','','']
+      mediaList:['','','','',''],
+			showModal:false
     }
   },
   methods: {
-    search(){
+    enterPerson(){
+			this.showModal=true;
+			this.windowBg='background-color: #eeeeee';
+		},
+		leavePerson(){
+			this.showModal=false;
+			this.windowBg='background-color: #FFFFFF';
+		},
+		goLogin(){
+			this.$router.push({name:'Login',params:{}}),
+			this.showModal=false;
+		},
+		goRegister(){
+			this.$router.push({name:'Register',params:{}}),
+			this.showModal=false;
+		},
+		search(){
     	console.log('input输入的值',this.$refs.inputVal.value);
     	this.searchText=this.$refs.inputVal.value;
 			console.log('searchtext的值',this.searchText);
@@ -331,10 +359,14 @@
       console.log(scrollTop);
       // console.log($('.topLeft')[0]);
       if (scrollTop > 0){
+				this.topBg='top-bg1';
         this.topNav = 'topNavBg1';
+				this.chooseLogin='chooseLogin1';
         this.nav = 'nav1';
       } else {
+				this.topBg='top-bg';
         this.topNav = 'topNavBg';
+				this.chooseLogin='chooseLogin';
         this.nav = 'nav';
       }
     },
@@ -356,6 +388,9 @@
     goAbout(){
       this.$router.push({name:'About',params:{}})
     },
+		goBuy(){
+			this.$router.push({name:'Buy',params:{}})
+		},
 		goRecommend(){
 			this.$router.push({name:'Recommend',params:{}})
 		}
@@ -446,259 +481,6 @@
 }
 </script>
 <style>
- @media screen and (max-width:768px) {
-   .recipesConent{
-     display: flex;
-     flex-direction: row;
-     justify-content: center;
-     align-items: center;
-     width: 110%;
-   }
-   .recipesSwiper{
-     width: 91%;
-   }
-   .swiper-button-color{
-     background: url("../assets/img/go(1).png") no-repeat;
-     width: 1.25rem;
-     height: 2.4rem;
-     cursor: pointer;
-     display: none;
-   }
-   .swiper-button-color1{
-     background: url("../assets/img/go2.png") no-repeat;
-     width: 1.25rem;
-     height: 2.4rem;
-     cursor: pointer;
-     display: none;
-   }
-   .swiper-img-prev{
-     background: url("../assets/img/go2.png") no-repeat;
-     width: 1.2rem;
-     height: 3.2rem;
-     cursor: pointer;
-   }
-   .swiper-img-next{
-     background: url("../assets/img/go(1).png") no-repeat;
-     width: 1.5rem;
-     height: 3.0rem;
-     cursor: pointer;
-   }
-   .nav{
-     display: flex;
-     flex-direction: row;
-     align-items: center;
-     justify-content: space-between;
-   }
-   .nav1{
-     display: flex;
-     flex-direction: row;
-     align-items: center;
-     justify-content: space-between;
-     width:42%;
-   }
- }
- @media screen and (min-width: 769px) {
-   .recipesConent{
-     display: flex;
-     flex-direction: row;
-     justify-content: space-between;
-     align-items: center;
-     width: 110%;
-   }
-   .recipesSwiper{
-     width: 91%;
-   }
-   .swiper-img-prev{
-     background: url("../assets/img/go2.png") no-repeat;
-     width: 1.25rem;
-     height: 2.4rem;
-     cursor: pointer;
-   }
-   .swiper-img-next{
-     background: url("../assets/img/go(1).png") no-repeat;
-     width: 1.25rem;
-     height: 2.4rem;
-     cursor: pointer;
-   }
-   .nav{
-     display: flex;
-     flex-direction: row;
-     align-items: center;
-     justify-content: space-between;
-     width:50%;
-   }
-   .nav1{
-     display: flex;
-     flex-direction: row;
-     align-items: center;
-     justify-content: space-between;
-     width:40%;
-   }
-   .swiper-button-color{
-     background: url("../assets/img/go(1).png") no-repeat;
-     width: 1.25rem;
-     height: 2.4rem;
-     cursor: pointer;
-   }
-   .swiper-button-color1{
-     background: url("../assets/img/go2.png") no-repeat;
-     width: 1.25rem;
-     height: 2.4rem;
-     cursor: pointer;
-   }
- }
- .mask{
-   width: 100%;
-   height: 100%;
-   background-color: rgba(0,0,0,0);
-   position: absolute;
-   left: 0;
-   bottom: 0;
-   transition: background-color linear .5s;
- }
- .mask:hover{
-   background-color: rgba(0,0,0,.1);
- }
- .swiper-container1{
-   margin: 0 auto;
-   position: relative;
-   overflow: hidden;
-   list-style: none;
-   padding: 0;
-   /* Fix of Webkit flickering */
-   z-index: 1;
- }
- .swiper-container2{
-   margin: 0 auto;
-   position: relative;
-   overflow: hidden;
-   list-style: none;
-   padding: 0;
-   /* Fix of Webkit flickering */
-   z-index: 1;
-   display: flex;
-   justify-content: center;
- }
- .swiper-container3{
-   margin: 0 auto;
-   position: relative;
-   overflow: hidden;
-   list-style: none;
-   padding: 0;
-   /* Fix of Webkit flickering */
-   z-index: 1;
- }
-  .topNavBg{
-    width: 70.5%;
-    min-width: 72rem;
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding:1rem 2%;
-    position: fixed;
-    top:3.5rem;
-    z-index: 4;
-    box-shadow: 0 0.3125rem 0.9375rem 0 #ececec;
-  }
-  .topNavBg1{
-    width: 88%;
-    min-width: 72rem;
-    background-color: #ffffff;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    padding:1rem 6%;
-    position: fixed;
-    top:0;
-    z-index: 4;
-    box-shadow: 0 0.3125rem 0.9375rem 0 #ececec;
-  }
-  .topLeft{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    cursor: pointer;
-  }
-  .nav a{
-    font-size: 1rem;
-    transition:color linear .5s;
-  }
-  .nav a:hover,.nav1 a:hover{
-    color: #9f303d;
-  }
-  .nav p{
-    width: 5rem;
-    height: 2.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #852833;
-    color: #ffffff;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    font-size: 1rem;
-  }
- .nav1 p{
-   width: 5rem;
-   height: 2.5rem;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   background-color: #852833;
-   color: #ffffff;
-   border-radius: 0.5rem;
-   cursor: pointer;
-   font-size: 1rem;
- }
-  .bannerImg{
-    width: 100%;
-    /*height: 100%;*/
-    cursor: pointer;
-  }
-  .navRight{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: nowrap;
-    align-items: center;
-  }
-  .searchBg{
-    background-color:#EEE;
-    padding:0.5rem 0.5rem;
-    width: 13rem;
-    height: 1rem;
-    border-radius: 1rem;
-    display: flex;
-    flex-direction: row;
-    justify-content:space-between;
-    align-items: center;
-    margin-right: 1.5rem;
-  }
-  .searchBg input{
-    border:none;
-    width: 80%;
-    background-color: #EEE;
-    flex: 1;
-    outline:none;
-  }
- .searchBg img{
-   cursor: pointer;
- }
-  .navRight>img{
-    margin-right:1.5rem;
-    width: 1rem;
-    cursor: pointer;
-  }
- .el-carousel__item h3 {
-   color: #475669;
-   font-size: 14px;
-   opacity: 0.75;
-   line-height: 200px;
-   margin: 0;
- }
   .conent{
     display: flex;
     flex-direction: column;

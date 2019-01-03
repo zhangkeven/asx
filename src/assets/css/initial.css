@@ -212,6 +212,9 @@ html {
 	width: 70.5%;
 	min-width: 72rem;
 	position: fixed;
+	left: 14.75%;
+	transform-origin: translate(-14.75%,-14.75%);
+	margin:0 auto;
 	top: 3.5rem;
 	z-index: 4;
 	display: flex;
@@ -224,6 +227,8 @@ html {
 	min-width: 72rem;
 	position: fixed;
 	top: 0;
+	left: 0;
+	margin:0 auto;
 	z-index: 4;
 	width: 100%;
 	display: flex;

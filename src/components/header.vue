@@ -86,6 +86,7 @@
 		padding: 1rem 6%;
 		position: fixed;
 		top: 0;
+		left: 0;
 		z-index: 4;
 		box-shadow: 0 0.3125rem 0.9375rem 0 #dcdcdc;
 	}

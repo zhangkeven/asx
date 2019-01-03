@@ -85,6 +85,8 @@
 		padding: 1rem 2%;
 		position: fixed;
 		top: 3.5rem;
+		left: 14.75%;
+		transform-origin: translate(-14.75%,-14.75%);
 		z-index: 4;
 		box-shadow: 0 0.3125rem 0.9375rem 0 #ececec;
 	}

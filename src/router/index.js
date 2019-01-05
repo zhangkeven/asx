@@ -5,20 +5,31 @@ import Seemore from '@/pages/seemore/seemore'
 import Coreyroom from '@/pages/coreyroom/coreyRoom'
 import CoreyroomDetail from '@/pages/coreyroom/coreyroomDetail'
 import About from '@/pages/about/about'
-import Buy from '@/pages/shoppingMall/buyProduct'
-import Register from '@/pages/shoppingMall/register'
-import ShortcutLogin from '@/pages/shoppingMall/shortcutLogin'
-import FindUpwd from '@/pages/shoppingMall/findUpwd'
-import CompleteUpwd from '@/pages/shoppingMall/completeUpwd'
-import Login from '@/pages/shoppingMall/login'
+import Buy from '@/pages/product/buyProduct'
+import LogisticsOrder from '@/pages/product/logisticsOrder'
+import Register from '@/pages/user/register'
+import ShortcutLogin from '@/pages/user/shortcutLogin'
+import FindUpwd from '@/pages/user/findUpwd'
+import CompleteUpwd from '@/pages/user/completeUpwd'
+import Login from '@/pages/user/login'
 import Share from '@/pages/share/share'
 import Recommend from '@/pages/recommend/recommend'
 import RecommendDetail from '@/pages/recommend/recommendDetail'
 Vue.use(Router)
 import global from '@/assets/Global/global.js'
 export default new Router({
-	routes: [{
+	routes: [
+		{
 			path: '/',
+			name: 'LogisticsOrder',
+			component: LogisticsOrder,
+			meta: {
+				title: "物流订单",
+				content: 'disable'
+			}
+		},
+		{
+			path: '/Main',
 			name: 'Main',
 			component: Main,
 			meta: {
@@ -76,6 +87,15 @@ export default new Router({
 				content: 'disable'
 			}
 		},
+// 		{
+// 			path: '/LogisticsOrder',
+// 			name: 'LogisticsOrder',
+// 			component: LogisticsOrder,
+// 			meta: {
+// 				title: "物流订单",
+// 				content: 'disable'
+// 			}
+// 		},
 		{
 			path: '/Register',
 			name: 'Register',

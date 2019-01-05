@@ -77,10 +77,10 @@
 	}
 </script>
 
-<style scoped>
+<style>
 	.nav-bg {
 		width: 88%;
-		min-width: 72rem;
+		min-width:81.25rem;
 		background-color: #ffffff;
 		display: flex;
 		flex-direction: row;

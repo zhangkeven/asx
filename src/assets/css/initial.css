@@ -60,13 +60,14 @@ html {
 	align-items: center;
 	width: 100%;
 	/*width: 120rem;*/
+	min-width:81.25rem;
 }
 .conent{
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 62.5%;
-    min-width: 65rem;
+    /* min-width: 67rem; */
   }
 @media (min-width:768px) {
 	html {
@@ -152,12 +153,27 @@ html {
 	color: #FFFFFF;
 	font-size: 1rem;
 }
-
-
-
-.bg-img {
-	width: 100%;
-	height: auto;
+@media screen and (max-width:1400px) {
+	.big-bg-img {
+		width: 100%;
+		height: auto;
+		display: none;
+	}
+	.small-bg-img {
+		width: 100%;
+		height: auto;
+	}
+}
+@media screen and (min-width:1401px) {
+	.big-bg-img {
+		width: 100%;
+		height: auto;
+	}
+	.small-bg-img {
+		width: 100%;
+		height: auto;
+		display: none;
+	}
 }
 
 .chooseLogin {
@@ -215,12 +231,11 @@ html {
 }
 /* 导航栏 */
 .top-bg {
+	-ms-left: 14.75%;
+	-ms-transform-origin: translate(-14.75%,-14.75%);
 	width: 70.5%;
 	min-width: 72rem;
-	position: fixed;
-	left: 14.75%;
-	transform-origin: translate(-14.75%,-14.75%);
-	margin:0 auto;
+	position: fixed; 
 	top: 3.5rem;
 	z-index: 4;
 	display: flex;
@@ -305,6 +320,7 @@ html {
      flex-direction: row;
      align-items: center;
      justify-content: space-between;
+	 width:50%;
    }
    .nav1{
      display: flex;

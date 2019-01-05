@@ -115,7 +115,7 @@
   }
   div.bottom>div{
     width: 68%;
-    min-width: 65rem;
+    /* min-width: 67rem; */
   }
   .bottomTitleBg{
     display: flex;

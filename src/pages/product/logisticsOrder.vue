@@ -1,20 +1,6 @@
 <template>
 	<div class="main" style="background-color: #EEEEEE">
 		<Header v-on:listenChildEvent="searchInput"></Header>
-		<!-- <div class="swiper-container" style="width: 100%;margin-top: 4.375rem">
-			<div class="swiper-wrapper"> -->
-				<!--<div class="swiper-slide" ><a href=""><img class="bannerImg" src="../assets/img/banner.png" alt=""></a></div>-->
-				<!-- <div class="swiper-slide" v-for="(item,index) in imgs" :key="index">
-					<img class="aboutBannerImg" src="../../assets/img/banner1.png" alt="">
-				</div>
-			</div> -->
-			<!-- 如果需要分页器 -->
-			<!-- <div class="swiper-pagination"></div> -->
-		
-			<!-- 如果需要导航按钮 -->
-			<!--<div class="swiper-button-prev swiper-button-white"></div>-->
-			<!--<div class="swiper-button-next swiper-button-white"></div>-->
-		<!-- </div> -->
 		<div class="conent">
 			<div class="product-main">
 				<div class="my-order">
@@ -124,7 +110,58 @@
 						</div>
 					</div>
 					<div class="order-detail-bottom">
-						
+						<p>订单商品</p>
+						<div class="product-title">
+							<p>商品信息</p>
+							<p>单价</p>
+							<p>数量</p>
+							<p>操作</p>
+						</div>
+						<div class="order-detail-conent">
+							<div class="order-detail-conent-top">
+								<div>
+									<div>
+										<img src="../../assets/img/wl.png" alt="">
+									</div>
+									<div>
+										<p>全能平低锅介绍名称全能平低锅介绍名称全能平低锅介绍名称</p>
+										<div>
+											<p>颜色:</p>
+											<p>茶色</p>
+											<p>尺寸:</p>
+											<p>M</p>
+										</div>
+									</div>
+								</div>
+								<div>
+								<p>¥ 3000</p>
+								</div>
+								<div>
+									<p>1</p>
+								</div>
+								<div>
+									<p>再次购买</p>
+								</div>
+							</div>
+							<div class="order-detail-conent-bottom">
+								<div>
+									<p>商品总额:</p>
+									<p>¥3000.00</p>
+								</div>
+								<div>
+									<p>优惠券:</p>
+									<p>-¥20.00</p>
+								</div>
+								<div>
+									<p>运费:</p>
+									<p>¥10.00</p>
+								</div>
+								<div style="margin-bottom: 1.75rem;">
+									<p>应付总额:</p>
+									<p>¥2990.00</p>
+								</div>
+							</div>
+						</div>
 					</div>
 
 				</div>
@@ -170,27 +207,7 @@
 			}
 		},
 		mounted(){
-			new Swiper('.swiper-container', {
-				autoplay: 2000,
-				speed: 300,
-				// autoplayDisableOnInteraction:true,
-				loopAdditionalSlides: 1,
-				paginationClickable: true,
-				touchReleaseOnEdges: true,
-				loop: true,
-				observer: true,
-				observeParents: false,
-				// 如果需要分页器
-				pagination: '.swiper-pagination',
-				// paginationHide:true,
-				// grabCursor:true,
-				// paginationVisibleClass:'my-visible-switch',
-				// 如果需要前进后退按钮
-				// nextButton: '.swiper-button-next',
-				// prevButton: '.swiper-button-prev',
-				// 如果需要滚动条
-				// scrollbar: '.swiper-scrollbar',
-			});
+			
 		}
 	}
 </script>
@@ -212,6 +229,9 @@
 
 	.my-order {
 		width: 18.5%;
+		height: 33.125rem;
+		display: flex;
+		flex-direction: column;
 		background-color: #FFFFFF;
 		margin-top: 7.25rem;
 	}
@@ -233,6 +253,7 @@
 		align-items: center;
 		background-color: #b52637;
 		padding: 0.9375rem 0;
+		cursor: pointer;
 	}
 	.my-btn>p {
 		color: #FFF;
@@ -250,6 +271,7 @@
 		margin: 0.9375rem 0;
 		font-size: 0.875rem;
 		color: #333333;
+		cursor: pointer;
 	}
 
 	
@@ -422,5 +444,156 @@
 	}
 	.logistics-information>p:nth-child(4){
 		margin-left: 0.625rem;
+	}
+	.order-detail-bottom{
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		border:0.0625rem solid #e4e4e4;
+		margin-bottom: 8.25rem;
+	}
+	.order-detail-bottom>p{
+		width: 96%;
+		padding:0.875rem 2%;
+		background-color: #FFFFFF;
+		color: #666666;
+		font-size: 0.875rem;
+	}
+	.product-title{
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		padding:0.75rem 0;
+	}
+	.product-title>p{
+		color: #666666;
+		font-size: 0.875rem;
+	}
+	.product-title>p:first-child{
+		width: 55.5%;
+		padding:0 4%;
+	}
+	.product-title>p:not(:first-child){
+		width: 12.5%;
+		text-align: center;
+	}
+	.order-detail-conent{
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+	}
+	.order-detail-conent-top{
+		width: 98%;
+		padding-left: 2%;
+		background-color: #FFFFFF;
+		display: flex;
+		flex-direction: row;
+		border: 0.0625rem solid #e4e4e4;
+	}
+	.order-detail-conent-top>div:first-child{
+		width: 62.5%;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		padding:1.125rem 0;
+		justify-content: space-between;
+	}
+	.order-detail-conent-top>div:first-child>div:first-child{
+		width: 20%;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		padding:1.25rem 0;
+		border: 0.0625rem solid #e4e4e4;
+	}
+	.order-detail-conent-top>div:first-child>div:last-child{
+		width: 64%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding-right: 12%;
+	}
+	.order-detail-conent-top>div:first-child>div:last-child>p{
+		width: 100%;
+		line-height: 150%;
+		color: #666666;
+		font-size: 0.75rem;
+	}
+	.order-detail-conent-top>div:first-child>div:last-child>div{
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+	}
+	.order-detail-conent-top>div:first-child>div:last-child>div>p{
+		color: #666666;
+		font-size: 0.75rem;
+	}
+	.order-detail-conent-top>div:first-child>div>img{
+		width: 100%;
+	}
+	.order-detail-conent-top>div:not(:first-child){
+		width: 12.5%;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		border-left: 0.0625rem solid #e4e4e4;
+	}
+	.order-detail-conent-top>div:nth-child(2)>p,.order-detail-conent-top>div:nth-child(3)>p{
+		color: #666666;
+		font-size: 0.875rem;
+	}
+	.order-detail-conent-top>div:last-child>p{
+		color: #666666;
+		font-size: 0.75rem;
+		padding:0.3125rem 0.3125rem;
+		border: 0.0625rem solid #e4e4e4;
+		border-radius: 0.5rem;
+	}
+	.order-detail-conent-bottom{
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+		
+		background-color: #FFFFFF;
+	}
+	.order-detail-conent-bottom>div{
+		width: 37.5%;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+	}
+	
+	
+	.order-detail-conent-bottom>div:not(:last-child)>p:first-child{
+		color: #666666;
+		font-size: 0.75rem;
+	}
+	.order-detail-conent-bottom>div:not(:last-child)>p:last-child{
+		color: #666666;
+		font-size: 0.875rem;
+	}
+	.order-detail-conent-bottom>div:last-child>p{
+		color: #852833;
+	}
+	.order-detail-conent-bottom>div:last-child>p:first-child{
+		font-size: 0.75rem;
+	}
+	.order-detail-conent-bottom>div:last-child>p:last-child{
+		font-size: 1.5rem;
+	}
+	.order-detail-conent-bottom>div>p{
+		text-align: right;
+		margin-top: 1.25rem;
+	}
+	.order-detail-conent-bottom>div>p:first-child{
+		letter-spacing: 0.1875rem;
+		width:50%;
+	}
+	.order-detail-conent-bottom>div>p:last-child{
+		width:50%;
+		padding-right: 4%;
 	}
 </style>

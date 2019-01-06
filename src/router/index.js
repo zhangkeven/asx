@@ -1,10 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Main from '@/pages/main'
-import Seemore from '@/pages/seemore/seemore'
+import ZeroVitality from '@/pages/starProduct/zeroVitality'
 import Coreyroom from '@/pages/coreyroom/coreyRoom'
 import CoreyroomDetail from '@/pages/coreyroom/coreyroomDetail'
 import About from '@/pages/about/about'
+import Seemore from '@/pages/seemore/seemore'
 import Buy from '@/pages/product/buyProduct'
 import LogisticsOrder from '@/pages/product/logisticsOrder'
 import Register from '@/pages/user/register'
@@ -21,19 +22,19 @@ export default new Router({
 	routes: [
 		{
 			path: '/',
-			name: 'LogisticsOrder',
-			component: LogisticsOrder,
-			meta: {
-				title: "物流订单",
-				content: 'disable'
-			}
-		},
-		{
-			path: '/Main',
 			name: 'Main',
 			component: Main,
 			meta: {
 				title: "阿莎希",
+				content: 'disable'
+			}
+		},
+		{
+			path: '/ZeroVitality',
+			name: 'ZeroVitality',
+			component: ZeroVitality,
+			meta: {
+				title: "零秒活力锅",
 				content: 'disable'
 			}
 		},
@@ -87,15 +88,15 @@ export default new Router({
 				content: 'disable'
 			}
 		},
-// 		{
-// 			path: '/LogisticsOrder',
-// 			name: 'LogisticsOrder',
-// 			component: LogisticsOrder,
-// 			meta: {
-// 				title: "物流订单",
-// 				content: 'disable'
-// 			}
-// 		},
+		{
+			path: '/LogisticsOrder',
+			name: 'LogisticsOrder',
+			component: LogisticsOrder,
+			meta: {
+				title: "物流订单",
+				content: 'disable'
+			}
+		},
 		{
 			path: '/Register',
 			name: 'Register',
@@ -155,5 +156,12 @@ export default new Router({
 			name: 'RecommendDetail',
 			component: RecommendDetail
 		}
-	]
+	],
+  scrollBehavior(to, from,savedPosition) {
+    return {
+      x: 0,
+      y: 0
+    }
+  }
 })
+

@@ -8,7 +8,7 @@
 			</div>
 			<div class="nav">
 				<a href="javascript:" @click="goMain()">首页</a>
-				<a href="javascript:">明星产品</a>
+				<a href="javascript:" @click="goStart()">明星产品</a>
 				<a href="javascript:" @click="goCoreyroom()">料理教室</a>
 				<a href="javascript:" @click="goshare()">使用者分享</a>
 				<a href="javascript:" @click="goAbout()">关于我们</a>
@@ -38,6 +38,12 @@
 			goMain() {
 				this.$router.push({
 					name: 'Main',
+					params: {}
+				})
+			},
+			goStart(){
+				this.$router.push({
+					name: 'ZeroVitality',
 					params: {}
 				})
 			},

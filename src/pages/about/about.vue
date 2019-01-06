@@ -1,7 +1,7 @@
 <template>
 	<div class="main">
 		<div style="display: flex;flex-direction: column;width: 100%;" ref="banner">
-			<Header v-on:listenChildEvent="searchInput"/>
+			<Header @listenChildEvent="searchInput" @listenActiveId="getActiveId"/>
 			<div class="swiper-container" style="width: 100%;margin-top: 4.375rem">
 				<div class="swiper-wrapper">
 					<!--<div class="swiper-slide" ><a href=""><img class="bannerImg" src="../assets/img/banner.png" alt=""></a></div>-->
@@ -529,6 +529,41 @@
 			searchInput(e){
 				console.log('子组件中触发about页面',e);//子组件输入框触发,e代表输入框中的值
 			},
+			getActiveId(e){
+				console.log('获取子组件activeid的值',e);
+				this.activeNav=e;
+				if (e == 1) {
+					this.showIntro = true;
+					this.showDigest = false;
+					this.showHistory = false;
+					this.showNews = false;
+					this.showCall = false;
+				} else if (e == 2) {
+					this.showIntro = false;
+					this.showDigest = true;
+					this.showHistory = false;
+					this.showNews = false;
+					this.showCall = false;
+				} else if (e == 3) {
+					this.showIntro = false;
+					this.showDigest = false;
+					this.showHistory = true;
+					this.showNews = false;
+					this.showCall = false;
+				} else if (e == 4) {
+					this.showIntro = false;
+					this.showDigest = false;
+					this.showHistory = false;
+					this.showNews = true;
+					this.showCall = false;
+				} else if (e == 5) {
+					this.showIntro = false;
+					this.showDigest = false;
+					this.showHistory = false;
+					this.showNews = false;
+					this.showCall = true;
+				}
+			},
 			chooseNav(e) {
 				if (e.currentTarget.dataset.id == this.activeNav) {
 
@@ -638,6 +673,41 @@
 			//this.getData() //定义方法
 		},
 		mounted() {
+			console.log('上个页面传来的id',this.$route.params.id);
+			if(this.$route.params.id){
+				this.activeNav=this.$route.params.id;
+			}
+			if (this.$route.params.id == 1) {
+				this.showIntro = true;
+				this.showDigest = false;
+				this.showHistory = false;
+				this.showNews = false;
+				this.showCall = false;
+			} else if (this.$route.params.id == 2) {
+				this.showIntro = false;
+				this.showDigest = true;
+				this.showHistory = false;
+				this.showNews = false;
+				this.showCall = false;
+			} else if (this.$route.params.id == 3) {
+				this.showIntro = false;
+				this.showDigest = false;
+				this.showHistory = true;
+				this.showNews = false;
+				this.showCall = false;
+			} else if (this.$route.params.id == 4) {
+				this.showIntro = false;
+				this.showDigest = false;
+				this.showHistory = false;
+				this.showNews = true;
+				this.showCall = false;
+			} else if (this.$route.params.id == 5) {
+				this.showIntro = false;
+				this.showDigest = false;
+				this.showHistory = false;
+				this.showNews = false;
+				this.showCall = true;
+			}
 			var index = 31;
 			this.bgHeight = 'height:' + (12 + 10 * index) + 'rem';
 			window.addEventListener('scroll', this.getScroll);

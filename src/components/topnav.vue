@@ -190,7 +190,7 @@
 <style>
 	.top-nav-main{
 		width: 70.5%;
-		min-width: 65rem;
+		min-width: 75rem;
 		position: fixed;
 		top: 3.5rem;
 		z-index: 11;

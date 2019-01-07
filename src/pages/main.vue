@@ -133,8 +133,7 @@
 					</div>
 					<div>
 						<p class="title">姜黄鱼片炖饭</p>
-						<p class="cuisineConent">一般我们炖饭都会有太多勾芡、太多调味料，过油过咸就是导致水肿的主要关键，这道姜黄鱼片炖饭.........<img
-              src="../assets/img/1.0.png" height="261" width="361"/></p>
+						<p class="cuisineConent">一般我们炖饭都会有太多勾芡、太多调味料，过油过咸就是导致水肿的主要关键，这道姜黄鱼片炖饭.........</p>
 						<p class="issue">查看更多>></p>
 					</div>
 				</div>

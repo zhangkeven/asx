@@ -21,20 +21,31 @@
 	export default {
 		data() {
 			return {
-				activeId:0
+				activeId: 0
 			};
 		},
 		methods: {
-			choosenav(e){
-				if (e.currentTarget.dataset.id == this.activeId) {
-
-				} else {
+			choosenav(e) {
+// 				if (e.currentTarget.dataset.id == this.activeId) {
+// 
+// 				} else {
+// 					this.activeId = e.currentTarget.dataset.id
+// 				}
+				if (e.currentTarget.dataset.id == 2) {
+					document.body.scrollTop = document.documentElement.scrollTop = 0
+					setTimeout(function(){
+						this.activeId=1;
+					},1000)
+					
+				}else {
 					this.activeId = e.currentTarget.dataset.id
 				}
-				if(e.currentTarget.dataset.id==2){
-          document.body.scrollTop = 0;
-          // this.activeId=1;
-        }
+				if(e.currentTarget.dataset.id == 1){
+					this.$router.push({
+						name: 'Buy',
+						params: {}
+					})
+				}
 			},
 
 		},
@@ -42,47 +53,54 @@
 </script>
 
 <style>
+	div.right-nav-main {
+		position: fixed;
+		right: 0;
+		top: 21.875rem;
+		width: 4.4%;
+		min-width: 3.75rem;
+		height: auto;
+		display: flex;
+		flex-direction: column;
+		z-index: 10;
+		align-items: center;
+	}
 
-div.right-nav-main{
-	position: fixed;
-	right: 0;
-	top:21.875rem;
-	width: 4.4%;
-	height: auto;
-	display: flex;
-	flex-direction: column;
-	z-index: 10;
-	align-items: center;
-}
-div.right-nav-main>div.activeBg{
-	background-color: #852833;
-}
-div.right-nav-main>div{
-	background-color: #bebebe;
-}
-div.right-nav-main>div{
-	width: 100%;
-	height: auto;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	cursor: pointer;
-}
-div.right-nav-main>div:not(:nth-child(3)){
-	padding:0.625rem 0;
-}
-div.right-nav-main>div:not(:nth-child(3))>img{
+	div.right-nav-main>div.activeBg {
+		background-color: #852833;
+	}
+
+	div.right-nav-main>div {
+		background-color: #bebebe;
+	}
+
+	div.right-nav-main>div {
+		width: 100%;
+		height: auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		cursor: pointer;
+	}
+
+	div.right-nav-main>div:not(:nth-child(3)) {
+		padding: 0.625rem 0;
+	}
+
+	div.right-nav-main>div:not(:nth-child(3))>img {
 		width: 50%;
-}
-div.right-nav-main>p{
-	width: 0.125rem;
-	height: 5.5rem;
-	background-color: #bebebe;
-}
-div.right-nav-main>div:not(:nth-child(3))>p{
-	color: #FFFFFF;
-	font-size: 1.125rem;
-	margin: 0.3125rem 0;
-}
+	}
+
+	div.right-nav-main>p {
+		width: 0.125rem;
+		height: 5.5rem;
+		background-color: #bebebe;
+	}
+
+	div.right-nav-main>div:not(:nth-child(3))>p {
+		color: #FFFFFF;
+		font-size: 1.125rem;
+		margin: 0.3125rem 0;
+	}
 </style>

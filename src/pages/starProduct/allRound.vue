@@ -1,5 +1,6 @@
 <template>
 	<div class="main">
+		<RightNav></RightNav>
 		<Header v-on:listenChildEvent="searchInput"></Header>
 		
 		<Bottom></Bottom>
@@ -9,10 +10,12 @@
 <script>
 	import Header from '../../components/header'
 	import Bottom from '../../components/bottom'
+	import RightNav from '../../components/rightNav'
 	export default {
 		components: {
 			Bottom,
-			Header
+			Header,
+			RightNav
 		},
 		data() {
 			return {

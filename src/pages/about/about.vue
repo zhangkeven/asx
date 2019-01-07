@@ -1,5 +1,6 @@
 <template>
 	<div class="main">
+		<RightNav></RightNav>
 		<div style="display: flex;flex-direction: column;width: 100%;" ref="banner">
 			<Header @listenChildEvent="searchInput" @listenActiveId="getActiveId"/>
 			<div class="swiper-container" style="width: 100%;margin-top: 4.375rem">
@@ -374,14 +375,15 @@
 	import Swiper4 from 'swiper'
 	import Header from '../../components/header'
 	import Bottom from '../../components/bottom'
+	import RightNav from '../../components/rightNav'
 	import AMap from 'AMap'
 	var map
 	export default {
 		name: "about",
 		components: {
 			Header,
-			Bottom
-
+			Bottom,
+			RightNav
 		},
 		data() {
 			return {

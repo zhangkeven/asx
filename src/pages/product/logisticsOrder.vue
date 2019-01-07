@@ -1,5 +1,6 @@
 <template>
 	<div class="main" style="background-color: #EEEEEE">
+		<RightNav></RightNav>
 		<Header v-on:listenChildEvent="searchInput"></Header>
 		<div class="conent">
 			<div class="product-main">
@@ -174,11 +175,13 @@
 <script>
 	import Header from '../../components/header'
 	import Bottom from '../../components/bottom'
+	import RightNav from '../../components/rightNav'
 	import Swiper from 'swiper'
 	export default {
 		components: {
 			Bottom,
-			Header
+			Header,
+			RightNav
 		},
 		data() {
 			return {

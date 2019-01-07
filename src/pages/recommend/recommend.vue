@@ -1,5 +1,6 @@
 <template>
 	<div class="main">
+		<RightNav></RightNav>
 		<Header />
 		<div class="swiper-container" style="width: 100%;margin-top: 4.375rem">
 			<div class="swiper-wrapper">
@@ -63,12 +64,14 @@
 <script>
 	import Header from '../../components/header'
 	import Bottom from '../../components/bottom'
+	import RightNav from '../../components/rightNav'
 	import global from '../../assets/Global/global.js'
 	export default {
 		name: "recommend",
 		components: {
 			Header,
-			Bottom
+			Bottom,
+			RightNav
 		},
 		data() {
 			return {

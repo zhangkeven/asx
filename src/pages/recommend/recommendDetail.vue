@@ -1,10 +1,11 @@
 <template>
 	<div class="main">
+		<RightNav></RightNav>
 		<Header />
 		<div class="swiper-container" style="width: 100%;margin-top: 4.375rem">
 			<div class="swiper-wrapper">
 				<!--<div class="swiper-slide" ><a href=""><img class="bannerImg" src="../assets/img/banner.png" alt=""></a></div>-->
-				<div class="swiper-slide" v-for="(item,index) in imgs" :key="index">
+				<div class="swiper-slide" v-for="(item,index) in imgs" :key="'swiper-slide-'+index">
 					<img class="recommendDetailBannerImg" src="../../assets/img/banner1.png" alt="">
 				</div>
 			</div>
@@ -43,7 +44,7 @@
 						一般高纤的食材由于纤维较粗较难烹煮，所以煮到松软可口的时候，烹煮时间已经过了很久很久了...烹煮时间越久，汤品产生的普林就越高...因此使用活力锅烹煮除了降低烹煮时间能让营养不流失以外，还能减少嘌呤的产生，让您的料理吃来不仅美味还更营养！
 					</p>
 				</div>
-				<div class="greensBg" v-for="(item,index) in greensList" :key="index">
+				<div class="greensBg" v-for="(item,index) in greensList" :key="'greensBg-'+index">
 					<p class="greens-title">{{item.title}}</p>
 					<img :src="item.imgurl" alt="">
 					<p class="greens-conent">{{item.conent}}</p>
@@ -67,7 +68,7 @@
 				Expert tips
 			</p>
 			<div class="bottom-list">
-				<div class="greens" @click="gorecommendDertail">
+				<div class="greens">
 					<div>
 						<div>
 							<img src="http://www.zhang-yan.top/static/img/hdy.1a2f054.png" alt="">
@@ -87,7 +88,7 @@
 						<p>查看更多 >></p>
 					</div>
 				</div>
-				<div class="greens" @click="gorecommendDertail">
+				<div class="greens">
 					<div>
 						<div>
 							<img src="http://www.zhang-yan.top/static/img/hdy.1a2f054.png" alt="">
@@ -116,11 +117,13 @@
 <script>
 	import Header from '../../components/header'
 	import Bottom from '../../components/bottom'
+	import RightNav from '../../components/rightNav'
 	export default {
 		name: "recommend",
 		components: {
 			Header,
-			Bottom
+			Bottom,
+			RightNav
 		},
 		data() {
 			return {

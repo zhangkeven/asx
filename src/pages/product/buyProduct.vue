@@ -1,27 +1,45 @@
 <template>
 	<div class="main">
+		<RightNav></RightNav>
 		<div v-bind:class="topBg">
 			<div v-bind:class="topNav" :style="windowBg">
-				<div class="topLeft" @mouseenter="leavePerson()">
+				<div class="topLeft" @mouseenter="clearDropdown()">
 					<div class="topLeftTitle">
 						<img src="../../assets/img/logo.png" alt="">
 					</div>
 				</div>
 				<div v-bind:class="nav">
-					<a href="javascript:" @click="goMain()" @mouseenter="leavePerson()">首页</a>
-					<a href="javascript:" @mouseenter="leavePerson()">明星产品</a>
-					<a href="javascript:" @click="goCoreyroom()" @mouseenter="leavePerson()">料理教室</a>
-					<a href="javascript:" @click="goshare()" @mouseenter="leavePerson()">使用者分享</a>
-					<a href="javascript:" @click="goAbout()" @mouseenter="leavePerson()">关于我们</a>
-					<p href="javascript:" @mouseenter="showProduct()">我要购买</p>
+					<a href="javascript:" @click="goMain()" @mouseenter="clearDropdown()">首页</a>
+					<div>
+						<a href="javascript:" @click="goStart()" @mouseenter="enterStart()">明星产品</a>
+						<div class="drop-down-box" v-show="showstartdrop">
+							<p @click="goStart()">零秒活力锅</p>
+							<p @click="goAllRound()">全能平底锅</p>
+							<p>梦幻公主锅</p>
+							<p>天使锅</p>
+						</div>
+					</div>
+					<a href="javascript:" @click="goCoreyroom()" @mouseenter="clearDropdown()">料理教室</a>
+					<a href="javascript:" @click="goshare()" @mouseenter="clearDropdown()">使用者分享</a>
+					<div>
+						<a href="javascript:" @click="goAbout" data-id="1" @mouseenter="enterAbout()">关于我们</a>
+						<div class="drop-down-box" v-show="showAboutdrop">
+							<p @click="goAbout" data-id="1">公司简介</p>
+							<p @click="goAbout" data-id="2">公司摘要</p>
+							<p @click="goAbout" data-id="3">历史事件</p>
+							<p @click="goAbout" data-id="4">新闻中心</p>
+							<p @click="goAbout" data-id="5">联系我们</p>
+						</div>
+					</div>
+					<p @click="goBuy()" @mouseenter="showProduct()">我要购买</p>
 				</div>
 				<div class="navRight">
-					<div class="searchBg">
-						<input type="text" @input="search" ref="inputVal" @keyup.enter="submit()" @mouseenter="leavePerson()">
+					<div class="searchBg" @mouseenter="clearDropdown()">
+						<input type="text" @input="search" ref="inputVal" @keyup.enter="submit()" >
 						<img src="../../assets/img/search.png" alt="">
 					</div>
 					<img src="../../assets/img/person.png" alt="" @mouseenter="enterPerson()">
-					<img src="../../assets/img/cart.png" alt="" @mouseenter="leavePerson()">
+					<img src="../../assets/img/cart.png" alt="" @mouseenter="clearDropdown()">
 				</div>
 			</div>
 			<div v-bind:class="chooseLogin" v-show="showModal">
@@ -37,7 +55,7 @@
 		<!--<div class="banner">-->
 		<!--<img class="bannerImg" src="../../assets/img/banner.png" alt="">-->
 		<!--</div>-->
-		<div class="swiper-container" style="width: 100%" @mouseenter="leavePerson()">
+		<div class="swiper-container" style="width: 100%" @mouseenter="clearDropdown()">
 			<div class="swiper-wrapper">
 				<!--<div class="swiper-slide" ><a href=""><img class="bannerImg" src="../../assets/img/banner.png" alt=""></a></div>-->
 				<div class="swiper-slide" v-for="(item,index) in imgs" :key="index">
@@ -51,7 +69,7 @@
 			<!--<div class="swiper-button-prev swiper-button-white"></div>-->
 			<!--<div class="swiper-button-next swiper-button-white"></div>-->
 		</div>
-		<div class="conent" @mouseenter="leavePerson()">
+		<div class="conent" @mouseenter="clearDropdown()">
 			<div class="newProduct">
 				<div v-for="(item,index) in list" :key="index">
 					<img src="../../assets/img/newguo.png" alt="">
@@ -63,7 +81,7 @@
 				<img src="../../assets/img/discounts 2.png" alt="">
 			</div>
 		</div>
-		<div class="product-classify" @mouseenter="leavePerson()">
+		<div class="product-classify" @mouseenter="clearDropdown()">
 			<div class="conent">
 				<div class="pot-classify" v-for="(item,index) in potList" :key="index">
 					<p>{{item.title}}</p>
@@ -89,7 +107,7 @@
 					</div>
 				</div>
 				<div class="pot-classify" v-for="(item,index) in partList" :key="index" style="margin-bottom: 12.125rem;">
-					<p>{{item.title}}</p>	
+					<p>{{item.title}}</p>
 					<div class="pot-list">
 						<img src="../../assets/img/peijian.png" alt="">
 						<div class="pot-detail" v-for="(item,i) in item.product" :key="i">
@@ -120,9 +138,11 @@
 <script>
 	import Swiper from 'swiper';
 	import Bottom from '../../components/bottom'
+	import RightNav from '../../components/rightNav'
 	export default {
 		components: {
-			Bottom
+			Bottom,
+			RightNav
 		},
 		data() {
 			return {
@@ -242,45 +262,43 @@
 					},
 
 				],
-				partList:[
-					{
-						title: '热门配件',
-						product: [{
-								money: '3000',
-								beforeMoney: '5000',
-								hot: '1',
-								conent: '梦幻公主锅介绍'
-							}, {
-								money: '3000',
-								beforeMoney: '5000',
-								hot: '0',
-								conent: '零秒活力锅介绍'
-							},
-							{
-								money: '3000',
-								beforeMoney: '5000',
-								hot: '1',
-								conent: '梦幻公主锅介绍'
-							}, {
-								money: '3000',
-								beforeMoney: '5000',
-								hot: '0',
-								conent: '零秒活力锅介绍'
-							},
-							{
-								money: '3000',
-								beforeMoney: '5000',
-								hot: '1',
-								conent: '梦幻公主锅介绍'
-							}, {
-								money: '3000',
-								beforeMoney: '5000',
-								hot: '0',
-								conent: '零秒活力锅介绍'
-							}
-						]
-					},
-				],
+				partList: [{
+					title: '热门配件',
+					product: [{
+							money: '3000',
+							beforeMoney: '5000',
+							hot: '1',
+							conent: '梦幻公主锅介绍'
+						}, {
+							money: '3000',
+							beforeMoney: '5000',
+							hot: '0',
+							conent: '零秒活力锅介绍'
+						},
+						{
+							money: '3000',
+							beforeMoney: '5000',
+							hot: '1',
+							conent: '梦幻公主锅介绍'
+						}, {
+							money: '3000',
+							beforeMoney: '5000',
+							hot: '0',
+							conent: '零秒活力锅介绍'
+						},
+						{
+							money: '3000',
+							beforeMoney: '5000',
+							hot: '1',
+							conent: '梦幻公主锅介绍'
+						}, {
+							money: '3000',
+							beforeMoney: '5000',
+							hot: '0',
+							conent: '零秒活力锅介绍'
+						}
+					]
+				}, ],
 				imgs: [{
 						imgUrl: '../assets/img/banner.png',
 						url: 'http://www.baidu.com'
@@ -304,25 +322,47 @@
 				windowBg: 'background-color: #FFFFFF',
 				nav: 'nav',
 				showModal: false,
-				showProductModal: false,
+				showstartdrop: false,
+				showAboutdrop: false,
+				showProductModal:false,
 				productList: ['零秒活力锅', '全能平底锅', '梦幻公主锅'],
 				chooseProduct: 'chooseProduct',
 				list: ['', '', '', '']
 			};
 		},
 		methods: {
+			clearDropdown() {
+				this.showstartdrop = false;
+				this.showModal = false;
+				this.showAboutdrop = false;
+				this.showProductModal = false;
+				this.windowBg = 'background-color: #FFFFFF';
+			},
 			enterPerson() {
 				this.showModal = true;
+				this.showstartdrop = false;
+				this.showAboutdrop = false;
+				this.showProductModal = false;
 				this.windowBg = 'background-color: #eeeeee';
-				this.showProductModal = false;
 			},
-			leavePerson() {
+			enterStart() {
+				this.showstartdrop = true;
+				this.showAboutdrop = false;
 				this.showModal = false;
-				this.windowBg = 'background-color: #FFFFFF';
 				this.showProductModal = false;
+				this.windowBg = 'background-color: #eeeeee';
+			},
+			enterAbout() {
+				this.showstartdrop = false;
+				this.showAboutdrop = true;
+				this.showModal = false;
+				this.showProductModal = false;
+				this.windowBg = 'background-color: #eeeeee'
 			},
 			showProduct() {
 				this.showProductModal = true;
+				this.showstartdrop = false;
+				this.showAboutdrop = false;
 				this.showModal = false;
 				this.windowBg = 'background-color: #eeeeee';
 			},
@@ -369,6 +409,18 @@
 					params: {}
 				})
 			},
+			goStart() {
+				this.$router.push({
+					name: 'ZeroVitality',
+					params: {}
+				})
+			},
+			goAllRound() {
+				this.$router.push({
+					name: 'AllRound',
+					params: {}
+				})
+			},
 			goCoreyroom() {
 				this.$router.push({
 					name: 'Coreyroom',
@@ -381,10 +433,10 @@
 					params: {}
 				})
 			},
-			goAbout() {
+			goAbout(e) {
 				this.$router.push({
 					name: 'About',
-					params: {}
+					params: {id:e.currentTarget.dataset.id}
 				})
 			},
 			goBuy() {
@@ -515,7 +567,7 @@
 		width: 100%;
 		background-color: #f3f3f3;
 		align-items: center;
-		
+
 	}
 
 	.pot-classify>p {
@@ -535,11 +587,13 @@
 		flex-direction: row;
 		flex-wrap: wrap;
 	}
-	.pot-list>img{
-		margin:0 0.5%;
+
+	.pot-list>img {
+		margin: 0 0.5%;
 		width: 49%;
 		margin-bottom: 0.9375rem;
 	}
+
 	.pot-detail {
 		width: 24%;
 		display: flex;

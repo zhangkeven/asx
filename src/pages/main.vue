@@ -390,10 +390,10 @@
 					params: {}
 				})
 			},
-			goAbout() {
+			goAbout(e) {
 				this.$router.push({
 					name: 'About',
-					params: {}
+					params: {id:e.currentTarget.dataset.id}
 				})
 			},
 			goBuy() {
@@ -403,7 +403,10 @@
 				})
 			},
 			goCart(){
-				
+				this.$router.push({
+					name: 'LogisticsOrder',
+					params: {}
+				})
 			},
 			clearDropdown(){
 				this.showstartdrop = false;

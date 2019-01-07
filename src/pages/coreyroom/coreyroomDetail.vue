@@ -1,6 +1,7 @@
 <template>
 	<div class="main">
-		<Header></Header>
+		<RightNav></RightNav>
+		<Header v-on:listenChildEvent="searchInput"></Header>
 		<div class="swiper-main">
 			<div class="swiper-mycontainer">
 				<div class="swiper-wrapper">
@@ -79,11 +80,13 @@
 <script>
 	import Header from '../../components/header'
 	import Bottom from '../../components/bottom'
+	import RightNav from '../../components/rightNav'
 	import Swiper from 'swiper'
 	export default {
 		components: {
 			Header,
-			Bottom
+			Bottom,
+			RightNav
 		},
 		data() {
 			return {
@@ -108,6 +111,9 @@
 			};
 		},
 		methods: {
+			searchInput(e) {
+				console.log('子组件中触发料理教室详情页面', e); //子组件输入框触发,e代表输入框中的值
+			},
 			chooseMenu(index) {
 				if (index== this.activeMenu) {
 

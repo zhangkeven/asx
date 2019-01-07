@@ -1,9 +1,13 @@
 <template>
 	<div class="main">
-		<RightNav></RightNav>
-		<Header v-on:listenChildEvent="searchInput"></Header>
+		<div class="right-nav-bg" @mouseenter="clearDropDown()">
+			<RightNav></RightNav>
+		</div>
+		<Header v-on:listenChildEvent="searchInput" ref="data"></Header>
 		
-		<Bottom></Bottom>
+		<div class="bottom-background" @mouseenter="clearDropDown()">
+			<Bottom />
+		</div>
 	</div>
 </template>
 
@@ -23,6 +27,13 @@
 			};
 		},
 		methods:{
+			clearDropDown(){
+				this.$refs.data.showstartdrop = false;
+				this.$refs.data.showModal = false;
+				this.$refs.data.showAboutdrop=false;
+				this.$refs.data.showUsermodal=false;
+				this.$refs.data.windowBg = 'background-color: #FFFFFF';
+			},
 			searchInput(e) {
 				console.log('子组件中触发明星产品页面', e); //子组件输入框触发,e代表输入框中的值
 			}

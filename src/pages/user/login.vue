@@ -1,9 +1,9 @@
 <template>
 	<div class="main">
-		<Topnav v-on:listenChildEvent="searchInput"></Topnav>
-		<img src="../../assets/img/loginBg.png" class="big-bg-img" alt="">
-		<img src="../../assets/img/loginBg2.png" class="small-bg-img" alt="">
-		<div class="enter-window">
+		<Topnav v-on:listenChildEvent="searchInput" ref="data"></Topnav>
+		<img src="../../assets/img/loginBg.png" class="big-bg-img" alt="" @mouseenter="clearDropDown()">
+		<img src="../../assets/img/loginBg2.png" class="small-bg-img" alt="" @mouseenter="clearDropDown()">
+		<div class="enter-window" @mouseenter="clearDropDown()">
 			<p class="login-title windowTitle">
 				账号登录
 			</p>
@@ -37,7 +37,9 @@
 				<p @click="goShortcutLogin()">快捷登录></p>
 			</div>
 		</div>
-		<Bottom></Bottom>
+		<div class="bottom-background" @mouseenter="clearDropDown()">
+			<Bottom />
+		</div>
 	</div>
 </template>
 
@@ -55,6 +57,13 @@
 			};
 		},
 		methods: {
+			clearDropDown(){
+				this.$refs.data.showstartdrop = false;
+				this.$refs.data.showModal = false;
+				this.$refs.data.showAboutdrop=false;
+				this.$refs.data.showUsermodal=false;
+				this.$refs.data.windowBg = 'background-color: #FFFFFF';
+			},
 			searchInput(e) {
 				console.log('子组件中触发登录页面', e); //子组件输入框触发,e代表输入框中的值
 			},

@@ -1,8 +1,10 @@
 <template>
 	<div class="main">
-		<RightNav></RightNav>
-		<Header v-on:listenChildEvent="searchInput"></Header>
-		<div class="swiper-main">
+		<div class="right-nav-bg" @mouseenter="clearDropDown()">
+			<RightNav></RightNav>
+		</div>
+		<Header v-on:listenChildEvent="searchInput" ref="data"></Header>
+		<div class="swiper-main" @mouseenter="clearDropDown()">
 			<div class="swiper-mycontainer">
 				<div class="swiper-wrapper">
 					<!--<div class="swiper-slide" ><a href=""><img class="bannerImg" src="../assets/img/banner.png" alt=""></a></div>-->
@@ -18,7 +20,7 @@
 				<!--<div class="swiper-button-next swiper-button-white"></div>-->
 			</div>
 		</div>
-		<div class="roomdetail-conent-bg">
+		<div class="roomdetail-conent-bg" @mouseenter="clearDropDown()">
 			<div class="roomdetail-nav">
 				<p>首页></p>
 				<p>料理教室></p>
@@ -73,7 +75,9 @@
 				</div>
 			</div>
 		</div>
-		<Bottom></Bottom>
+		<div class="bottom-background" @mouseenter="clearDropDown()">
+			<Bottom />
+		</div>
 	</div>
 </template>
 
@@ -111,6 +115,13 @@
 			};
 		},
 		methods: {
+			clearDropDown(){
+				this.$refs.data.showstartdrop = false;
+				this.$refs.data.showModal = false;
+				this.$refs.data.showAboutdrop=false;
+				this.$refs.data.showUsermodal=false;
+				this.$refs.data.windowBg = 'background-color: #FFFFFF';
+			},
 			searchInput(e) {
 				console.log('子组件中触发料理教室详情页面', e); //子组件输入框触发,e代表输入框中的值
 			},

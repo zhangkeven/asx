@@ -1,8 +1,10 @@
 <template>
 	<div class="main">
-		<RightNav></RightNav>
-		<Header v-on:listenChildEvent="searchInput" />
-		<div class="swiper-main">
+		<div class="right-nav-bg" @mouseenter="clearDropDown()">
+			<RightNav></RightNav>
+		</div>
+		<Header v-on:listenChildEvent="searchInput" ref="data"/>
+		<div class="swiper-main" @mouseenter="clearDropDown()">
 			<div class="swiper-mycontainer">
 				<div class="swiper-wrapper">
 					<!--<div class="swiper-slide" ><a href=""><img class="bannerImg" src="../assets/img/banner.png" alt=""></a></div>-->
@@ -18,7 +20,7 @@
 				<!--<div class="swiper-button-next swiper-button-white"></div>-->
 			</div>
 		</div>
-		<div class="share-conent">
+		<div class="share-conent" @mouseenter="clearDropDown()">
 			<div class="left-nav">
 				<div class="nav-title">
 					<p>产品分类</p>
@@ -46,7 +48,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="bottom-page">
+		<div class="bottom-page" @mouseenter="clearDropDown()">
 			<div class="page-count">
 				<p @click="prevPage">上一页</p>
 				<div>
@@ -56,10 +58,12 @@
 				<p @click="nextPage">下一页</p>
 			</div>
 		</div>
-		<div class="bottom-bg-img">
+		<div class="bottom-bg-img" @mouseenter="clearDropDown()">
 			<img src="../../assets/img/kefu.png" alt="">
 		</div>
-		<Bottom></Bottom>
+		<div class="bottom-background" @mouseenter="clearDropDown()">
+			<Bottom />
+		</div>
 	</div>
 </template>
 
@@ -98,6 +102,13 @@
 			};
 		},
 		methods: {
+			clearDropDown(){
+				this.$refs.data.showstartdrop = false;
+				this.$refs.data.showModal = false;
+				this.$refs.data.showAboutdrop=false;
+				this.$refs.data.showUsermodal=false;
+				this.$refs.data.windowBg = 'background-color: #FFFFFF';
+			},
 			searchInput(e) {
 				console.log('子组件中触发分享页面', e); //子组件输入框触发,e代表输入框中的值
 			},

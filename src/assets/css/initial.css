@@ -60,15 +60,27 @@ html {
 	align-items: center;
 	width: 100%;
 	/*width: 120rem;*/
-	min-width:81.25rem;
+	min-width: 81.25rem;
 }
-.conent{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 62.5%;
-    /* min-width: 67rem; */
-  }
+
+.conent {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 62.5%;
+	/* min-width: 67rem; */
+}
+
+.right-nav-bg {
+	width: 100%;
+	z-index: 6;
+}
+
+.bottom-background {
+	width: 100%;
+	z-index: 5;
+}
+
 @media (min-width:768px) {
 	html {
 		font-size: 12.66px;
@@ -80,6 +92,7 @@ html {
 		font-size: 16px;
 	}
 }
+
 /* 登录窗口 */
 @media screen and (max-width: 1300px) {
 	.enter-window {
@@ -94,6 +107,7 @@ html {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		z-index: 10;
 	}
 }
 
@@ -110,6 +124,7 @@ html {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		z-index: 10;
 	}
 }
 
@@ -153,27 +168,75 @@ html {
 	color: #FFFFFF;
 	font-size: 1rem;
 }
+
 @media screen and (max-width:1400px) {
 	.big-bg-img {
 		width: 100%;
 		height: auto;
 		display: none;
 	}
+
 	.small-bg-img {
 		width: 100%;
 		height: auto;
 	}
 }
+
 @media screen and (min-width:1401px) {
 	.big-bg-img {
 		width: 100%;
 		height: auto;
 	}
+
 	.small-bg-img {
 		width: 100%;
 		height: auto;
 		display: none;
 	}
+}
+
+div.user-photo {
+	margin-right: 0.5rem;
+	width: 3rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	cursor: pointer;
+}
+
+div.user-photo>p {
+	width: 100%;
+	font-size: 1rem;
+	color: #852833;
+}
+
+.show-user-detail {
+	width: 82%;
+	padding: 1.5rem 9%;
+	background-color: #FFFFFF;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+	box-shadow: 0 0.3125rem 0.9375rem 0 #ececec;
+}
+
+.show-user-detail>div {
+	display: flex;
+	flex-direction: row;
+	background-color: #FFFFFF;
+
+}
+
+.show-user-detail>div>p {
+	cursor: pointer;
+	padding: 0 2rem;
+	font-size: 1rem;
+	transition: color linear .5s;
+}
+
+.show-user-detail>div>p:hover {
+	color: #852833;
 }
 
 .chooseLogin {
@@ -184,6 +247,7 @@ html {
 	flex-direction: row;
 	justify-content: flex-end;
 	align-items: center;
+	box-shadow: 0 0.3125rem 0.9375rem 0 #ececec;
 }
 
 .chooseLogin1 {
@@ -194,6 +258,7 @@ html {
 	flex-direction: row;
 	justify-content: flex-end;
 	align-items: center;
+	box-shadow: 0 0.3125rem 0.9375rem 0 #ececec;
 }
 
 .chooseLogin>div {
@@ -229,15 +294,16 @@ html {
 .chooseLogin1>div>p:hover {
 	color: #852833;
 }
+
 /* 导航栏 */
 .top-bg {
 	-ms-left: 14.75%;
-	-ms-transform-origin: translate(-14.75%,-14.75%);
+	-ms-transform-origin: translate(-14.75%, -14.75%);
 	width: 70.5%;
-	min-width:74rem;
-	position: fixed; 
+	min-width: 74rem;
+	position: fixed;
 	top: 3.5rem;
-	z-index: 4;
+	z-index: 6;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -245,12 +311,12 @@ html {
 
 .top-bg1 {
 	width: 100%;
-	min-width:81.25rem;
+	min-width: 81.25rem;
 	position: fixed;
 	top: 0;
 	left: 0;
-	margin:0 auto;
-	z-index: 4;
+	margin: 0 auto;
+	z-index: 6;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -277,323 +343,366 @@ html {
 	padding: 1rem 6%;
 	box-shadow: 0 0.3125rem 0.9375rem 0 #ececec;
 }
- @media screen and (max-width:768px) {
-   .recipesConent{
-     display: flex;
-     flex-direction: row;
-     justify-content: center;
-     align-items: center;
-     width: 110%;
-   }
-   .recipesSwiper{
-     width: 91%;
-   }
-   .swiper-button-color{
-     background: url("../img/go(1).png") no-repeat;
-     width: 1.25rem;
-     height: 2.4rem;
-     cursor: pointer;
-     display: none;
-   }
-   .swiper-button-color1{
-     background: url("../img/go2.png") no-repeat;
-     width: 1.25rem;
-     height: 2.4rem;
-     cursor: pointer;
-     display: none;
-   }
-   .swiper-img-prev{
-     background: url("../img/go2.png") no-repeat;
-     width: 1.2rem;
-     height: 3.2rem;
-     cursor: pointer;
-   }
-   .swiper-img-next{
-     background: url("../img/go(1).png") no-repeat;
-     width: 1.5rem;
-     height: 3.0rem;
-     cursor: pointer;
-   }
-   .nav{
-     display: flex;
-     flex-direction: row;
-     align-items: center;
-     justify-content: space-between;
-	 width:50%;
-	 position: relative;
-   }
-   .nav1{
-     display: flex;
-     flex-direction: row;
-     align-items: center;
-     justify-content: space-between;
-     width:42%;
-	 position: relative;
-   }
- }
- @media screen and (min-width: 769px) {
-   .recipesConent{
-     display: flex;
-     flex-direction: row;
-     justify-content: space-between;
-     align-items: center;
-     width: 110%;
-   }
-   .recipesSwiper{
-     width: 91%;
-   }
-   .swiper-img-prev{
-     background: url("../img/go2.png") no-repeat;
-     width: 1.25rem;
-     height: 2.4rem;
-     cursor: pointer;
-   }
-   .swiper-img-next{
-     background: url("../img/go(1).png") no-repeat;
-     width: 1.25rem;
-     height: 2.4rem;
-     cursor: pointer;
-   }
-   .nav{
-     display: flex;
-     flex-direction: row;
-     align-items: center;
-     
-     width:50%;
-	 position: relative;
-   }
-   .nav1{
-     display: flex;
-     flex-direction: row;
-     align-items: center;
-     
-     width:40%;
-	 position: relative;
-   }
-   .swiper-button-color{
-     background: url("../img/go(1).png") no-repeat;
-     width: 1.25rem;
-     height: 2.4rem;
-     cursor: pointer;
-   }
-   .swiper-button-color1{
-     background: url("../img/go2.png") no-repeat;
-     width: 1.25rem;
-     height: 2.4rem;
-     cursor: pointer;
-   }
- }
- .mask{
-   width: 100%;
-   height: 100%;
-   background-color: rgba(0,0,0,0);
-   position: absolute;
-   left: 0;
-   bottom: 0;
-   transition: background-color linear .5s;
- }
- .mask:hover{
-   background-color: rgba(0,0,0,.1);
- }
- .swiper-container1{
-   margin: 0 auto;
-   position: relative;
-   overflow: hidden;
-   list-style: none;
-   padding: 0;
-   /* Fix of Webkit flickering */
-   z-index: 1;
- }
- .swiper-container2{
-   margin: 0 auto;
-   position: relative;
-   overflow: hidden;
-   list-style: none;
-   padding: 0;
-   /* Fix of Webkit flickering */
-   z-index: 1;
-   display: flex;
-   justify-content: center;
- }
- .swiper-container3{
-   margin: 0 auto;
-   position: relative;
-   overflow: hidden;
-   list-style: none;
-   padding: 0;
-   /* Fix of Webkit flickering */
-   z-index: 1;
- }
-  .topLeft{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    cursor: pointer;
-  }
-  .nav>a:first-child {
-  	width: 9%;
-  	text-align: center;
-  }
-  .nav1>a:first-child {
-  	width: 9%;
-  	text-align: center;
-  }
-  .nav>a:not(:first-child) {
-  	width: 18%;
-  	text-align: center;
-  }
-  .nav1>a:not(:first-child) {
-  	width: 18%;
-  	text-align: center;
-  }
-  .nav>div {
-  	width: 18%;
-  	text-align: center;
-  	display: flex;
-  	flex-direction: column;
-  	position: relative;
-  }
-  .nav>div>a{
-  	  width: 100%;
-  }
-  .nav>div>div.drop-down-box {
-  	display: flex;
-  	flex-direction: column;
-  	align-items: center;
-  	width: 100%;
-  	background-color: #FFFFFF;
-  	position: absolute;
-  	left: 0;
-  	top: 2.8125rem;
-  	padding: 0.3125rem 0;
-  }
-  
-  .nav>div>div.drop-down-box>p {
-  	cursor: pointer;
-  	color: #666;
-  	font-size: 1rem;
-  	transition: color linear .5s;
-  }
-  
-  .nav>div>div.drop-down-box>p:hover {
-  	color: #852833;
-  }
-  
-  .nav>div>div.drop-down-box>p:not(:last-child) {
-  	margin-bottom: 0.9375rem;
-  }
-  
-  
-  
-  
-  .nav1>div {
-  	width: 18%;
-  	text-align: center;
-  	display: flex;
-  	flex-direction: column;
-  	position: relative;
-  }
-  .nav1>div>a{
-	  width: 100%;
-  }
-  .nav1>div>div.drop-down-box {
-  	display: flex;
-  	flex-direction: column;
-  	align-items: center;
-  	width: 100%;
-  	background-color: #FFFFFF;
-  	position: absolute;
-  	left: 0;
-  	top: 2.8125rem;
-  	padding: 0.3125rem 0;
-  }
-  
-  .nav1>div>div.drop-down-box>p {
-  	cursor: pointer;
-  	color: #666;
-  	font-size: 1rem;
-  	transition: color linear .5s;
-  }
-  
-  .nav1>div>div.drop-down-box>p:hover {
-  	color: #852833;
-  }
-  
-  .nav1>div>div.drop-down-box>p:not(:last-child) {
-  	margin-bottom: 0.9375rem;
-  }
-  .nav a{
-    font-size: 1rem;
-    transition:color linear .5s;
-  }
-  .nav1 a{
-    font-size: 1rem;
-    transition:color linear .5s;
-  }
-  .nav a:hover,.nav1 a:hover{
-    color: #9f303d;
-  }
-  .nav>p{
-    width: 18%;
-    height: 2.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #852833;
-    color: #ffffff;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    font-size: 1rem;
-  }
- .nav1>p{
+
+@media screen and (max-width:768px) {
+	.recipesConent {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		width: 110%;
+	}
+
+	.recipesSwiper {
+		width: 91%;
+	}
+
+	.swiper-button-color {
+		background: url("../img/go(1).png") no-repeat;
+		width: 1.25rem;
+		height: 2.4rem;
+		cursor: pointer;
+		display: none;
+	}
+
+	.swiper-button-color1 {
+		background: url("../img/go2.png") no-repeat;
+		width: 1.25rem;
+		height: 2.4rem;
+		cursor: pointer;
+		display: none;
+	}
+
+	.swiper-img-prev {
+		background: url("../img/go2.png") no-repeat;
+		width: 1.2rem;
+		height: 3.2rem;
+		cursor: pointer;
+	}
+
+	.swiper-img-next {
+		background: url("../img/go(1).png") no-repeat;
+		width: 1.5rem;
+		height: 3.0rem;
+		cursor: pointer;
+	}
+
+	.nav {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		width: 50%;
+		position: relative;
+	}
+
+	.nav1 {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		width: 42%;
+		position: relative;
+	}
+}
+
+@media screen and (min-width: 769px) {
+	.recipesConent {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		width: 110%;
+	}
+
+	.recipesSwiper {
+		width: 91%;
+	}
+
+	.swiper-img-prev {
+		background: url("../img/go2.png") no-repeat;
+		width: 1.25rem;
+		height: 2.4rem;
+		cursor: pointer;
+	}
+
+	.swiper-img-next {
+		background: url("../img/go(1).png") no-repeat;
+		width: 1.25rem;
+		height: 2.4rem;
+		cursor: pointer;
+	}
+
+	.nav {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+
+		width: 50%;
+		position: relative;
+	}
+
+	.nav1 {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+
+		width: 40%;
+		position: relative;
+	}
+
+	.swiper-button-color {
+		background: url("../img/go(1).png") no-repeat;
+		width: 1.25rem;
+		height: 2.4rem;
+		cursor: pointer;
+	}
+
+	.swiper-button-color1 {
+		background: url("../img/go2.png") no-repeat;
+		width: 1.25rem;
+		height: 2.4rem;
+		cursor: pointer;
+	}
+}
+
+.mask {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0);
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	transition: background-color linear .5s;
+}
+
+.mask:hover {
+	background-color: rgba(0, 0, 0, .1);
+}
+
+.swiper-container1 {
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+	list-style: none;
+	padding: 0;
+	/* Fix of Webkit flickering */
+	z-index: 1;
+}
+
+.swiper-container2 {
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+	list-style: none;
+	padding: 0;
+	/* Fix of Webkit flickering */
+	z-index: 1;
+	display: flex;
+	justify-content: center;
+}
+
+.swiper-container3 {
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+	list-style: none;
+	padding: 0;
+	/* Fix of Webkit flickering */
+	z-index: 1;
+}
+
+.topLeft {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	cursor: pointer;
+}
+
+.nav>a:first-child {
+	width: 9%;
+	text-align: center;
+}
+
+.nav1>a:first-child {
+	width: 9%;
+	text-align: center;
+}
+
+.nav>a:not(:first-child) {
 	width: 18%;
-   height: 2.5rem;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   background-color: #852833;
-   color: #ffffff;
-   border-radius: 0.5rem;
-   cursor: pointer;
-   font-size: 1rem;
-   
- }
-  .bannerImg{
-    width: 100%;
-    /*height: 100%;*/
-    cursor: pointer;
-  }
-  .navRight{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: nowrap;
-    align-items: center;
-  }
-  .searchBg{
-    background-color:#EEE;
-    padding:0.5rem 0.5rem;
-    width: 13rem;
-    height: 1rem;
-    border-radius: 1rem;
-    display: flex;
-    flex-direction: row;
-    justify-content:space-between;
-    align-items: center;
-    margin-right: 1.5rem;
-  }
-  .searchBg input{
-    border:none;
-    width: 80%;
-    background-color: #EEE;
-    flex: 1;
-    outline:none;
-  }
- .searchBg img{
-   cursor: pointer;
- }
-  .navRight>img{
-    margin-right:1.5rem;
-    width: 1rem;
-    cursor: pointer;
-  }
+	text-align: center;
+}
+
+.nav1>a:not(:first-child) {
+	width: 18%;
+	text-align: center;
+}
+
+.nav>div {
+	width: 18%;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+.nav>div>a {
+	width: 100%;
+}
+
+.nav>div>div.drop-down-box {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	background-color: #FFFFFF;
+	position: absolute;
+	left: 0;
+	top: 2.8125rem;
+	padding: 0.3125rem 0;
+	z-index: 11;
+	box-shadow: 0 0.3125rem 0.9375rem 0 #ececec;
+}
+
+.nav>div>div.drop-down-box>p {
+	cursor: pointer;
+	color: #666;
+	font-size: 1rem;
+	transition: color linear .5s;
+}
+
+.nav>div>div.drop-down-box>p:hover {
+	color: #852833;
+}
+
+.nav>div>div.drop-down-box>p:not(:last-child) {
+	margin-bottom: 0.9375rem;
+}
+
+.nav1>div {
+	width: 18%;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+.nav1>div>a {
+	width: 100%;
+}
+
+.nav1>div>div.drop-down-box {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	background-color: #FFFFFF;
+	position: absolute;
+	left: 0;
+	top: 2.8125rem;
+	padding: 0.3125rem 0;
+	box-shadow: 0 0.3125rem 0.9375rem 0 #ececec;
+}
+
+.nav1>div>div.drop-down-box>p {
+	cursor: pointer;
+	color: #666;
+	font-size: 1rem;
+	transition: color linear .5s;
+}
+
+.nav1>div>div.drop-down-box>p:hover {
+	color: #852833;
+}
+
+.nav1>div>div.drop-down-box>p:not(:last-child) {
+	margin-bottom: 0.9375rem;
+}
+
+.nav a {
+	font-size: 1rem;
+	transition: color linear .5s;
+}
+
+.nav1 a {
+	font-size: 1rem;
+	transition: color linear .5s;
+}
+
+.nav a:hover,
+.nav1 a:hover {
+	color: #9f303d;
+}
+
+.nav>p {
+	width: 18%;
+	height: 2.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #852833;
+	color: #ffffff;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	font-size: 1rem;
+}
+
+.nav1>p {
+	width: 18%;
+	height: 2.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #852833;
+	color: #ffffff;
+	border-radius: 0.5rem;
+	cursor: pointer;
+	font-size: 1rem;
+
+}
+
+.bannerImg {
+	width: 100%;
+	/*height: 100%;*/
+	cursor: pointer;
+}
+
+.navRight {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: nowrap;
+	align-items: center;
+}
+
+.searchBg {
+	background-color: #e9e9e9;
+	padding: 0.5rem 0.5rem;
+	width: 13rem;
+	height: 1rem;
+	border-radius: 1rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin-right: 1.5rem;
+}
+
+.searchBg input {
+	border: none;
+	width: 80%;
+	background-color: #e9e9e9;
+	flex: 1;
+	outline: none;
+}
+
+.searchBg img {
+	cursor: pointer;
+}
+
+.navRight>img {
+	margin-right: 1.5rem;
+	width: 1rem;
+	cursor: pointer;
+}

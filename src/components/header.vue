@@ -37,6 +37,9 @@
 					<img @click="submit()" src="../assets/img/search.png" alt="">
 				</div>
 				<img src="../assets/img/person.png" @mouseenter="enterPerson()" alt="">
+				<div class="user-photo" @mouseenter="showUserModal()">
+					<p>张三*</p>
+				</div>
 				<img src="../assets/img/cart.png" alt="" @mouseenter="clearDropdown()">
 			</div>
 		</div>
@@ -44,6 +47,15 @@
 			<div>
 				<p @click="goLogin()">登录</p>
 				<p @click="goRegister()">注册</p>
+			</div>
+		</div>
+		<div class="show-user-detail" v-show="showUsermodal">
+			<div>
+				<p @click="">我的订单</p>
+				<p @click="">我的收藏</p>
+				<p @click="">我的地址</p>
+				<p @click="">修改密码</p>
+				<p @click="">退出登录</p>
 			</div>
 		</div>
 	</div>
@@ -59,6 +71,7 @@
 				showstartdrop: false,
 				showModal: false,
 				showAboutdrop:false,
+				showUsermodal:false,
 				windowBg: 'background-color: #FFFFFF',
 				activeId:1
 			}
@@ -134,24 +147,35 @@
 				this.showstartdrop = false;
 				this.showModal = false;
 				this.showAboutdrop=false;
+				this.showUsermodal=false;
 				this.windowBg = 'background-color: #FFFFFF';
+			},
+			showUserModal(){
+				this.showUsermodal=true;
+				this.showModal = false;
+				this.showstartdrop = false;
+				this.showAboutdrop=false;
+				this.windowBg = 'background-color: #eeeeee';
 			},
 			enterPerson() {
 				this.showModal = true;
 				this.showstartdrop = false;
 				this.showAboutdrop=false;
+				this.showUsermodal=false;
 				this.windowBg = 'background-color: #eeeeee';
 			},
 			enterStart() {
 				this.showstartdrop = true;
 				this.showAboutdrop=false;
 				this.showModal = false;
+				this.showUsermodal=false;
 				this.windowBg = 'background-color: #eeeeee';
 			},
 			enterAbout(){
 				this.showstartdrop = false;
 				this.showAboutdrop=true;
 				this.showModal = false;
+				this.showUsermodal=false;
 				this.windowBg = 'background-color: #eeeeee'
 			}
 		},
@@ -171,7 +195,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		z-index: 4;
+		z-index: 6;
 	}
 
 	.nav-bg {
@@ -182,7 +206,7 @@
 		justify-content: space-around;
 		align-items: center;
 		padding: 1rem 6%;
-		z-index: 4;
+		z-index: 6;
 		box-shadow: 0 0.3125rem 0.9375rem 0 #dcdcdc;
 	}
 
@@ -278,7 +302,7 @@
 	}
 
 	.search-Bg {
-		background-color: #EEE;
+		background-color: #e9e9e9;
 		padding: 0.5rem 0.5rem;
 		width: 13rem;
 		height: 1rem;
@@ -293,7 +317,7 @@
 	.search-Bg input {
 		border: none;
 		width: 80%;
-		background-color: #EEE;
+		background-color: #e9e9e9;
 		flex: 1;
 		outline: none;
 	}
@@ -306,5 +330,18 @@
 		margin-right: 1.5rem;
 		width: 1rem;
 		cursor: pointer;
+	}
+	.nav-right>div.user-photo{
+		margin-right: 0.5rem;
+		width: 3rem;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		cursor: pointer;
+	}
+	.nav-right>div.user-photo>p{
+		width: 100%;
+		font-size: 1rem;
+		color: #852833;
 	}
 </style>

@@ -1,8 +1,10 @@
 <template>
 	<div class="main">
-		<RightNav></RightNav>
-		<Header />
-		<div class="swiper-container" style="width: 100%;margin-top: 4.375rem">
+		<div class="right-nav-bg" @mouseenter="clearDropDown()">
+			<RightNav></RightNav>
+		</div>
+		<Header v-on:listenChildEvent="searchInput" ref="data"/>
+		<div class="swiper-container" style="width: 100%;margin-top: 4.375rem" @mouseenter="clearDropDown()">
 			<div class="swiper-wrapper">
 				<!--<div class="swiper-slide" ><a href=""><img class="bannerImg" src="../assets/img/banner.png" alt=""></a></div>-->
 				<div class="swiper-slide" v-for="(item,index) in imgs" :key="'swiper-slide-'+index">
@@ -16,7 +18,7 @@
 			<!--<div class="swiper-button-prev swiper-button-white"></div>-->
 			<!--<div class="swiper-button-next swiper-button-white"></div>-->
 		</div>
-		<div class="recommendBg">
+		<div class="recommendBg" @mouseenter="clearDropDown()">
 			<div class="recommendNav">
 				<p>新手必学</p>
 				<p>健康食谱</p>
@@ -56,11 +58,11 @@
 				</div>
 			</div>
 		</div>
-		<div class="recommend-page">
+		<div class="recommend-page" @mouseenter="clearDropDown()">
 			<p>上一篇</p>
 			<p>下一篇</p>
 		</div>
-		<div class="bottom-recommend">
+		<div class="bottom-recommend" @mouseenter="clearDropDown()">
 			<p class="recommend-ch">
 				推荐专栏
 			</p>
@@ -110,7 +112,9 @@
 				</div>
 			</div>
 		</div>
-		<Bottom />
+		<div class="bottom-background" @mouseenter="clearDropDown()">
+			<Bottom />
+		</div>
 	</div>
 </template>
 
@@ -183,7 +187,16 @@
 			}
 		},
 		methods: {
-
+			clearDropDown(){
+				this.$refs.data.showstartdrop = false;
+				this.$refs.data.showModal = false;
+				this.$refs.data.showAboutdrop=false;
+				this.$refs.data.showUsermodal=false;
+				this.$refs.data.windowBg = 'background-color: #FFFFFF';
+			},
+			searchInput(e) {
+				console.log('子组件中触发推荐专栏详情页面', e); //子组件输入框触发,e代表输入框中的值
+			},
 		},
 		mounted() {
 			// window.addEventListener('scroll', this.handleScroll);

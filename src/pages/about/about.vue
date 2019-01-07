@@ -1,8 +1,10 @@
 <template>
 	<div class="main">
-		<RightNav></RightNav>
-		<div style="display: flex;flex-direction: column;width: 100%;" ref="banner">
-			<Header @listenChildEvent="searchInput" @listenActiveId="getActiveId"/>
+		<div class="right-nav-bg" @mouseenter="clearDropDown()">
+			<RightNav></RightNav>
+		</div>
+		<div style="display: flex;flex-direction: column;width: 100%;" ref="banner" @mouseenter="clearDropDown()">
+			<Header @listenChildEvent="searchInput" @listenActiveId="getActiveId" ref="data"/>
 			<div class="swiper-container" style="width: 100%;margin-top: 4.375rem">
 				<div class="swiper-wrapper">
 					<!--<div class="swiper-slide" ><a href=""><img class="bannerImg" src="../assets/img/banner.png" alt=""></a></div>-->
@@ -18,7 +20,7 @@
 				<!--<div class="swiper-button-next swiper-button-white"></div>-->
 			</div>
 		</div>
-		<div class="about-nav-bg" ref="nav">
+		<div class="about-nav-bg" ref="nav" @mouseenter="clearDropDown()">
 			<div class="about-nav">
 				<div v-bind:class="[{activeNav:activeNav==1}, ' ']" @click="chooseNav" data-id="1">
 					<p>公司简介</p>
@@ -37,7 +39,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="about-conent" v-show="showIntro">
+		<div class="about-conent" v-show="showIntro" @mouseenter="clearDropDown()">
 			<p class="eh">ABOUTUS</p>
 			<p class="ch">公司简介</p>
 			<p class="exploit">零秒活力锅开发的故事</p>
@@ -165,7 +167,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="company-digest" v-show="showDigest">
+		<div class="company-digest" v-show="showDigest" @mouseenter="clearDropDown()">
 			<p class="ch">公司概要</p>
 			<p class="eh">ASAHI NABE</p>
 			<p class="digest-title">持续传递丰富的生活</p>
@@ -227,7 +229,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="company-history" :style="bgHeight" v-show="showHistory">
+		<div class="company-history" :style="bgHeight" v-show="showHistory" @mouseenter="clearDropDown()">
 			<div class="top-bg">
 				<div class="line-bg-red">
 
@@ -277,7 +279,7 @@
 
 			</div>
 		</div>
-		<div class="news-center" v-show="showNews">
+		<div class="news-center" v-show="showNews" @mouseenter="clearDropDown()">
 			<p class="ch">新闻中心</p>
 			<p class="eh">NEWS</p>
 			<div class="news-nav">
@@ -336,7 +338,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="call-us" v-show="showCall">
+		<div class="call-us" v-show="showCall" @mouseenter="clearDropDown()">
 			<div class="call-us-conent">
 				<p class="ch">联系我们</p>
 				<p class="eh">CONACT US</p>
@@ -364,7 +366,7 @@
 				<!-- <img src="../../assets/img/map.png" alt=""> -->
 			</div>
 		</div>
-		<div style="width: 100%;z-index: 5;">
+		<div class="bottom-background" @mouseenter="clearDropDown()">
 			<Bottom />
 		</div>
 	</div>
@@ -528,6 +530,13 @@
 			}
 		},
 		methods: {
+			clearDropDown(){
+				this.$refs.data.showstartdrop = false;
+				this.$refs.data.showModal = false;
+				this.$refs.data.showAboutdrop=false;
+				this.$refs.data.showUsermodal=false;
+				this.$refs.data.windowBg = 'background-color: #FFFFFF';
+			},
 			searchInput(e){
 				console.log('子组件中触发about页面',e);//子组件输入框触发,e代表输入框中的值
 			},

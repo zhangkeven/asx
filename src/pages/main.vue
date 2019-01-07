@@ -1,6 +1,8 @@
 <template>
 	<div class="main">
-		<RightNav></RightNav>
+		<div style="width: 100%;z-index: 6;" @mouseenter="clearDropdown()">
+			<RightNav></RightNav>
+		</div>
 		<div v-bind:class="topBg">
 			<div v-bind:class="topNav" :style="windowBg">
 				<div class="topLeft" @mouseenter="clearDropdown()">
@@ -31,7 +33,7 @@
 							<p @click="goAbout" data-id="5">联系我们</p>
 						</div>
 					</div>
-					<p  @click="goBuy()" @mouseenter="clearDropdown()">我要购买</p>
+					<p @click="goBuy()" @mouseenter="clearDropdown()">我要购买</p>
 				</div>
 				<div class="navRight">
 					<div class="searchBg" @mouseenter="clearDropdown()">
@@ -39,6 +41,9 @@
 						<img src="../assets/img/search.png" alt="">
 					</div>
 					<img src="../assets/img/person.png" alt="" @mouseenter="enterPerson()">
+					<div class="user-photo" @mouseenter="showUserModal()">
+						<p>张三*</p>
+					</div>
 					<img src="../assets/img/cart.png" alt="" @mouseenter="clearDropdown()" @click="goCart">
 				</div>
 			</div>
@@ -46,6 +51,15 @@
 				<div>
 					<p @click="goLogin()">登录</p>
 					<p @click="goRegister()">注册</p>
+				</div>
+			</div>
+			<div class="show-user-detail" v-show="showUsermodal">
+				<div>
+					<p @click="">我的订单</p>
+					<p @click="">我的收藏</p>
+					<p @click="">我的地址</p>
+					<p @click="">修改密码</p>
+					<p @click="">退出登录</p>
 				</div>
 			</div>
 		</div>
@@ -313,7 +327,10 @@
 				</div>
 			</div>
 		</div>
-		<Bottom/>
+		<div class="bottom-background" @mouseenter="clearDropdown()">
+			<Bottom />
+		</div>
+
 	</div>
 </template>
 
@@ -361,18 +378,26 @@
 				newsList: ['', '', '', '', ''],
 				mediaList: ['', '', '', '', ''],
 				showModal: false,
-				showstartdrop:false,
-				showAboutdrop:false
+				showstartdrop: false,
+				showAboutdrop: false,
+				showUsermodal: false
 			}
 		},
 		methods: {
+			showUserModal() {
+				this.showUsermodal = true;
+				this.showModal = false;
+				this.showstartdrop = false;
+				this.showAboutdrop = false;
+				this.windowBg = 'background-color: #eeeeee';
+			},
 			goStart() {
 				this.$router.push({
 					name: 'ZeroVitality',
 					params: {}
 				})
 			},
-			goAllRound(){
+			goAllRound() {
 				this.$router.push({
 					name: 'AllRound',
 					params: {}
@@ -393,7 +418,9 @@
 			goAbout(e) {
 				this.$router.push({
 					name: 'About',
-					params: {id:e.currentTarget.dataset.id}
+					params: {
+						id: e.currentTarget.dataset.id
+					}
 				})
 			},
 			goBuy() {
@@ -402,34 +429,38 @@
 					params: {}
 				})
 			},
-			goCart(){
+			goCart() {
 				this.$router.push({
 					name: 'LogisticsOrder',
 					params: {}
 				})
 			},
-			clearDropdown(){
+			clearDropdown() {
 				this.showstartdrop = false;
 				this.showModal = false;
-				this.showAboutdrop=false;
+				this.showAboutdrop = false;
+				this.showUsermodal = false;
 				this.windowBg = 'background-color: #FFFFFF';
 			},
 			enterPerson() {
 				this.showModal = true;
 				this.showstartdrop = false;
-				this.showAboutdrop=false;
+				this.showAboutdrop = false;
+				this.showUsermodal = false;
 				this.windowBg = 'background-color: #eeeeee';
 			},
 			enterStart() {
 				this.showstartdrop = true;
-				this.showAboutdrop=false;
+				this.showAboutdrop = false;
 				this.showModal = false;
+				this.showUsermodal = false;
 				this.windowBg = 'background-color: #eeeeee';
 			},
-			enterAbout(){
+			enterAbout() {
 				this.showstartdrop = false;
-				this.showAboutdrop=true;
+				this.showAboutdrop = true;
 				this.showModal = false;
+				this.showUsermodal = false;
 				this.windowBg = 'background-color: #eeeeee'
 			},
 			goLogin() {

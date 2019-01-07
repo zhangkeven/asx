@@ -1,6 +1,8 @@
 <template>
 	<div class="main">
-		<RightNav></RightNav>
+		<div class="right-nav-bg" @mouseenter="clearDropdown()">
+			<RightNav></RightNav>
+		</div>
 		<div v-bind:class="topBg">
 			<div v-bind:class="topNav" :style="windowBg">
 				<div class="topLeft" @mouseenter="clearDropdown()">
@@ -35,10 +37,13 @@
 				</div>
 				<div class="navRight">
 					<div class="searchBg" @mouseenter="clearDropdown()">
-						<input type="text" @input="search" ref="inputVal" @keyup.enter="submit()" >
+						<input type="text" @input="search" ref="inputVal" @keyup.enter="submit()">
 						<img src="../../assets/img/search.png" alt="">
 					</div>
 					<img src="../../assets/img/person.png" alt="" @mouseenter="enterPerson()">
+					<div class="user-photo" @mouseenter="showUserModal()">
+						<p>张三*</p>
+					</div>
 					<img src="../../assets/img/cart.png" alt="" @mouseenter="clearDropdown()">
 				</div>
 			</div>
@@ -46,6 +51,15 @@
 				<div>
 					<p @click="goLogin()">登录</p>
 					<p @click="goRegister()">注册</p>
+				</div>
+			</div>
+			<div class="show-user-detail" v-show="showUsermodal">
+				<div>
+					<p @click="">我的订单</p>
+					<p @click="">我的收藏</p>
+					<p @click="">我的地址</p>
+					<p @click="">修改密码</p>
+					<p @click="">退出登录</p>
 				</div>
 			</div>
 			<div v-bind:class="chooseProduct" v-show="showProductModal">
@@ -131,7 +145,9 @@
 				</div>
 			</div>
 		</div>
-		<Bottom></Bottom>
+		<div class="bottom-background" @mouseenter="clearDropdown()">
+			<Bottom />
+		</div>
 	</div>
 </template>
 
@@ -324,7 +340,8 @@
 				showModal: false,
 				showstartdrop: false,
 				showAboutdrop: false,
-				showProductModal:false,
+				showProductModal: false,
+				showUsermodal:false,
 				productList: ['零秒活力锅', '全能平底锅', '梦幻公主锅'],
 				chooseProduct: 'chooseProduct',
 				list: ['', '', '', '']
@@ -336,6 +353,7 @@
 				this.showModal = false;
 				this.showAboutdrop = false;
 				this.showProductModal = false;
+				this.showUsermodal = false;
 				this.windowBg = 'background-color: #FFFFFF';
 			},
 			enterPerson() {
@@ -343,6 +361,7 @@
 				this.showstartdrop = false;
 				this.showAboutdrop = false;
 				this.showProductModal = false;
+				this.showUsermodal = false;
 				this.windowBg = 'background-color: #eeeeee';
 			},
 			enterStart() {
@@ -350,6 +369,7 @@
 				this.showAboutdrop = false;
 				this.showModal = false;
 				this.showProductModal = false;
+				this.showUsermodal = false;
 				this.windowBg = 'background-color: #eeeeee';
 			},
 			enterAbout() {
@@ -357,6 +377,7 @@
 				this.showAboutdrop = true;
 				this.showModal = false;
 				this.showProductModal = false;
+				this.showUsermodal = false;
 				this.windowBg = 'background-color: #eeeeee'
 			},
 			showProduct() {
@@ -364,6 +385,15 @@
 				this.showstartdrop = false;
 				this.showAboutdrop = false;
 				this.showModal = false;
+				this.showUsermodal = false;
+				this.windowBg = 'background-color: #eeeeee';
+			},
+			showUserModal() {
+				this.showUsermodal = true;
+				this.showModal = false;
+				this.showstartdrop = false;
+				this.showAboutdrop = false;
+				this.showProductModal = false;
 				this.windowBg = 'background-color: #eeeeee';
 			},
 			goLogin() {
@@ -436,7 +466,9 @@
 			goAbout(e) {
 				this.$router.push({
 					name: 'About',
-					params: {id:e.currentTarget.dataset.id}
+					params: {
+						id: e.currentTarget.dataset.id
+					}
 				})
 			},
 			goBuy() {

@@ -4,7 +4,7 @@
 			<RightNav></RightNav>
 		</div>
 		<Header v-on:listenChildEvent="searchInput" ref="data"></Header>
-		
+
 		<div class="bottom-background" @mouseenter="clearDropDown()">
 			<Bottom />
 		</div>
@@ -23,7 +23,7 @@
 		},
 		data() {
 			return {
-				
+
 			};
 		},
 		methods:{
@@ -39,7 +39,7 @@
 			}
 		},
 		mounted(){
-			
+
 		}
 	}
 </script>

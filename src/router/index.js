@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Main from '@/pages/main'
 import ZeroVitality from '@/pages/starProduct/zeroVitality'
+import AllRound from '@/pages/starProduct/allRound'
 import Coreyroom from '@/pages/coreyroom/coreyRoom'
 import CoreyroomDetail from '@/pages/coreyroom/coreyroomDetail'
 import About from '@/pages/about/about'
@@ -35,6 +36,15 @@ export default new Router({
 			component: ZeroVitality,
 			meta: {
 				title: "零秒活力锅",
+				content: 'disable'
+			}
+		},
+		{
+			path: '/AllRound',
+			name: 'AllRound',
+			component: AllRound,
+			meta: {
+				title: "全能平底锅",
 				content: 'disable'
 			}
 		},

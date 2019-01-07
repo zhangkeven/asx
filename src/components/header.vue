@@ -12,7 +12,7 @@
 					<a href="javascript:" @click="goStart()" @mouseenter="enterStart()">明星产品</a>
 					<div class="drop-down-box" v-show="showstartdrop">
 						<p @click="goStart()">零秒活力锅</p>
-						<p>全能平底锅</p>
+						<p @click="goAllRound()">全能平底锅</p>
 						<p>梦幻公主锅</p>
 						<p>天使锅</p>
 					</div>
@@ -73,6 +73,12 @@
 			goStart() {
 				this.$router.push({
 					name: 'ZeroVitality',
+					params: {}
+				})
+			},
+			goAllRound(){
+				this.$router.push({
+					name: 'AllRound',
 					params: {}
 				})
 			},

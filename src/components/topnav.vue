@@ -52,7 +52,7 @@
 			</div>
 			<div class="show-user-detail" style="width: 92%;padding: 1.5rem 4%;" v-show="showUsermodal">
 				<div>
-					<p @click="">我的订单</p>
+					<p @click="goMyOrder">我的订单</p>
 					<p @click="">我的收藏</p>
 					<p @click="">我的地址</p>
 					<p @click="">修改密码</p>
@@ -89,6 +89,12 @@
 					params: {}
 				})
 			},
+			goAllRound(){
+				this.$router.push({
+					name: 'AllRound',
+					params: {}
+				})
+			},
 			goCoreyroom() {
 				this.$router.push({
 					name: 'Coreyroom',
@@ -112,6 +118,26 @@
 					name: 'Buy',
 					params: {}
 				})
+			},
+			goMyOrder(){
+				this.$router.push({
+					name: 'MyOrder',
+					params: {}
+				})
+			},
+			goLogin() {
+				this.$router.push({
+						name: 'Login',
+						params: {}
+					}),
+					this.showModal = false;
+			},
+			goRegister() {
+				this.$router.push({
+						name: 'Register',
+						params: {}
+					}),
+					this.showModal = false;
 			},
 			/*模糊搜索*/
 			search() {

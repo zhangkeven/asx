@@ -51,7 +51,7 @@
 		</div>
 		<div class="show-user-detail" v-show="showUsermodal">
 			<div>
-				<p @click="">我的订单</p>
+				<p @click="goMyOrder">我的订单</p>
 				<p @click="">我的收藏</p>
 				<p @click="">我的地址</p>
 				<p @click="">修改密码</p>
@@ -117,6 +117,12 @@
 			goBuy() {
 				this.$router.push({
 					name: 'Buy',
+					params: {}
+				})
+			},
+			goMyOrder(){
+				this.$router.push({
+					name: 'MyOrder',
 					params: {}
 				})
 			},

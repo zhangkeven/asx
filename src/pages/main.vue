@@ -436,10 +436,7 @@
 				})
 			},
 			goCart() {
-				this.$router.push({
-					name: 'LogisticsOrder',
-					params: {}
-				})
+				
 			},
 			clearDropdown() {
 				this.showstartdrop = false;

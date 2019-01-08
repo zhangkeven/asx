@@ -6,21 +6,7 @@
 		</div>
 		<div class="mine-order-bg" @mouseenter="clearDropDown()">
 			<div class="myOrder-main">
-				<div class="my-order" style="width: 16%;">
-					<div class="user-icon">
-						<img src="../../assets/img/avatar.png" alt="">
-					</div>
-					<div class="my-btn">
-						<p>我的订单</p>
-					</div>
-					<div class="my-nav">
-						<p>我的优惠卷</p>
-						<p>我的收藏</p>
-						<p>我的足迹</p>
-						<p>收获地址</p>
-						<p>退换货</p>
-					</div>
-				</div>
+				<LeftNav ref="leftnav"></LeftNav>
 				<div class="mine-order">
 					<div class="mine-order-top">
 						<div class="nav-tap">
@@ -99,7 +85,7 @@
 								<div>
 									<p>申请售后</p>
 								</div>
-								<div>
+								<div @click="goOrderDetail">
 									<p>订单详情</p>
 								</div>
 								<div>
@@ -107,6 +93,7 @@
 									<p>取消订单</p>
 								</div>
 							</div>
+							
 
 						</div>
 					</div>
@@ -132,11 +119,13 @@
 <script>
 	import Header from '../../components/header'
 	import Bottom from '../../components/bottom'
+	import LeftNav from '../../components/leftNav'
 	import RightNav from '../../components/rightNav'
 	export default {
 		components: {
 			Bottom,
 			Header,
+			LeftNav,
 			RightNav
 		},
 		data() {
@@ -156,6 +145,12 @@
 				this.$refs.data.showAboutdrop = false;
 				this.$refs.data.showUsermodal = false;
 				this.$refs.data.windowBg = 'background-color: #FFFFFF';
+			},
+			goOrderDetail(){
+				this.$router.push({
+					name: 'OrderDetail',
+					params: {}
+				})
 			},
 			searchInput(e) {
 				console.log('子组件中触发我的订单页面', e); //子组件输入框触发,e代表输入框中的值
@@ -186,7 +181,7 @@
 			},
 		},
 		mounted() {
-
+			this.$refs.leftnav.activeId=0;
 		}
 	}
 </script>

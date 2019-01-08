@@ -9,7 +9,8 @@ import About from '@/pages/about/about'
 import Seemore from '@/pages/seemore/seemore'
 import Buy from '@/pages/product/buyProduct'
 import MyOrder from '@/pages/order/myOrder'
-import LogisticsOrder from '@/pages/product/logisticsOrder'
+import OrderDetail from '@/pages/order/orderDetail'
+import SalesReturn from '@/pages/salesReturn/salesReturn'
 import Register from '@/pages/user/register'
 import ShortcutLogin from '@/pages/user/shortcutLogin'
 import FindUpwd from '@/pages/user/findUpwd'
@@ -109,11 +110,20 @@ export default new Router({
 			}
 		},
 		{
-			path: '/LogisticsOrder',
-			name: 'LogisticsOrder',
-			component: LogisticsOrder,
+			path: '/OrderDetail',
+			name: 'OrderDetail',
+			component: OrderDetail,
 			meta: {
-				title: "物流订单",
+				title: "订单详情",
+				content: 'disable'
+			}
+		},
+		{
+			path: '/SalesReturn',
+			name: 'SalesReturn',
+			component: SalesReturn,
+			meta: {
+				title: "退换货",
 				content: 'disable'
 			}
 		},

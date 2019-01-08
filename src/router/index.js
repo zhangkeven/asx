@@ -11,6 +11,7 @@ import Buy from '@/pages/product/buyProduct'
 import MyOrder from '@/pages/order/myOrder'
 import OrderDetail from '@/pages/order/orderDetail'
 import SalesReturn from '@/pages/salesReturn/salesReturn'
+import Cart from '@/pages/shopping/cart'
 import Register from '@/pages/user/register'
 import ShortcutLogin from '@/pages/user/shortcutLogin'
 import FindUpwd from '@/pages/user/findUpwd'
@@ -124,6 +125,15 @@ export default new Router({
 			component: SalesReturn,
 			meta: {
 				title: "退换货",
+				content: 'disable'
+			}
+		},
+		{
+			path: '/Cart',
+			name: 'Cart',
+			component: Cart,
+			meta: {
+				title: "购物车",
 				content: 'disable'
 			}
 		},

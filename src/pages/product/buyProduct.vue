@@ -44,7 +44,7 @@
 					<div class="user-photo" @mouseenter="showUserModal()">
 						<p>张三*</p>
 					</div>
-					<img src="../../assets/img/cart.png" alt="" @mouseenter="clearDropdown()">
+					<img src="../../assets/img/cart.png" alt="" @mouseenter="clearDropdown()" @click="goCart">
 				</div>
 			</div>
 			<div v-bind:class="chooseLogin" v-show="showModal">
@@ -480,6 +480,12 @@
 			goMyOrder(){
 				this.$router.push({
 					name: 'MyOrder',
+					params: {}
+				})
+			},
+			goCart() {
+				this.$router.push({
+					name: 'Cart',
 					params: {}
 				})
 			},

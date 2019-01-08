@@ -436,7 +436,10 @@
 				})
 			},
 			goCart() {
-				
+				this.$router.push({
+					name: 'Cart',
+					params: {}
+				})
 			},
 			clearDropdown() {
 				this.showstartdrop = false;

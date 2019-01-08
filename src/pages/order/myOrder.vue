@@ -1,5 +1,5 @@
 <template>
-	<div class="main" style="background-color: #EEEEEE;">
+	<div class="main" style="background-color: #f3f3f3;">
 		<Header v-on:listenChildEvent="searchInput" ref="data"></Header>
 		<div class="right-nav-bg" @mouseenter="clearDropDown()">
 			<RightNav></RightNav>
@@ -169,7 +169,7 @@
 			},
 			choosePage(e) {
 				if (e.currentTarget.dataset.id == this.pageCount) {
-			
+
 				} else {
 					this.pageCount = e.currentTarget.dataset.id
 				}
@@ -287,7 +287,7 @@
 		width: 100%;
 		display: flex;
 		flex-direction: column;
-		
+
 	}
 
 	.mine-order-conent-title {
@@ -445,6 +445,7 @@
 
 	.order-list-conent>div:last-child>p {
 		width: 70%;
+		max-width: 4.0625rem;
 		color: #666666;
 		font-size: 0.75rem;
 		border: 0.125rem solid #dedede;
@@ -465,12 +466,12 @@
 		justify-content: flex-end;
 		margin-top: 0.3125rem;
 	}
-	
+
 	div.mine-order>div.bottom-page>div.page-count {
 		display: flex;
 		flex-direction: row;
 	}
-	
+
 	div.mine-order>div.bottom-page>div.page-count>p {
 		padding: 0.625rem 1rem;
 		display: flex;
@@ -483,17 +484,17 @@
 		border-radius: 0.3rem;
 		cursor: pointer;
 	}
-	
+
 	div.mine-order>div.bottom-page>div.page-count>p:hover {
 		background-color: #852833;
 		color: #FFFFFF;
 	}
-	
+
 	div.mine-order>div.bottom-page>div.page-count>div {
 		display: flex;
 		flex-direction: row;
 	}
-	
+
 	div.mine-order>div.bottom-page>div.page-count>div>p {
 		padding: 0.625rem 1rem;
 		display: flex;
@@ -506,12 +507,12 @@
 		border-radius: 0.3rem;
 		cursor: pointer;
 	}
-	
+
 	div.mine-order>div.bottom-page>div.page-count>div>p:hover {
 		background-color: #852833;
 		color: #FFFFFF;
 	}
-	
+
 	div.mine-order>div.bottom-page>div.page-count>div>p.activePage {
 		background-color: #852833;
 		color: #FFFFFF;

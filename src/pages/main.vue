@@ -277,7 +277,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="mediaBg" @mouseenter="clearDropdown()">
+		<div class="mediaBg" @mousenpmenter="clearDropdown()">
 			<div class="media">
 				<p>媒体报道</p>
 				<div class="swiper-container2" style="width: 100%">

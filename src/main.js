@@ -9,6 +9,8 @@ import './assets/css/initial.css'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 Vue.use(ElementUI);
+import VueResource from 'vue-resource'
+Vue.use(VueResource)
 import './assets/css/swiper.min.css';
 import './assets/js/swiper.js'
 // import Calendar from 'vue2-datepick';

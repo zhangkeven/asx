@@ -8,6 +8,7 @@ import CoreyroomDetail from '@/pages/coreyroom/coreyroomDetail'
 import About from '@/pages/about/about'
 import Seemore from '@/pages/seemore/seemore'
 import Buy from '@/pages/product/buyProduct'
+import ProductDetail from '@/pages/product/productDetail'
 import MyOrder from '@/pages/order/myOrder'
 import OrderDetail from '@/pages/order/orderDetail'
 import SalesReturn from '@/pages/salesReturn/salesReturn'
@@ -98,6 +99,15 @@ export default new Router({
 			component: Buy,
 			meta: {
 				title: "购买商品",
+				content: 'disable'
+			}
+		},
+		{
+			path: '/ProductDetail',
+			name: 'ProductDetail',
+			component: ProductDetail,
+			meta: {
+				title: "商品详情",
 				content: 'disable'
 			}
 		},

@@ -116,7 +116,7 @@
 			<div class="recommend-buy">
 				<p>可能你喜欢</p>
 				<div class="recommend-buy-conent">
-					<div class="pot-detail" v-for="(item,i) in recommendList" :key="i">
+					<div class="pot-detail" v-for="(item,i) in recommendList" :key="i" @click="goProdunctDetail">
 						<img src="../../assets/img/smallguo.png" alt="">
 						<div class="money-bg">
 							<div class="money-text">

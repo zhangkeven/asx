@@ -63,7 +63,7 @@
 				</div>
 			</div>
 			<div v-bind:class="chooseProduct" v-show="showProductModal">
-				<p v-for="(item,index) in productList" :key="index">{{item}}</p>
+				<p v-for="(item,index) in productList">{{item}}</p>
 			</div>
 		</div>
 		<!--<div class="banner">-->
@@ -72,7 +72,7 @@
 		<div class="swiper-container" style="width: 100%" @mouseenter="clearDropdown()">
 			<div class="swiper-wrapper">
 				<!--<div class="swiper-slide" ><a href=""><img class="bannerImg" src="../../assets/img/banner.png" alt=""></a></div>-->
-				<div class="swiper-slide" v-for="(item,index) in imgs" :key="index">
+				<div class="swiper-slide" v-for="(item,index) in imgs">
 					<img class="bannerImg" src="../../assets/img/banner.png" alt="">
 				</div>
 			</div>
@@ -85,7 +85,7 @@
 		</div>
 		<div class="conent" @mouseenter="clearDropdown()">
 			<div class="newProduct">
-				<div v-for="(item,index) in list" :key="index">
+				<div v-for="(item,index) in list">
 					<img src="../../assets/img/newguo.png" alt="">
 					<p>新品上市</p>
 				</div>
@@ -97,11 +97,11 @@
 		</div>
 		<div class="product-classify" @mouseenter="clearDropdown()">
 			<div class="conent">
-				<div class="pot-classify" v-for="(item,index) in potList" :key="index">
+				<div class="pot-classify" v-for="(item,index) in potList">
 					<p>{{item.title}}</p>
 					<img src="../../assets/img/bigguo.png" alt="">
 					<div class="pot-list">
-						<div class="pot-detail" v-for="(item,i) in item.product" :key="i">
+						<div class="pot-detail" v-for="(item,i) in item.product">
 							<img src="../../assets/img/smallguo.png" alt="">
 							<div class="money-bg">
 								<div class="money-text">
@@ -120,11 +120,11 @@
 						</div>
 					</div>
 				</div>
-				<div class="pot-classify" v-for="(item,index) in partList" :key="index" style="margin-bottom: 12.125rem;">
+				<div class="pot-classify" v-for="(item,index) in partList" style="margin-bottom: 12.125rem;">
 					<p>{{item.title}}</p>
 					<div class="pot-list">
 						<img src="../../assets/img/peijian.png" alt="">
-						<div class="pot-detail" v-for="(item,i) in item.product" :key="i">
+						<div class="pot-detail" v-for="(item,i) in item.product">
 							<img src="../../assets/img/smallguo.png" alt="">
 							<div class="money-bg">
 								<div class="money-text">

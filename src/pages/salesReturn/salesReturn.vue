@@ -46,12 +46,26 @@
 						<div class="choosedate-bg">
 							<div class="choosedate-mold">
 								<p>时间:</p>
-								<el-date-picker v-model="startTime" align="right" type="date" placeholder="起始日期" :picker-options="pickerOptions">
+								<el-date-picker 
+								v-model="startTime" 
+								align="right" 
+								type="date" 
+								placeholder="起始日期" 
+								format="yyyy 年 MM 月 dd 日"
+								value-format="yyyy-MM-dd"
+								:picker-options="pickerOptions">
 								</el-date-picker>
 							</div>
 							<div class="choosedate-mold">
 								<p style="padding-left: 4%;width: 11%;">到</p>
-								<el-date-picker v-model="endTime" align="right" type="date" placeholder="结束日期" :picker-options="pickerOptions">
+								<el-date-picker 
+								v-model="endTime" 
+								align="right" 
+								type="date" 
+								placeholder="结束日期" 
+								format="yyyy 年 MM 月 dd 日"
+								value-format="yyyy-MM-dd"
+								:picker-options="pickerOptions">
 								</el-date-picker>
 
 							</div>
@@ -262,7 +276,10 @@
 		watch: {
 			startTime(val, oldVal) {
 				console.log("inputVal = " + val + " , oldValue = " + oldVal)
-			}
+			},
+			endTime(val, oldVal) {
+				console.log("inputVal = " + val + " , oldValue = " + oldVal)
+			},
 		}
 	}
 </script>

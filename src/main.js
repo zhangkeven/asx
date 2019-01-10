@@ -13,6 +13,9 @@ import VueResource from 'vue-resource'
 Vue.use(VueResource)
 import './assets/css/swiper.min.css';
 import './assets/js/swiper.js'
+import Distpicker from 'v-distpicker'
+ 
+Vue.component('v-distpicker', Distpicker)
 // import Calendar from 'vue2-datepick';
 // Vue.use(Calendar);
  // import VueBetterCalendar from 'vue-better-calendar'

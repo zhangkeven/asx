@@ -4,7 +4,7 @@
 		<div class="right-nav-bg" @mouseenter="clearDropDown()">
 			<RightNav></RightNav>
 		</div>
-		<div class="product-detail-conent">
+		<div class="product-detail-conent" @mouseenter="clearDropDown()">
 			<div class="product-detail-top">
 				<div class="product-detail-top-leftIcon">
 					<div class="big-img-bg">
@@ -448,6 +448,12 @@
 				if (this.pageCount < 5) {
 					this.pageCount++
 				}
+			},
+			goProdunctDetail(){
+				this.$router.push({
+					name: 'ProductDetail',
+					params: {}
+				})
 			},
 		},
 		mounted() {

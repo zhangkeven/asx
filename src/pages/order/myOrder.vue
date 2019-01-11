@@ -1,5 +1,5 @@
 <template>
-	<div class="main" style="background-color: #f3f3f3;">
+	<div class="person-main">
 		<Header v-on:listenChildEvent="searchInput" ref="data"></Header>
 		<div class="right-nav-bg" @mouseenter="clearDropDown()">
 			<RightNav></RightNav>
@@ -86,11 +86,17 @@
 									<p>申请售后</p>
 								</div>
 								<div @click="goOrderDetail">
+									<p v-show="item.active==6">交易关闭</p>
 									<p>订单详情</p>
 								</div>
 								<div>
-									<p>付款</p>
-									<p>取消订单</p>
+									<p v-show="item.active==2" @click="">等待发货</p>
+									<p v-show="item.active==3" @click="">确认收货</p>
+									<p v-show="item.active==4" @click="goevaluate">评价</p>
+									<p style="border: none;" v-show="item.active==5" @click="goAddtoEvaluate">追加评价</p>
+									<p v-show="item.active==6" @click="">删除订单</p>
+									<p v-show="item.active==1" @click="payment">付款</p>
+									<p v-show="item.active==0" @click="">取消订单</p>
 								</div>
 							</div>
 
@@ -135,10 +141,47 @@
 					'1', '2', '3', '4', '5', '6'
 				],
 				activeTap: 0,
-				list: ['', '', '', '', '', '', '', '', '', '']
+				list: [{
+					active: '0'
+				},{
+					active: '1'
+				},
+				{
+					active: '2'
+				},
+				{
+					active: '3'
+				},
+				{
+					active: '4'
+				},
+				{
+					active: '5'
+				},
+				{
+					active: '6'
+				},]
 			};
 		},
 		methods: {
+			payment(){
+				this.$router.push({
+					name: 'Payment',
+					params: {}
+				})	
+			},
+			goevaluate(){
+				this.$router.push({
+					name: 'Evaluate',
+					params: {}
+				})	
+			},
+			goAddtoEvaluate(){
+				this.$router.push({
+					name: 'AddtoEvaluate',
+					params: {}
+				})	
+			},
 			clearDropDown() {
 				this.$refs.data.showstartdrop = false;
 				this.$refs.data.showModal = false;
@@ -146,7 +189,7 @@
 				this.$refs.data.showUsermodal = false;
 				this.$refs.data.windowBg = 'background-color: #FFFFFF';
 			},
-			goOrderDetail(){
+			goOrderDetail() {
 				this.$router.push({
 					name: 'OrderDetail',
 					params: {}
@@ -169,29 +212,88 @@
 					this.pageCount = e.currentTarget.dataset.id
 				}
 			},
-			prevPage(){
-				if(this.pageCount>0){
+			prevPage() {
+				if (this.pageCount > 0) {
 					this.pageCount--
 				}
 			},
-			nextPage(){
-				if(this.pageCount<5){
+			nextPage() {
+				if (this.pageCount < 5) {
 					this.pageCount++
 				}
 			},
 		},
 		mounted() {
-			this.$refs.leftnav.activeId=0;
+			this.$refs.leftnav.activeId = 0;
 		}
 	}
 </script>
 
-<style>
+<style lang="scss" scoped>
 	.mine-order-bg {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		width: 68%;
+
+		div.bottom-page {
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-end;
+			margin-top: 0.3125rem;
+		}
+
+		div.bottom-page>div.page-count {
+			display: flex;
+			flex-direction: row;
+		}
+
+		div.bottom-page>div.page-count>p {
+			padding: 0.625rem 1rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #ECECEC;
+			margin-right: 0.625rem;
+			font-size: 0.75rem;
+			color: #333333;
+			border-radius: 0.3rem;
+			cursor: pointer;
+		}
+
+		div.bottom-page>div.page-count>p:hover {
+			background-color: #852833;
+			color: #FFFFFF;
+		}
+
+		div.bottom-page>div.page-count>div {
+			display: flex;
+			flex-direction: row;
+		}
+
+		div.bottom-page>div.page-count>div>p {
+			padding: 0.625rem 1rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #ECECEC;
+			margin-right: 0.625rem;
+			font-size: 0.75rem;
+			color: #333333;
+			border-radius: 0.3rem;
+			cursor: pointer;
+		}
+
+		div.bottom-page>div.page-count>div>p:hover {
+			background-color: #852833;
+			color: #FFFFFF;
+		}
+
+		div.bottom-page>div.page-count>div>p.activePage {
+			background-color: #852833;
+			color: #FFFFFF;
+		}
 	}
 
 	.myOrder-main {
@@ -207,7 +309,7 @@
 		width: 78%;
 		display: flex;
 		flex-direction: column;
-		margin-bottom:5rem;
+		margin-bottom: 5rem;
 	}
 
 	.mine-order-top {
@@ -423,7 +525,6 @@
 		color: #666666;
 		font-size: 0.75rem;
 	}
-
 	.order-list-conent>div:nth-child(2)>p:first-child {
 		font-size: 0.875rem;
 
@@ -437,7 +538,9 @@
 	.order-list-conent>div:nth-child(5)>p {
 		cursor: pointer;
 	}
-
+	.order-list-conent>div:nth-child(5)>p:nth-last-child(2){
+		color: #999999;
+	}
 	.order-list-conent>div:last-child>p {
 		width: 70%;
 		max-width: 4.0625rem;
@@ -450,66 +553,7 @@
 		align-items: center;
 		cursor: pointer;
 	}
-
-	.order-list-conent>div:last-child>p:last-child {
-		margin-top: 0.625rem;
-	}
-	div.mine-order>div.bottom-page {
-		width: 100%;
-		display: flex;
-		flex-direction: row;
-		justify-content: flex-end;
-		margin-top: 0.3125rem;
-	}
-
-	div.mine-order>div.bottom-page>div.page-count {
-		display: flex;
-		flex-direction: row;
-	}
-
-	div.mine-order>div.bottom-page>div.page-count>p {
-		padding: 0.625rem 1rem;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		background-color: #ECECEC;
-		margin-right: 0.625rem;
-		font-size: 0.75rem;
-		color: #333333;
-		border-radius: 0.3rem;
-		cursor: pointer;
-	}
-
-	div.mine-order>div.bottom-page>div.page-count>p:hover {
-		background-color: #852833;
-		color: #FFFFFF;
-	}
-
-	div.mine-order>div.bottom-page>div.page-count>div {
-		display: flex;
-		flex-direction: row;
-	}
-
-	div.mine-order>div.bottom-page>div.page-count>div>p {
-		padding: 0.625rem 1rem;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		background-color: #ECECEC;
-		margin-right: 0.625rem;
-		font-size: 0.75rem;
-		color: #333333;
-		border-radius: 0.3rem;
-		cursor: pointer;
-	}
-
-	div.mine-order>div.bottom-page>div.page-count>div>p:hover {
-		background-color: #852833;
-		color: #FFFFFF;
-	}
-
-	div.mine-order>div.bottom-page>div.page-count>div>p.activePage {
-		background-color: #852833;
-		color: #FFFFFF;
+	.order-list-conent>div:last-child>p:nth-last-child(2){
+		margin-bottom: 0.625rem;
 	}
 </style>

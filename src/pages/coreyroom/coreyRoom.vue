@@ -3,7 +3,7 @@
 		<div class="right-nav-bg" @mouseenter="clearDropDown()">
 			<RightNav></RightNav>
 		</div>
-		<Header v-on:listenChildEvent="searchInput" ref="data"/>
+		<Header v-on:listenChildEvent="searchInput" ref="data" />
 		<div class="swiper-main" @mouseenter="clearDropDown()">
 			<div class="swiper-mycontainer">
 				<div class="swiper-wrapper">
@@ -20,49 +20,50 @@
 				<!--<div class="swiper-button-next swiper-button-white"></div>-->
 			</div>
 		</div>
-		<div class="room-conent" @mouseenter="clearDropDown()">
-			<div class="room-conent-title">
-				<div v-bind:class="[{activeBg:activeType==0},'']" data-id="0" @click="chooseType">
-					<p>零秒活力锅</p>
-				</div>
-				<div v-bind:class="[{activeBg:activeType==1},'']" data-id="1" @click="chooseType">
-					<p>全能平底锅</p>
-				</div>
-			</div>
-			<div class="room-nav">
-				<p v-bind:class="[{activenav:activeNav==index},'']" v-for="(item,index) in greensList" :key="index" 
-				 @click="chooseNav(index,item)">{{item}}</p>
-			</div>
-			<div class="greens-conent-bg">
-				<div class="greens-conent" v-for="(item,index) in cuisineList" :key="index" @click="gocoreyroomDetail('红豆饭')">
-					<div class="greens-conent-top">
-						<img src="../../assets/img/rou.png" alt="">
-						<img src="../../assets/img/play.png" alt="">
+		<div id="roomMain">
+			<div class="room-conent" @mouseenter="clearDropDown()">
+				<div class="room-conent-title">
+					<div v-bind:class="[{activeBg:activeType==0},'']" data-id="0" @click="chooseType">
+						<p>零秒活力锅</p>
 					</div>
-					<div class="greens-conent-bottom">
-						<div>
+					<div v-bind:class="[{activeBg:activeType==1},'']" data-id="1" @click="chooseType">
+						<p>全能平底锅</p>
+					</div>
+				</div>
+				<div class="room-nav">
+					<p v-bind:class="[{activenav:activeNav==index},'']" v-for="(item,index) in greensList" :key="index" @click="chooseNav(index,item)">{{item}}</p>
+				</div>
+				<div class="greens-conent-bg">
+					<div class="greens-conent" v-for="(item,index) in cuisineList" :key="index" @click="gocoreyroomDetail('红豆饭')">
+						<div class="greens-conent-top">
+							<img src="../../assets/img/rou.png" alt="">
+							<img src="../../assets/img/play.png" alt="">
+						</div>
+						<div class="greens-conent-bottom">
+							<div>
+								<p>
+									红豆饭
+								</p>
+								<p>
+									高压0秒
+								</p>
+							</div>
 							<p>
-								红豆饭
-							</p>
-							<p>
-								高压0秒
+								红豆饭在日本常作为年中一些特殊场合的庆祝餐食，例如：生日、婚礼等；
+								而在某些值得庆祝，或是......
 							</p>
 						</div>
-						<p>
-							红豆饭在日本常作为年中一些特殊场合的庆祝餐食，例如：生日、婚礼等；
-							而在某些值得庆祝，或是......
-						</p>
 					</div>
 				</div>
-			</div>
-			<div class="bottom-page">
-				<div class="page-count">
-					<p @click="greensprevPage">上一页</p>
-					<div>
-						<p @click="choosegreensPage" :data-id="index" v-bind:class="[{activePage:greenspageCount==index}, ' ']" v-for="(item,index) in greenspage"
-						 :key="index">{{item}}</p>
+				<div class="bottom-page">
+					<div class="page-count">
+						<p @click="greensprevPage">上一页</p>
+						<div>
+							<p @click="choosegreensPage" :data-id="index" v-bind:class="[{activePage:greenspageCount==index}, ' ']" v-for="(item,index) in greenspage"
+							 :key="index">{{item}}</p>
+						</div>
+						<p @click="greensnextPage">下一页</p>
 					</div>
-					<p @click="greensnextPage">下一页</p>
 				</div>
 			</div>
 		</div>
@@ -85,7 +86,7 @@
 		},
 		data() {
 			return {
-				navTitle:'',
+				navTitle: '',
 				imgs: [{
 						imgUrl: 'http://www.kevenzhang.com/img/banner1.png'
 					},
@@ -119,11 +120,11 @@
 			};
 		},
 		methods: {
-			clearDropDown(){
+			clearDropDown() {
 				this.$refs.data.showstartdrop = false;
 				this.$refs.data.showModal = false;
-				this.$refs.data.showAboutdrop=false;
-				this.$refs.data.showUsermodal=false;
+				this.$refs.data.showAboutdrop = false;
+				this.$refs.data.showUsermodal = false;
 				this.$refs.data.windowBg = 'background-color: #FFFFFF';
 			},
 			searchInput(e) {
@@ -136,13 +137,13 @@
 					this.activeType = e.currentTarget.dataset.id
 				}
 			},
-			chooseNav(id,conent) {
+			chooseNav(id, conent) {
 				if (id == this.activeNav) {
 
 				} else {
 					this.activeNav = id
 				}
-				this.navTitle=conent;
+				this.navTitle = conent;
 			},
 			choosegreensPage(e) {
 				if (e.currentTarget.dataset.id == this.greenspageCount) {
@@ -161,8 +162,14 @@
 					this.greenspageCount++
 				}
 			},
-			gocoreyroomDetail(title){
-				this.$router.push({name:'CoreyroomDetail',params:{navtitle:this.navTitle,title:title}})
+			gocoreyroomDetail(title) {
+				this.$router.push({
+					name: 'CoreyroomDetail',
+					params: {
+						navtitle: this.navTitle,
+						title: title
+					}
+				})
 			}
 		},
 		mounted() {
@@ -193,7 +200,213 @@
 	}
 </script>
 
-<style>
+<style lang="scss" scoped>
+	#roomMain {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		div.room-conent {
+			width: 62.5%;
+			min-width: 65rem;
+			display: flex;
+			flex-direction: column;
+			margin-top: 2.5rem;
+			margin-bottom: 4.5rem;
+		}
+
+		div.room-conent>div.room-conent-title {
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			border-bottom: 0.0625rem solid #EEEEEE;
+		}
+
+		div.room-conent>div.room-conent-title>div {
+			margin-right: 2.5rem;
+			cursor: pointer;
+			color: #666666;
+		}
+
+		div.room-conent>div.room-conent-title>div>p {
+			padding-bottom: 0.3125rem;
+			font-size: 1.125rem;
+		}
+
+		div.room-conent>div.room-conent-title>div:hover {
+			border-bottom: 0.125rem solid #852833;
+			color: #852833;
+		}
+
+		div.room-conent>div.room-conent-title>div.activeBg {
+			border-bottom: 0.125rem solid #852833;
+			color: #852833;
+		}
+
+		div.room-conent>div.room-nav {
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			border-bottom: 0.0625rem solid #EEEEEE;
+			padding-top: 1.875rem;
+			padding-bottom: 0.3125rem;
+		}
+
+		div.room-conent>div.room-nav>p {
+			margin-right: 2.25rem;
+			font-size: 1rem;
+			color: #333333;
+		}
+
+		div.room-conent>div.room-nav>p:hover {
+			color: #852833;
+			cursor: pointer;
+		}
+
+		div.room-conent>div.room-nav>p.activenav {
+			color: #852833;
+		}
+
+		div.room-conent>div.greens-conent-bg {
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			padding: 2.5rem 0;
+		}
+
+		div.room-conent>div.greens-conent-bg>div.greens-conent {
+			width: 23.5%;
+			display: flex;
+			flex-direction: column;
+			border-radius: 0.625rem;
+			box-shadow: #ccc 0 0.625rem 0.625rem;
+			margin-right: 1.5%;
+			margin-bottom: 2.75rem;
+			cursor: pointer;
+		}
+
+		div.room-conent>div.greens-conent-bg>div.greens-conent>div.greens-conent-top {
+			width: 100%;
+			height: 100%;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			position: relative;
+			cursor: pointer;
+		}
+
+		div.room-conent>div.greens-conent-bg>div.greens-conent>div.greens-conent-top>img:nth-child(1) {
+			width: 100%;
+			height: auto;
+			border-radius: 0.625rem;
+			box-shadow: #ccc 0 0.3125rem 0.3125rem;
+		}
+
+		div.room-conent>div.greens-conent-bg>div.greens-conent>div.greens-conent-top>img:nth-child(2) {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			z-index: 1;
+		}
+
+		div.room-conent>div.greens-conent-bg>div.greens-conent>div.greens-conent-bottom {
+			width: 92%;
+			padding: 1.125rem 4%;
+		}
+
+		div.room-conent>div.greens-conent-bg>div.greens-conent>div.greens-conent-bottom>div {
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		div.room-conent>div.greens-conent-bg>div.greens-conent>div.greens-conent-bottom>div>p:nth-child(1) {
+			color: #333333;
+			font-size: 1rem;
+		}
+
+		div.room-conent>div.greens-conent-bg>div.greens-conent>div.greens-conent-bottom>div>p:nth-child(2) {
+			color: #FFFFFF;
+			padding: 0.3125rem 0.3125rem;
+			background-color: #852833;
+			border-radius: 0.625rem;
+			font-size: 0.75rem;
+		}
+
+		div.room-conent>div.greens-conent-bg>div.greens-conent>div.greens-conent-bottom>p {
+			width: 100%;
+			line-height: 200%;
+			margin-top: 1.25rem;
+			font-size: 0.875rem;
+			color: #666666;
+		}
+
+		div.room-conent>div.bottom-page {
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+		}
+
+		div.room-conent>div.bottom-page>div.page-count {
+			display: flex;
+			flex-direction: row;
+		}
+
+		div.room-conent>div.bottom-page>div.page-count>p {
+			padding: 0.625rem 1rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #ECECEC;
+			margin-right: 0.625rem;
+			font-size: 0.75rem;
+			color: #333333;
+			border-radius: 0.3rem;
+			cursor: pointer;
+		}
+
+		div.room-conent>div.bottom-page>div.page-count>p:hover {
+			background-color: #852833;
+			color: #FFFFFF;
+		}
+
+		div.room-conent>div.bottom-page>div.page-count>div {
+			display: flex;
+			flex-direction: row;
+		}
+
+		div.room-conent>div.bottom-page>div.page-count>div>p {
+			padding: 0.625rem 1rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #ECECEC;
+			margin-right: 0.625rem;
+			font-size: 0.75rem;
+			color: #333333;
+			border-radius: 0.3rem;
+			cursor: pointer;
+		}
+
+		div.room-conent>div.bottom-page>div.page-count>div>p.activePage {
+			background-color: #852833;
+			color: #FFFFFF;
+		}
+
+		div.room-conent>div.bottom-page>div.page-count>div>p:hover {
+			background-color: #852833;
+			color: #FFFFFF;
+		}
+	}
+
 	.swiper-main {
 		width: 100%;
 		margin-top: 4.375rem
@@ -226,205 +439,5 @@
 		-o-transform: translate3d(0, 0, 0);
 		transform: translate3d(0, 0, 0);
 		z-index: 10;
-	}
-
-	div.main>div.room-conent {
-		width: 62.5%;
-		min-width: 65rem;
-		display: flex;
-		flex-direction: column;
-		margin-top: 2.5rem;
-		margin-bottom: 4.5rem;
-	}
-
-	div.main>div.room-conent>div.room-conent-title {
-		width: 100%;
-		display: flex;
-		flex-direction: row;
-		border-bottom: 0.0625rem solid #EEEEEE;
-	}
-
-	div.main>div.room-conent>div.room-conent-title>div {
-		margin-right: 2.5rem;
-		cursor: pointer;
-		color: #666666;
-	}
-
-	div.main>div.room-conent>div.room-conent-title>div>p {
-		padding-bottom: 0.3125rem;
-		font-size: 1.125rem;
-	}
-
-	div.main>div.room-conent>div.room-conent-title>div:hover {
-		border-bottom: 0.125rem solid #852833;
-		color: #852833;
-	}
-
-	div.main>div.room-conent>div.room-conent-title>div.activeBg {
-		border-bottom: 0.125rem solid #852833;
-		color: #852833;
-	}
-
-	div.main>div.room-conent>div.room-nav {
-		width: 100%;
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		border-bottom: 0.0625rem solid #EEEEEE;
-		padding-top: 1.875rem;
-		padding-bottom: 0.3125rem;
-	}
-
-	div.main>div.room-conent>div.room-nav>p {
-		margin-right: 2.25rem;
-		font-size: 1rem;
-		color: #333333;
-	}
-
-	div.main>div.room-conent>div.room-nav>p:hover {
-		color: #852833;
-		cursor: pointer;
-	}
-
-	div.main>div.room-conent>div.room-nav>p.activenav {
-		color: #852833;
-	}
-
-	div.main>div.room-conent>div.greens-conent-bg {
-		width: 100%;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		padding: 2.5rem 0;
-	}
-
-	div.main>div.room-conent>div.greens-conent-bg>div.greens-conent {
-		width: 23.5%;
-		display: flex;
-		flex-direction: column;
-		border-radius: 0.625rem;
-		box-shadow: #ccc 0 0.625rem 0.625rem;
-		margin-right: 1.5%;
-		margin-bottom: 2.75rem;
-		cursor: pointer;
-	}
-
-	div.main>div.room-conent>div.greens-conent-bg>div.greens-conent>div.greens-conent-top {
-		width: 100%;
-		height: 100%;
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		align-items: center;
-		position: relative;
-		cursor: pointer;
-	}
-
-	div.main>div.room-conent>div.greens-conent-bg>div.greens-conent>div.greens-conent-top>img:nth-child(1) {
-		width: 100%;
-		height: auto;
-		border-radius: 0.625rem;
-		box-shadow: #ccc 0 0.3125rem 0.3125rem;
-	}
-
-	div.main>div.room-conent>div.greens-conent-bg>div.greens-conent>div.greens-conent-top>img:nth-child(2) {
-		position: absolute;
-		left: 50%;
-		top: 50%;
-		transform: translate(-50%, -50%);
-		z-index: 1;
-	}
-
-	div.main>div.room-conent>div.greens-conent-bg>div.greens-conent>div.greens-conent-bottom {
-		width: 92%;
-		padding: 1.125rem 4%;
-	}
-
-	div.main>div.room-conent>div.greens-conent-bg>div.greens-conent>div.greens-conent-bottom>div {
-		width: 100%;
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		align-items: center;
-	}
-
-	div.main>div.room-conent>div.greens-conent-bg>div.greens-conent>div.greens-conent-bottom>div>p:nth-child(1) {
-		color: #333333;
-		font-size: 1rem;
-	}
-
-	div.main>div.room-conent>div.greens-conent-bg>div.greens-conent>div.greens-conent-bottom>div>p:nth-child(2) {
-		color: #FFFFFF;
-		padding: 0.3125rem 0.3125rem;
-		background-color: #852833;
-		border-radius: 0.625rem;
-		font-size: 0.75rem;
-	}
-
-	div.main>div.room-conent>div.greens-conent-bg>div.greens-conent>div.greens-conent-bottom>p {
-		width: 100%;
-		line-height: 200%;
-		margin-top: 1.25rem;
-		font-size: 0.875rem;
-		color: #666666;
-	}
-
-	div.main>div.room-conent>div.bottom-page {
-		width: 100%;
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		align-items: center;
-	}
-
-	div.main>div.room-conent>div.bottom-page>div.page-count {
-		display: flex;
-		flex-direction: row;
-	}
-
-	div.main>div.room-conent>div.bottom-page>div.page-count>p {
-		padding: 0.625rem 1rem;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		background-color: #ECECEC;
-		margin-right: 0.625rem;
-		font-size: 0.75rem;
-		color: #333333;
-		border-radius: 0.3rem;
-		cursor: pointer;
-	}
-
-	div.main>div.room-conent>div.bottom-page>div.page-count>p:hover {
-		background-color: #852833;
-		color: #FFFFFF;
-	}
-
-	div.main>div.room-conent>div.bottom-page>div.page-count>div {
-		display: flex;
-		flex-direction: row;
-	}
-
-	div.main>div.room-conent>div.bottom-page>div.page-count>div>p {
-		padding: 0.625rem 1rem;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		background-color: #ECECEC;
-		margin-right: 0.625rem;
-		font-size: 0.75rem;
-		color: #333333;
-		border-radius: 0.3rem;
-		cursor: pointer;
-	}
-
-	div.main>div.room-conent>div.bottom-page>div.page-count>div>p.activePage {
-		background-color: #852833;
-		color: #FFFFFF;
-	}
-
-	div.main>div.room-conent>div.bottom-page>div.page-count>div>p:hover {
-		background-color: #852833;
-		color: #FFFFFF;
 	}
 </style>

@@ -56,8 +56,8 @@
 			<div class="show-user-detail" v-show="showUsermodal">
 				<div>
 					<p @click="goMyOrder">我的订单</p>
-					<p @click="">我的收藏</p>
-					<p @click="">我的地址</p>
+					<p @click="goCollect">我的收藏</p>
+					<p @click="goMylocation">我的地址</p>
 					<p @click="">修改密码</p>
 					<p @click="">退出登录</p>
 				</div>
@@ -476,6 +476,18 @@
 					name: 'Buy',
 					params: {}
 				})
+			},
+			goCollect(){
+				this.$router.push({
+					name: 'MyCollect',
+					params: {}
+				})	
+			},
+			goMylocation(){
+				this.$router.push({
+					name: 'AddLocation',
+					params: {}
+				})	
 			},
 			goMyOrder(){
 				this.$router.push({

@@ -9,8 +9,17 @@ import About from '@/pages/about/about'
 import Seemore from '@/pages/seemore/seemore'
 import Buy from '@/pages/product/buyProduct'
 import ProductDetail from '@/pages/product/productDetail'
+import Evaluate from '@/pages/evaluate/evaluate'
+import AddtoEvaluate from '@/pages/evaluate/addtoEvaluate'
 import MyOrder from '@/pages/order/myOrder'
 import OrderDetail from '@/pages/order/orderDetail'
+import Payment from '@/pages/payment/payment'
+import MyDiscountCoupon from '@/pages/discountCoupon/myDiscountCoupon'
+import MyCollect from '@/pages/collect/myCollect'
+import MyFootprint from '@/pages/footprint/myFootprint'
+import PersonCenter from '@/pages/user/personCenter'
+import AddLocation from '@/pages/addLocation/addLocation'
+import ApplySalesReturn from '@/pages/salesReturn/applySalesReturn'
 import SalesReturn from '@/pages/salesReturn/salesReturn'
 import Cart from '@/pages/shopping/cart'
 import Register from '@/pages/user/register'
@@ -27,6 +36,15 @@ export default new Router({
 	routes: [
 		{
 			path: '/',
+			name: 'Evaluate',
+			component: Evaluate,
+			meta: {
+				title: "评价",
+				content: 'disable'
+			}
+		},
+		{
+			path: '/Main',
 			name: 'Main',
 			component: Main,
 			meta: {
@@ -111,6 +129,24 @@ export default new Router({
 				content: 'disable'
 			}
 		},
+// 		{
+// 			path: '/Evaluate',
+// 			name: 'Evaluate',
+// 			component: Evaluate,
+// 			meta: {
+// 				title: "评价",
+// 				content: 'disable'
+// 			}
+// 		},
+		{
+			path: '/AddtoEvaluate',
+			name: 'AddtoEvaluate',
+			component: AddtoEvaluate,
+			meta: {
+				title: "追加评价",
+				content: 'disable'
+			}
+		},
 		{
 			path: '/MyOrder',
 			name: 'MyOrder',
@@ -126,6 +162,69 @@ export default new Router({
 			component: OrderDetail,
 			meta: {
 				title: "订单详情",
+				content: 'disable'
+			}
+		},
+		{
+			path: '/Payment',
+			name: 'Payment',
+			component: Payment,
+			meta: {
+				title: "付款",
+				content: 'disable'
+			}
+		},
+		{
+			path: '/MyDiscountCoupon',
+			name: 'MyDiscountCoupon',
+			component: MyDiscountCoupon,
+			meta: {
+				title: "我的优惠券",
+				content: 'disable'
+			}
+		},
+		{
+			path: '/MyCollect',
+			name: 'MyCollect',
+			component: MyCollect,
+			meta: {
+				title: "我的收藏",
+				content: 'disable'
+			}
+		},
+		{
+			path: '/MyFootprint',
+			name: 'MyFootprint',
+			component: MyFootprint,
+			meta: {
+				title: "我的足迹",
+				content: 'disable'
+			}
+		},
+		{
+			path: '/PersonCenter',
+			name: 'PersonCenter',
+			component: PersonCenter,
+			meta: {
+				title: "个人中心",
+				content: 'disable'
+			}
+		},
+		{
+			path: '/AddLocation',
+			name: 'AddLocation',
+			component: AddLocation,
+			meta: {
+				title: "收货地址",
+				content: 'disable'
+			}
+		},
+		{
+			path: '/ApplySalesReturn',
+			name: 'ApplySalesReturn',
+			component: ApplySalesReturn,
+			meta: {
+				title: "退换货申请",
 				content: 'disable'
 			}
 		},

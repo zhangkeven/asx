@@ -98,7 +98,7 @@
 							</div>
 						</div>
 						<div class="bottom-btn">
-							<div>
+							<div @click="payment">
 								<p>立即购买</p>
 							</div>
 							<div>
@@ -380,6 +380,12 @@
 			};
 		},
 		methods: {
+			payment(){
+				this.$router.push({
+					name: 'Payment',
+					params: {}
+				})	
+			},
 			searchInput(e) {
 				console.log('子组件中触发购物车页面', e); //子组件输入框触发,e代表输入框中的值
 			},

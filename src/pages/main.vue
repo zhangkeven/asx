@@ -56,8 +56,8 @@
 			<div class="show-user-detail" v-show="showUsermodal">
 				<div>
 					<p @click="goMyOrder">我的订单</p>
-					<p @click="">我的收藏</p>
-					<p @click="">我的地址</p>
+					<p @click="goCollect">我的收藏</p>
+					<p @click="goMylocation">我的地址</p>
 					<p @click="">修改密码</p>
 					<p @click="">退出登录</p>
 				</div>
@@ -435,6 +435,18 @@
 					params: {}
 				})
 			},
+			goCollect(){
+				this.$router.push({
+					name: 'MyCollect',
+					params: {}
+				})	
+			},
+			goMylocation(){
+				this.$router.push({
+					name: 'AddLocation',
+					params: {}
+				})	
+			},
 			goCart() {
 				this.$router.push({
 					name: 'Cart',
@@ -605,7 +617,7 @@
 		}
 	}
 </script>
-<style>
+<style lang="scss" scoped>
 	.goShopping {
 		display: flex;
 		flex-direction: row;
@@ -613,30 +625,26 @@
 		align-items: center;
 		margin-top: 3.4rem;
 		width: 100%;
-		
-	}
-
-	.hlgBg {
-		width: 32%;
-		height: 11.5rem;
-		position: relative;
-		cursor: pointer;
-	}
-
-	.hlgBg img {
-		width: 100%;
-		height: 100%;
-	}
-
-	.hlgBg p {
-		font-size: 1rem;
-		color: #333;
-		position: absolute;
-		bottom: 0;
-		background-color: rgba(51, 51, 51, .1);
-		width: 96%;
-		padding: 0.2rem 2%;
-	}
+		.hlgBg {
+			width: 32%;
+			height: 11.5rem;
+			position: relative;
+			cursor: pointer;
+			img {
+				width: 100%;
+				height: 100%;
+			}
+			p {
+				font-size: 1rem;
+				color: #333;
+				position: absolute;
+				bottom: 0;
+				background-color: rgba(51, 51, 51, .1);
+				width: 96%;
+				padding: 0.2rem 2%;
+			}
+		}
+	} 
 
 	.goShoppBg {
 		width: 32%;
@@ -647,13 +655,12 @@
 		align-items: center;
 		justify-content: center;
 		cursor: pointer;
-	}
-
-	.goShoppBg p {
-		font-size: 1.875rem;
-		color: #ffffff;
-		margin-right: 1rem;
-	}
+		p {
+			font-size: 1.875rem;
+			color: #ffffff;
+			margin-right: 1rem;
+		}
+	} 
 
 	.recommendCh {
 		font-size: 1.875rem;

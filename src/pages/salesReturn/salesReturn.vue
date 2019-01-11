@@ -1,5 +1,5 @@
 <template>
-	<div class="main" style="background-color: #f3f3f3;">
+	<div class="person-main">
 		<Header v-on:listenChildEvent="searchInput" ref="data"></Header>
 		<div class="right-nav-bg" @mouseenter="clearDropDown()">
 			<RightNav></RightNav>
@@ -265,7 +265,13 @@
 			date() {
 				console.log(this.startTime);
 				console.log(this.endTime);
-			}
+			},
+			goProdunctDetail(){
+				this.$router.push({
+					name: 'ProductDetail',
+					params: {}
+				})
+			},
 		},
 		mounted() {
 			this.$refs.leftnav.activeId = 5;
@@ -739,5 +745,8 @@
 	.choosedate-title>div:first-child>p {
 		font-size: 1rem;
 		color: #666;
+	}
+	.bottom-product-you{
+		width: 100%;
 	}
 </style>

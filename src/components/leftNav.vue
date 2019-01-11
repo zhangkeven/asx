@@ -6,16 +6,16 @@
 		<div v-bind:class="activeId==0?'my-btn' : 'not-choose-btn'" @click="gomyorder">
 			<p>我的订单</p>
 		</div>
-		<div v-bind:class="activeId==1?'my-btn' : 'not-choose-btn'">
+		<div v-bind:class="activeId==1?'my-btn' : 'not-choose-btn'" @click="gomydiscountCoupon">
 			<p>我的优惠卷</p>
 		</div>
-		<div v-bind:class="activeId==2?'my-btn' : 'not-choose-btn'">
+		<div v-bind:class="activeId==2?'my-btn' : 'not-choose-btn'" @click="gocollect">
 			<p>我的收藏</p>
 		</div>
-		<div v-bind:class="activeId==3?'my-btn' : 'not-choose-btn'">
+		<div v-bind:class="activeId==3?'my-btn' : 'not-choose-btn'" @click="gomyFootprint">
 			<p>我的足迹</p>
 		</div>
-		<div v-bind:class="activeId==4?'my-btn' : 'not-choose-btn'">
+		<div v-bind:class="activeId==4?'my-btn' : 'not-choose-btn'" @click="goAddLocation">
 			<p>收获地址</p>
 		</div>
 		<div v-bind:class="activeId==5?'my-btn' : 'not-choose-btn'" @click="gosalesReturn">
@@ -41,6 +41,30 @@
 			gomyorder(){
 				this.$router.push({
 					name: 'MyOrder',
+					params: {}
+				})
+			},
+			gomydiscountCoupon(){
+				this.$router.push({
+					name: 'MyDiscountCoupon',
+					params: {}
+				})
+			},
+			gocollect(){
+				this.$router.push({
+					name: 'MyCollect',
+					params: {}
+				})
+			},
+			gomyFootprint(){
+				this.$router.push({
+					name: 'MyFootprint',
+					params: {}
+				})
+			},
+			goAddLocation(){
+				this.$router.push({
+					name: 'AddLocation',
 					params: {}
 				})
 			}

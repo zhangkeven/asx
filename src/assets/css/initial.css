@@ -61,7 +61,15 @@ html {
 	/*width: 120rem;*/
 	min-width: 81.25rem;
 }
-
+.person-main{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	/*width: 120rem;*/
+	min-width: 81.25rem;
+	background-color: #f3f3f3;
+}
 .conent {
 	display: flex;
 	flex-direction: column;

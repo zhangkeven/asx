@@ -613,6 +613,7 @@
 		align-items: center;
 		margin-top: 3.4rem;
 		width: 100%;
+		
 	}
 
 	.hlgBg {

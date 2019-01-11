@@ -156,11 +156,11 @@
 				<div class="product-introduce">
 					<div class="product-introduce-top">
 						<div class="shop-title">
-							<p v-bind:class="chooseId=='0'?'activeType':'shopBtn'" @click="chooseproducttype('0')">商品介绍</p>
-							<p v-bind:class="chooseId=='1'?'activeType':'shopBtn'" @click="chooseproducttype('1')">运费规则</p>
-							<p v-bind:class="chooseId=='2'?'activeType':'shopBtn'" @click="chooseproducttype('2')">规格与包装</p>
-							<p v-bind:class="chooseId=='3'?'activeType':'shopBtn'" @click="chooseproducttype('3')">售后保障</p>
-							<p v-bind:class="chooseId=='4'?'activeType':'shopBtn'" @click="chooseproducttype('4')">商品评价(30+)</p>
+							<p v-bind:class="chooseId=='0'?'productActiveType':'shopBtn'" @click="chooseproducttype('0')">商品介绍</p>
+							<p v-bind:class="chooseId=='1'?'productActiveType':'shopBtn'" @click="chooseproducttype('1')">运费规则</p>
+							<p v-bind:class="chooseId=='2'?'productActiveType':'shopBtn'" @click="chooseproducttype('2')">规格与包装</p>
+							<p v-bind:class="chooseId=='3'?'productActiveType':'shopBtn'" @click="chooseproducttype('3')">售后保障</p>
+							<p v-bind:class="chooseId=='4'?'productActiveType':'shopBtn'" @click="chooseproducttype('4')">商品评价(30+)</p>
 						</div>
 						<div class="introduce-cart-btn">
 							<p>加入购物车</p>
@@ -1041,7 +1041,7 @@
 
 	}
 
-	.activeType {
+	.productActiveType {
 		padding: 0.625rem 0.625rem;
 		color: #fff;
 		background-color: #cd3648;

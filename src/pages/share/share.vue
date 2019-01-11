@@ -26,7 +26,7 @@
 					<p>产品分类</p>
 				</div>
 				<div class="nav-conent">
-					<div v-bind:class="[{activeType:activeType==index}]" v-for="(item,index) in list" :key="index" @click="chooseProductType(index)">
+					<div v-bind:class="[{shareActiveType:activeType==index}]" v-for="(item,index) in list" :key="index" @click="chooseProductType(index)">
 						<p>零秒活力锅</p>
 					</div>
 				</div>
@@ -249,7 +249,7 @@
 		color: #852833;
 	}
 
-	div.main>div.share-conent>div.left-nav>div.nav-conent>div.activeType {
+	div.main>div.share-conent>div.left-nav>div.nav-conent>div.shareActiveType {
 		color: #852833;
 	}
 

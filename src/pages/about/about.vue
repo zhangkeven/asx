@@ -1756,60 +1756,32 @@
 			}
 
 			div.bottom-page {
-				width: 100%;
-				display: flex;
-				flex-direction: row;
-				justify-content: center;
-				align-items: center;
-				margin-bottom: 8.875rem;
+				@include page-main(center);
 
 				div.page-count {
-					display: flex;
-					flex-direction: row;
+					@include page-bg;
 
 					p {
-						padding: 0.625rem 1rem;
-						display: flex;
-						justify-content: center;
-						align-items: center;
-						background-color: #ECECEC;
-						margin-right: 0.625rem;
-						font-size: 0.75rem;
-						color: #333333;
-						border-radius: 0.3rem;
-						cursor: pointer;
+						@include page-next;
 					}
 
 					p:hover {
-						background-color: #852833;
-						color: #FFFFFF;
+						@include page-text-hover;
 					}
 
 					div {
-						display: flex;
-						flex-direction: row;
+						@include page-bg;
 
 						p {
-							padding: 0.625rem 1rem;
-							display: flex;
-							justify-content: center;
-							align-items: center;
-							background-color: #ECECEC;
-							margin-right: 0.625rem;
-							font-size: 0.75rem;
-							color: #333333;
-							border-radius: 0.3rem;
-							cursor: pointer;
+							@include page-text;
 						}
 
 						p.activePage {
-							background-color: #852833;
-							color: #FFFFFF;
+							@include page-text-hover;
 						}
 
 						p:hover {
-							background-color: #852833;
-							color: #FFFFFF;
+							@include page-text-hover;
 						}
 
 

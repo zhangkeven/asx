@@ -36,15 +36,6 @@ export default new Router({
 	routes: [
 		{
 			path: '/',
-			name: 'Evaluate',
-			component: Evaluate,
-			meta: {
-				title: "评价",
-				content: 'disable'
-			}
-		},
-		{
-			path: '/Main',
 			name: 'Main',
 			component: Main,
 			meta: {
@@ -129,15 +120,15 @@ export default new Router({
 				content: 'disable'
 			}
 		},
-// 		{
-// 			path: '/Evaluate',
-// 			name: 'Evaluate',
-// 			component: Evaluate,
-// 			meta: {
-// 				title: "评价",
-// 				content: 'disable'
-// 			}
-// 		},
+		{
+			path: '/Evaluate',
+			name: 'Evaluate',
+			component: Evaluate,
+			meta: {
+				title: "评价",
+				content: 'disable'
+			}
+		},
 		{
 			path: '/AddtoEvaluate',
 			name: 'AddtoEvaluate',

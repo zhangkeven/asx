@@ -1,0 +1,73 @@
+
+@mixin row{
+	display: flex;
+	flex-direction: row;
+}
+@mixin row-upCenter{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+@mixin row-lineCenter{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+@mixin cloumn{
+	display: flex;
+	flex-direction: column;
+}
+@mixin cloumn-upCenter{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+@mixin cloumn-lineCenter{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+@mixin page-main($value){
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		justify-content: $value;
+		align-items: center;
+		margin-bottom: 8.875rem;
+}
+@mixin page-bg{
+		display: flex;
+		flex-direction: row;
+		width: auto;
+}
+@mixin page-text{
+		 width: auto;
+		padding: 0.625rem 1rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: #ECECEC;
+		margin-right: 0.625rem;
+		font-size: 0.75rem;
+		color: #333333;
+		border-radius: 0.3rem;
+		cursor: pointer;
+}
+@mixin	page-text-hover{
+		background-color: #852833;
+		color: #FFFFFF;
+}
+@mixin page-next{
+		 width: auto;
+		padding: 0.625rem 1rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: #ECECEC;
+		margin-right: 0.625rem;
+		font-size: 0.75rem;
+		color: #333333;
+		border-radius: 0.3rem;
+		cursor: pointer;
+}
+			

@@ -18,15 +18,55 @@
 						<div class="myDiscountCoupon-conent">
 							<div v-show="activeId==0">
 								可用
+								<div class="bottom-page">
+									<div class="page-count">
+										<p @click="prevPage">上一页</p>
+										<div>
+											<p @click="choosePage" :data-id="index" v-bind:class="[{activePage:pageCount==index}, ' ']" v-for="(item,index) in page"
+											 :key="index">{{item}}</p>
+										</div>
+										<p @click="nextPage">下一页</p>
+									</div>
+								</div>
 							</div>
 							<div v-show="activeId==1">
 								已用
+								<div class="bottom-page">
+									<div class="page-count">
+										<p @click="prevPage">上一页</p>
+										<div>
+											<p @click="choosePage" :data-id="index" v-bind:class="[{activePage:pageCount==index}, ' ']" v-for="(item,index) in page"
+											 :key="index">{{item}}</p>
+										</div>
+										<p @click="nextPage">下一页</p>
+									</div>
+								</div>
 							</div>
 							<div v-show="activeId==2">
 								过期
+								<div class="bottom-page">
+									<div class="page-count">
+										<p @click="prevPage">上一页</p>
+										<div>
+											<p @click="choosePage" :data-id="index" v-bind:class="[{activePage:pageCount==index}, ' ']" v-for="(item,index) in page"
+											 :key="index">{{item}}</p>
+										</div>
+										<p @click="nextPage">下一页</p>
+									</div>
+								</div>
 							</div>
 							<div v-show="activeId==3">
 								回收站
+								<div class="bottom-page">
+									<div class="page-count">
+										<p @click="prevPage">上一页</p>
+										<div>
+											<p @click="choosePage" :data-id="index" v-bind:class="[{activePage:pageCount==index}, ' ']" v-for="(item,index) in page"
+											 :key="index">{{item}}</p>
+										</div>
+										<p @click="nextPage">下一页</p>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -56,7 +96,11 @@
 		data() {
 			return {
 				location: location.CityInfo,
-				activeId:0
+				activeId: 0,
+				pageCount: 0,
+				page: [
+					'1', '2', '3', '4', '5', '6'
+				],
 			};
 		},
 		methods: {
@@ -70,76 +114,141 @@
 				this.$refs.data.showUsermodal = false;
 				this.$refs.data.windowBg = 'background-color: #FFFFFF';
 			},
-			chooseType(index){
-				if(this.activeId==index){
-					
-				}else{
-					this.activeId=index
+			chooseType(index) {
+				if (this.activeId == index) {
+
+				} else {
+					this.activeId = index
 				}
-			}
+			},
+			choosePage(e) {
+				if (e.currentTarget.dataset.id == this.pageCount) {
+
+				} else {
+					this.pageCount = e.currentTarget.dataset.id
+				}
+			},
+			prevPage() {
+				if (this.pageCount > 0) {
+					this.pageCount--
+				}
+			},
+			nextPage() {
+				if (this.pageCount < 5) {
+					this.pageCount++
+				}
+			},
 		},
 		computed: {
 
 		},
-		mounted(){
-			this.$refs.leftnav.activeId=1;
+		mounted() {
+			this.$refs.leftnav.activeId = 1;
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
-#myDiscountCoupon{
-	width: 100%;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	.order-main{
+	#myDiscountCoupon {
+		width: 100%;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		width: 68%;
-		.order-conent{
-			margin-top: 7.5rem;
-			width: 100%;
-			height: auto;
+
+		.order-main {
 			display: flex;
-			flex-direction: row;
-			justify-content: space-between;
-			.right-conent{
-				width: 78%;
+			flex-direction: column;
+			align-items: center;
+			width: 68%;
+
+			.order-conent {
+				margin-top: 7.5rem;
+				width: 100%;
+				height: auto;
 				display: flex;
-				flex-direction: column;
-				margin-bottom:5rem;
-				.top-nav-bg{
-					width: 75%;
+				flex-direction: row;
+				justify-content: space-between;
+
+				.right-conent {
+					width: 78%;
 					display: flex;
-					flex-direction: row;
-					align-items: center;
-					padding-right: 25%;
-					justify-content: space-between;
-					border-bottom:0.125rem solid #e3e3e3;
-					p{
-						cursor: pointer;
-						color: #666666;
-						font-size: 1.125rem;
-						padding:0.3125rem 0.625rem;
+					flex-direction: column;
+					margin-bottom: 5rem;
+
+					.top-nav-bg {
+						width: 75%;
+						display: flex;
+						flex-direction: row;
+						align-items: center;
+						padding-right: 25%;
+						justify-content: space-between;
+						border-bottom: 0.125rem solid #e3e3e3;
+
+						p {
+							cursor: pointer;
+							color: #666666;
+							font-size: 1.125rem;
+							padding: 0.3125rem 0.625rem;
+						}
+
+						p:hover {
+							border-bottom: 0.125rem solid #852833;
+							color: #852833;
+						}
+
+						p.activeBtn {
+							border-bottom: 0.125rem solid #852833;
+							color: #852833;
+						}
 					}
-					p:hover{
-						border-bottom:0.125rem solid #852833;
-						color: #852833;
+
+					div.myDiscountCoupon-conent {
+						width: 100%;
+						height: auto;
+
+						div {
+							width: 100%;
+							@include cloumn;
+
+							div.bottom-page {
+								@include page-main(flex-end);
+
+								div.page-count {
+									@include page-bg;
+
+									p {
+										@include page-next;
+									}
+
+									p:hover {
+										@include page-text-hover;
+									}
+
+									div {
+										@include page-bg;
+
+										p {
+											@include page-text;
+										}
+
+										p.activePage {
+											@include page-text-hover;
+										}
+
+										p:hover {
+											@include page-text-hover;
+										}
+
+
+									}
+								}
+							}
+						}
+
 					}
-					p.activeBtn{
-						border-bottom:0.125rem solid #852833;
-						color: #852833;
-					}
-				}
-				div.myDiscountCoupon-conent{
-					width: 100%;
-					height: auto;
 				}
 			}
+
 		}
-		
 	}
-}
 </style>

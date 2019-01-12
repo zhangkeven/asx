@@ -66,6 +66,8 @@
 									<div>
 										<p>
 											全能平低锅介绍名称全能平低锅介绍名称全能平低锅介绍名称
+											
+										
 										</p>
 										<div>
 											<p>颜色:</p>
@@ -96,7 +98,7 @@
 									<p style="border: none;" v-show="item.active==5" @click="goAddtoEvaluate">追加评价</p>
 									<p v-show="item.active==6" @click="">删除订单</p>
 									<p v-show="item.active==1" @click="payment">付款</p>
-									<p v-show="item.active==0" @click="">取消订单</p>
+									<p v-show="item.active==1" @click="">取消订单</p>
 								</div>
 							</div>
 
@@ -142,7 +144,7 @@
 				],
 				activeTap: 0,
 				list: [{
-					active: '0'
+					active: '2'
 				},{
 					active: '1'
 				},
@@ -467,7 +469,6 @@
 		width: 100%;
 		display: flex;
 		flex-direction: row;
-		align-items: center;
 		background-color: #FFFFFF;
 	}
 

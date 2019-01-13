@@ -84,7 +84,7 @@
 									<p style="text-decoration: line-through;">¥ 5000</p>
 									<p>¥ 3000</p>
 								</div>
-								<div>
+								<div @click="gosaleReturn">
 									<p>申请售后</p>
 								</div>
 								<div @click="goOrderDetail">
@@ -166,6 +166,12 @@
 			};
 		},
 		methods: {
+			gosaleReturn(){
+				this.$router.push({
+					name: 'ApplySalesReturn',
+					params: {}
+				})	
+			},
 			payment(){
 				this.$router.push({
 					name: 'Payment',

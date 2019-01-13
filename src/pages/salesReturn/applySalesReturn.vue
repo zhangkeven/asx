@@ -43,13 +43,53 @@
 				<p>服务类型</p>
 			</div>
 			<div class="serverBg">
-				123
+				<div @click="choosesalesReturn">
+					<img v-show="showimg" src="../../assets/img/thuochoose.png" alt="">
+					<img v-show="!showimg" src="../../assets/img/thuowei.png" alt="">
+					<p>退货</p>
+				</div>
+				<div @click="chooseexchange">
+					<img v-show="!showimg" src="../../assets/img/thuochoose.png" alt="">
+					<img v-show="showimg" src="../../assets/img/thuowei.png" alt="">
+					<p>换货</p>
+				</div>
 			</div>
 			<div class="applySalesReturn-title" style="margin-top: 0;">
 				<p>退货原因</p>
 			</div>
+			<div class="returnCause">
+				<div :class="imgid==0?'chooseBtn':'notchooseBtn'" @click="chooseCause(0)">
+					<p>我不想要了</p>
+					<img v-if="imgid==0" src="../../assets/img/tuihuogou.png" alt="">
+				</div>
+				<div :class="imgid==1?'chooseBtn':'notchooseBtn'" @click="chooseCause(1)">
+					<p>质量问题</p>
+					<img v-if="imgid==1" src="../../assets/img/tuihuogou.png" alt="">
+				</div>
+				<div :class="imgid==2?'chooseBtn':'notchooseBtn'" @click="chooseCause(2)">
+					<p>发货慢</p>
+					<img v-if="imgid==2" src="../../assets/img/tuihuogou.png" alt="">
+				</div>
+			</div>
 			<div class="applySalesReturn-title" style="margin-top: 0;">
 				<p>退款金额</p>
+			</div>
+			<div class="money-bg">
+				<div>
+					<p>¥ 3000.00</p>
+				</div>
+			</div>
+			<div class="applySalesReturn-title" style="margin-top: 0;">
+				<p>退款说明</p>
+			</div>
+			<div class="return-explain">
+				<textarea ref="inputVal" @input="importText" placeholder="退款说明" />
+
+			</div>
+			<div class="confirmBtn">
+				<div>
+					<p>确定</p>
+				</div>
 			</div>
 		</div>
 		<div class="bottom-background" @mouseenter="clearDropDown()">
@@ -74,7 +114,9 @@ export default {
 	},
 	data() {
 		return {
-			location: location.CityInfo
+			location: location.CityInfo,
+			showimg:true,
+			imgid:0
 		};
 	},
 	methods: {
@@ -90,7 +132,23 @@ export default {
 			this.$refs.data.showAboutdrop = false;
 			this.$refs.data.showUsermodal = false;
 			this.$refs.data.windowBg = 'background-color: #FFFFFF';
-		}
+		},
+		choosesalesReturn(){
+			this.showimg=true;
+		},
+		chooseexchange(){
+			this.showimg=false;
+		},
+		chooseCause(index){
+			if(this.imgid==index){
+				
+			}else{
+				this.imgid=index
+			}
+		},
+		importText(){
+			console.log('input输入的值', this.$refs.inputVal.value);
+		},
 	},
 	computed: {}
 };
@@ -104,8 +162,8 @@ export default {
 	color: red;
 }
 #applySalesReturn {
-	margin-top: 4.375rem;
-
+	margin-top: 6.875rem;
+	
 	div.applySalesReturn-title {
 		width: 96%;
 		padding: 0.5rem 2%;
@@ -239,6 +297,129 @@ export default {
 		align-items: center;
 		justify-content: space-around;
 		background-color: #ffffff;
+		padding:1.5rem 0;
+		div{
+			width: auto;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			cursor: pointer;
+			p{
+				font-size: 1.125rem;
+				color: #666666;
+				margin-left: 1.25rem;
+			}
+		}
+	}
+	div.returnCause{
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-around;
+		background-color: #ffffff;
+		padding:1.5rem 0;
+		div.chooseBtn{
+			border:0.125rem solid #852833;
+			box-sizing: border-box;
+			border-radius: 0.5rem;
+		}
+		div.notchooseBtn{
+			border:0.125rem solid #f0f0f0;
+			border-radius: 0.5rem;
+			box-sizing: border-box;
+		}
+		div{
+			width: 8.625rem;
+			height: 3rem;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			position: relative;
+			cursor: pointer;
+			p{
+				color: #666666;
+					font-size: 1.125rem;
+			}
+			img{
+				position: absolute;
+				bottom: 0;
+				right: 0;
+			}
+		}
+	}
+	div.money-bg{
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-around;
+		background-color: #ffffff;
+		padding:1.5rem 0;
+		div{
+			width: 8.625rem;
+			height: 3rem;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+			border:0.125rem solid #852833;
+			border-radius: 0.5rem;
+			box-sizing: border-box;
+			p{
+				font-size: 1.125rem;
+				color: #852833;
+				margin-left: 1.25rem;
+			}
+		}
+	}
+	div.return-explain{
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-around;
+		background-color: #ffffff;
+		padding:1.5rem 0;
+		textarea{
+			width: 80%;
+			border-radius: 0.5rem;
+			min-height:16.125rem;
+			outline:none;
+			color: #666666;
+			font-size: 0.875rem;
+		}
+		textarea::placeholder{
+			color: #999999;
+			font-size: 0.875rem;
+		}
+	}
+	div.confirmBtn{
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		background-color: #FFFFFF;
+		margin-bottom: 13.125rem;
+		div{
+			width: 12rem;
+			height: 3rem;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			background-color: #852833;
+			border-radius: 0.5rem;
+			box-sizing: border-box;
+			margin:2.5rem 0;
+			p{
+				color: #FFFFFF;
+				font-size: 1.5rem;
+			}
+		}
 	}
 }
 </style>

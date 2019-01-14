@@ -38,7 +38,7 @@
 						<img src="../assets/img/search.png" alt="">
 					</div>
 					<img src="../assets/img/person.png" @mouseenter="enterPerson()" alt="">
-					<div class="user-photo" @mouseenter="showUserModal()">
+					<div class="user-photo" @mouseenter="showUserModal()" @click="goPersonCenter">
 						<p>张三*</p>
 					</div>
 					<img src="../assets/img/cart.png" alt="" @mouseenter="clearDropdown()" @click="goCart">
@@ -116,6 +116,12 @@
 			goBuy() {
 				this.$router.push({
 					name: 'Buy',
+					params: {}
+				})
+			},
+			goPersonCenter(){
+				this.$router.push({
+					name: 'PersonCenter',
 					params: {}
 				})
 			},

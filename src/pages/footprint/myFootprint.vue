@@ -17,7 +17,7 @@
 							<div class="list-conent">
 								<div class="pot-detail" v-for="(item,i) in recommendList" :key="i" @click="goProdunctDetail">
 									<p class="Cancel_collection">
-										<img src="../../assets/img/bai.png" alt="">
+										<img src="../../assets/img/delete.png" alt="">
 									</p>
 									<img src="../../assets/img/smallguo.png" alt="">
 									<div class="money-bg">
@@ -200,10 +200,8 @@ export default {
 								position: absolute;
 								right: 0;
 								top: 0;
-								width: 18%;
-								height: 1.875rem;
+								width: auto;
 								text-align: center;
-								line-height: 1.875rem;
 								color: #fff;
 								background-color: #c9c9c9;
 								font-size: 0.875rem;

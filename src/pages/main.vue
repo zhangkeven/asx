@@ -384,6 +384,18 @@
 			}
 		},
 		methods: {
+			getData() {
+				var that = this;
+				that.$http.post('https://duoduo18.com/public/index.php/index/index/index', {
+					appkey: 'QDD',
+					jintro: 1,
+					keyword: '',
+					page: 1
+				}).then(function(data) {
+					console.log(data.body)
+				}, function(error) {})
+			
+			},
 			showUserModal() {
 				this.showUsermodal = true;
 				this.showModal = false;
@@ -538,7 +550,11 @@
 				})
 			}
 		},
+		updated(){
+			// this.getData();
+		},
 		mounted() {
+			this.getData();
 			window.addEventListener('scroll', this.handleScroll);
 			//初始化swiper
 			new Swiper('.swiper-container', {

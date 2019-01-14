@@ -15,9 +15,9 @@
 							<p>4件商品</p>
 							</div> -->
 							<div class="list-conent">
-								<div class="pot-detail" v-for="(item,i) in recommendList" :key="i" @click="goProdunctDetail">
+								<div class="pot-detail" v-for="(item,i) in recommendList" :key="i">
 									<p class="Cancel_collection">取消收藏</p>
-									<img src="../../assets/img/smallguo.png" alt="">
+									<img src="../../assets/img/smallguo.png" alt="" @click="goProdunctDetail">
 									<div class="money-bg">
 										<div class="money-text">
 											<div class="now-price">
@@ -31,7 +31,18 @@
 										<img class="money-icon" src="../../assets/img/bai.png" alt="" v-if="item.hot==1">
 										<img class="money-icon" src="../../assets/img/hong.png" alt="" v-if="item.hot==0">
 									</div>
-									<p>{{item.conent}}</p>
+									<p @click="goProdunctDetail">{{item.conent}}</p>
+									<div class="bottom-cart">
+										<div class="cart-btn">
+											<img src="../../assets/img/pinglun1.png" alt="">
+
+											<p>10人评价</p>
+										</div>
+										<div class="cart-btn">
+											<img src="../../assets/img/cart2.png" alt="">
+											<p>加入购物车</p>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -130,6 +141,7 @@ export default {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	min-width: 87.5rem;
 	.order-main {
 		display: flex;
 		flex-direction: column;
@@ -180,7 +192,7 @@ export default {
 							}
 						}
 						div.pot-detail {
-							width: 24%;
+							width:24%;
 							display: flex;
 							flex-direction: column;
 							align-items: center;
@@ -189,7 +201,7 @@ export default {
 							margin: 0 0.5%;
 							margin-bottom: 0.9375rem;
 							border-radius: 0.625rem;
-							padding: 1.875rem 0;
+							padding-top: 1.875rem;
 							border: 0.125rem solid #f0f0f0;
 							box-sizing: border-box;
 							cursor: pointer;
@@ -255,6 +267,38 @@ export default {
 											margin-left: 0.625rem;
 											text-decoration: line-through;
 										}
+									}
+								}
+							}
+							div.bottom-cart{
+								width: 100%;
+								min-width: 10.5rem;
+								display: flex;
+								flex-direction: row;
+								border-top:0.125rem solid #EEEEEE;
+								margin-top: 0.625rem;
+								
+								div:first-child{
+									border-right:0.125rem solid #EEEEEE;
+								}
+								div.cart-btn{
+									width: 50%;
+									display: flex;
+									flex-direction: row;
+									justify-content: center;
+									align-items: center;
+									padding:0.625rem 0;
+									box-sizing: border-box;
+									cursor: pointer;
+									img{
+										width: auto;
+										text-align: center;
+									}
+									p{
+										width:auto;
+										text-align: center;
+										color: #666666;
+										font-size: 0.625rem;
 									}
 								}
 							}

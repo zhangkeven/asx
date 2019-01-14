@@ -15,11 +15,11 @@
 							<p>4件商品</p>
 							</div>
 							<div class="list-conent">
-								<div class="pot-detail" v-for="(item,i) in recommendList" :key="i" @click="goProdunctDetail">
-									<p class="Cancel_collection">
+								<div class="pot-detail" v-for="(item,i) in recommendList" :key="i">
+									<p class="Cancel_collection" @click="deleteProduct">
 										<img src="../../assets/img/delete.png" alt="">
 									</p>
-									<img src="../../assets/img/smallguo.png" alt="">
+									<img src="../../assets/img/smallguo.png" alt="" @click="goProdunctDetail">
 									<div class="money-bg">
 										<div class="money-text">
 											<div class="now-price">
@@ -33,7 +33,7 @@
 										<img class="money-icon" src="../../assets/img/bai.png" alt="" v-if="item.hot==1">
 										<img class="money-icon" src="../../assets/img/hong.png" alt="" v-if="item.hot==0">
 									</div>
-									<p>{{item.conent}}</p>
+									<p @click="goProdunctDetail">{{item.conent}}</p>
 								</div>
 							</div>
 						</div>
@@ -104,6 +104,9 @@ export default {
 	methods: {
 		searchInput(e) {
 			console.log('子组件中触发购物车页面', e); //子组件输入框触发,e代表输入框中的值
+		},
+		deleteProduct(){
+			console.log('删除');
 		},
 		clearDropDown() {
 			this.$refs.data.showstartdrop = false;
@@ -179,6 +182,7 @@ export default {
 							.Cancel_collection{
 								opacity: 1;
 								display: block;
+								z-index: 10;
 							}
 						}
 						div.pot-detail {

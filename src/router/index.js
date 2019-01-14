@@ -21,6 +21,7 @@ import PersonCenter from '@/pages/user/personCenter'
 import AddLocation from '@/pages/addLocation/addLocation'
 import ApplySalesReturn from '@/pages/salesReturn/applySalesReturn'
 import SalesReturn from '@/pages/salesReturn/salesReturn'
+import SalesReturnDetail from '@/pages/salesReturn/salesReturnDetail'
 import Cart from '@/pages/shopping/cart'
 import Register from '@/pages/user/register'
 import ShortcutLogin from '@/pages/user/shortcutLogin'
@@ -225,6 +226,15 @@ export default new Router({
 			component: SalesReturn,
 			meta: {
 				title: "退换货",
+				content: 'disable'
+			}
+		},
+		{
+			path: '/SalesReturnDetail',
+			name: 'SalesReturnDetail',
+			component: SalesReturnDetail,
+			meta: {
+				title: "退换货详情",
 				content: 'disable'
 			}
 		},

@@ -121,7 +121,7 @@
 								<div @click="">
 									<p>退货成功</p>
 								</div>
-								<div>
+								<div @click="gosalesReturnDetail">
 									<p style="margin:0 0;border: none;">服务详情</p>
 								</div>
 							</div>
@@ -232,6 +232,12 @@
 			goOrderDetail() {
 				this.$router.push({
 					name: 'OrderDetail',
+					params: {}
+				})
+			},
+			gosalesReturnDetail(){
+				this.$router.push({
+					name: 'SalesReturnDetail',
 					params: {}
 				})
 			},

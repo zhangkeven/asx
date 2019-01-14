@@ -4,7 +4,7 @@
 		<div class="right-nav-bg" @mouseenter="clearDropDown()">
 			<RightNav></RightNav>
 		</div>
-		<div id="addLocation">
+		<div id="addLocation" @mouseenter="clearDropDown()">
 			<div class="order-main">
 				<div class="order-conent">
 					<LeftNav ref="leftnav"></LeftNav>

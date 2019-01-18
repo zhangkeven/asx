@@ -526,7 +526,27 @@
 				showNews: false,
 				showCall: false,
 				choosetype: 0,
-				scrollHeight: 'height:15rem'
+				scrollHeight: 'height:15rem',
+				myTitle:'关于我们',
+				title:'公司简介',
+				conent:'阿沙希关于我们'
+			}
+		},
+		metaInfo() {
+			return {
+				titleTemplate: this.myTitle,
+				htmlAttrs: {
+					lang: 'zh'
+				},
+
+				meta: [{
+					name: 'keywords',
+					content: this.myTitle + ","+this.title
+				},
+				{
+					name: 'description',
+					content: this.conent
+				}],
 			}
 		},
 		methods: {

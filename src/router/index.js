@@ -34,33 +34,22 @@ import RecommendDetail from '@/pages/recommend/recommendDetail'
 Vue.use(Router)
 import global from '@/assets/Global/global.js'
 export default new Router({
+	mode: 'history',
 	routes: [
 		{
 			path: '/',
 			name: 'Main',
-			component: Main,
-			meta: {
-				title: "阿莎希",
-				content: 'disable'
-			}
+			component: Main
 		},
 		{
 			path: '/ZeroVitality',
 			name: 'ZeroVitality',
-			component: ZeroVitality,
-			meta: {
-				title: "零秒活力锅",
-				content: 'disable'
-			}
+			component: ZeroVitality
 		},
 		{
 			path: '/AllRound',
 			name: 'AllRound',
-			component: AllRound,
-			meta: {
-				title: "全能平底锅",
-				content: 'disable'
-			}
+			component: AllRound
 		},
 		{
 			path: '/Seemore',
@@ -70,47 +59,27 @@ export default new Router({
 		{
 			path: '/Coreyroom',
 			name: 'Coreyroom',
-			component: Coreyroom,
-			meta: {
-				title: "料理教室",
-				content: 'disable'
-			}
+			component: Coreyroom
 		},
 		{
 			path: '/CoreyroomDetail',
 			name: 'CoreyroomDetail',
-			component: CoreyroomDetail,
-			meta: {
-				title: "料里教室详情",
-				content: 'disable'
-			}
+			component: CoreyroomDetail
 		},
 		{
 			path: '/Share',
 			name: 'Share',
-			component: Share,
-			meta: {
-				title: "使用者分享",
-				content: 'disable'
-			}
+			component: Share
 		},
 		{
 			path: '/About',
 			name: 'About',
-			component: About,
-			meta: {
-				title: "关于我们",
-				content: 'disable'
-			}
+			component: About
 		},
 		{
 			path: '/Buy',
 			name: 'Buy',
-			component: Buy,
-			meta: {
-				title: "购买商品",
-				content: 'disable'
-			}
+			component: Buy
 		},
 		{
 			path: '/ProductDetail',
@@ -295,11 +264,7 @@ export default new Router({
 		{
 			path: '/Recommend',
 			name: 'Recommend',
-			component: Recommend,
-			meta: {
-				title: '推荐专栏',
-				content: 'disable'
-			}
+			component: Recommend
 		},
 		{
 			path: '/RecommendDetail',

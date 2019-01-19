@@ -15,7 +15,7 @@ Vue.use(VueResource)
 import VueMeta from 'vue-meta'
 Vue.use(VueMeta)
 import iView from 'iview';
-import 'iview/dist/styles/iview.css';
+import './assets/styles/iview.css';
 Vue.use(iView);
 // import MetaInfo from 'vue-meta-info'
 //

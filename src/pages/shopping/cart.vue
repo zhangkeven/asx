@@ -285,7 +285,7 @@
 			},
 		},
 		mounted() {
-
+      console.log(Service.appKey);
 		},
 		computed: {
 			//计算并获取总价

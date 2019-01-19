@@ -1,4 +1,6 @@
 const url ="http://";
+const appKey="asx";
 export default {
-  url
+  url,
+  appKey
 }

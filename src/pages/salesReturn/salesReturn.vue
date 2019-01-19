@@ -46,11 +46,11 @@
 						<div class="choosedate-bg">
 							<div class="choosedate-mold">
 								<p>时间:</p>
-								<el-date-picker 
-								v-model="startTime" 
-								align="right" 
-								type="date" 
-								placeholder="起始日期" 
+								<el-date-picker
+								v-model="startTime"
+								align="right"
+								type="date"
+								placeholder="起始日期"
 								format="yyyy 年 MM 月 dd 日"
 								value-format="yyyy-MM-dd"
 								:picker-options="pickerOptions">
@@ -58,11 +58,11 @@
 							</div>
 							<div class="choosedate-mold">
 								<p style="padding-left: 4%;width: 11%;">到</p>
-								<el-date-picker 
-								v-model="endTime" 
-								align="right" 
-								type="date" 
-								placeholder="结束日期" 
+								<el-date-picker
+								v-model="endTime"
+								align="right"
+								type="date"
+								placeholder="结束日期"
 								format="yyyy 年 MM 月 dd 日"
 								value-format="yyyy-MM-dd"
 								:picker-options="pickerOptions">
@@ -138,11 +138,11 @@
 							</div>
 							<p @click="nextPage">下一页</p>
 						</div> -->
-						<el-pagination 
-						@current-change="getPage" 
-						prev-text="上一页" 
-						next-text="下一页" 
-						background 
+						<el-pagination
+						@current-change="getPage"
+						prev-text="上一页"
+						next-text="下一页"
+						background
 						layout="prev, pager, next"
 						 :total="total*10">
 						</el-pagination>
@@ -161,7 +161,8 @@
 	import Bottom from '../../components/bottom'
 	import LeftNav from '../../components/leftNav'
 	import RightNav from '../../components/rightNav'
-	export default {
+  import Service from '../../assets/service/service.js'
+  export default {
 		components: {
 			Bottom,
 			Header,

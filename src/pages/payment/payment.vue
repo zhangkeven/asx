@@ -17,7 +17,8 @@
 	import LeftNav from '../../components/leftNav'
 	import RightNav from '../../components/rightNav'
 	import location from '../../assets/js/city-data.js'
-	export default {
+  import Service from '../../assets/service/service.js'
+  export default {
 		components: {
 			Bottom,
 			Header,

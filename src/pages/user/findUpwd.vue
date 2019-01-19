@@ -35,14 +35,15 @@
 <script>
 	import Topnav from '../../components/topnav'
 	import Bottom from '../../components/bottom'
-	export default {
+  import Service from '../../assets/service/service.js'
+  export default {
 		components: {
 			Bottom,
 			Topnav
 		},
 		data() {
 			return {
-				
+
 			};
 		},
 		methods:{
@@ -70,12 +71,12 @@
 </script>
 
 <style>
-	
+
 	p.shortcutLogin-title {
 		margin-top: 1.875rem;
 		margin-bottom: 3.125rem;
 	}
-	
+
 	.shortcutLogin-line-bg {
 		display: flex;
 		flex-direction: row;
@@ -94,7 +95,7 @@
 		flex-direction: row;
 		width: 55%;
 		align-items: center;
-		
+
 		background-color: #FFF;
 		border-radius: 1.125rem;
 	}
@@ -103,7 +104,7 @@
 		height: 1.125rem;
 		margin-left: 12%;
 	}
-	
+
 	div.find-line-bg-upwd>div:nth-child(2){
 		display: flex;
 		flex-direction: row;
@@ -118,21 +119,21 @@
 		color: #fff;
 		font-size: 0.875rem;
 	}
-	
-	
-	
-	
+
+
+
+
 	div.enter-window>div.input-bg {
 		background-color: #FFFFFF;
 		border-radius: 1.125rem;
 		margin-bottom: 1.625rem;
 	}
-	
+
 	div.enter-window>div.input-bg>img {
 		width: 1rem;
 		height: 1.125rem;
 		margin-left: 6%;
-	}	
+	}
 	.shortcutLoginBtn {
 		margin-top:3.125rem;
 		margin-bottom:1.875rem;

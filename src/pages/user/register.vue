@@ -22,7 +22,7 @@
 					</p>
 				</div>
 			</div>
-			
+
 			<div class="register-line-bg input-bg">
 				<img src="../../assets/img/lock.png" alt="">
 				<input class="inputStyle" type="text" placeholder="请输入密码">
@@ -56,14 +56,15 @@
 <script>
 	import Topnav from '../../components/topnav'
 	import Bottom from '../../components/bottom'
-	export default {
+  import Service from '../../assets/service/service.js'
+  export default {
 		components: {
 			Bottom,
 			Topnav
 		},
 		data() {
 			return {
-				
+
 			};
 		},
 		methods:{
@@ -90,7 +91,7 @@
 		margin-top: 1.875rem;
 		margin-bottom: 3.125rem;
 	}
-	
+
 	.register-line-bg {
 		display: flex;
 		flex-direction: row;
@@ -110,17 +111,17 @@
 		flex-direction: row;
 		width: 55%;
 		align-items: center;
-		
+
 		background-color: #FFF;
 		border-radius: 1.125rem;
 	}
-	
+
 	div.register-line-bg-upwd>div:nth-child(1)>img{
 		width: 1rem;
 		height: 1.125rem;
 		margin-left: 12%;
 	}
-	
+
 	div.register-line-bg-upwd>div:nth-child(2){
 		display: flex;
 		flex-direction: row;
@@ -136,56 +137,56 @@
 		font-size: 0.875rem;
 	}
 
-	
+
 	div.enter-window>div.input-bg {
 		background-color: #FFFFFF;
 		border-radius: 1.125rem;
 		margin-bottom: 1.625rem;
 	}
-	
+
 	div.enter-window>div.input-bg>img {
 		width: 1rem;
 		height: 1.125rem;
 		margin-left: 6%;
 	}
-	
+
 	.agree-bg {
 		justify-content: space-between;
 	}
-	
+
 	.agree-bg {
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 	}
-	
+
 	.agree-bg>p {
 		color: #333333;
 		font-size: 0.75rem;
 	}
-	
+
 	.agree-bg>input {
 		cursor: pointer;
 	}
-	
+
 	.agree-bg>label>p {
 		color: #333333;
 		font-size: 0.75rem;
 		cursor: pointer;
 	}
-	
+
 	.number-login {
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 	}
-	
+
 	.number-login>p {
 		color: #333333;
 		font-size: 0.75rem;
 		cursor: pointer;
 	}
-	
+
 	.number-login>p:nth-child(1) {
 		padding-right: 0.3125rem;
 	}
@@ -194,5 +195,5 @@
 		margin-bottom: 4.25rem;
 	}
 
-	
+
 </style>

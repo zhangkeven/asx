@@ -59,7 +59,7 @@
 							<p class="a1"><b>3.</b>压力指示阀完全下降后，将配重泄压阀取下，开锅并放入咖喱块，就完成喽！——最后使用余热烹煮,不需要一直守在厨房！</p>
 						</div>
 					</div>
-					
+
 				</div>
 			</div>
 			<!--  -->
@@ -113,7 +113,7 @@
 							<p class="a">软嫩的让筷子可轻松夹断!鱼骨也可吃!</p>
 						</div>
 					</div>
-					
+
 				</div>
 				<div class="d bai">
 					<div class="a1">
@@ -144,7 +144,7 @@
 							<p class="a">料多丰富的五目炊饭!</p>
 						</div>
 					</div>
-					
+
 				</div>
 				<div class="e">
 					<div class="left">
@@ -192,7 +192,8 @@
 	import Header from '../../components/header'
 	import Bottom from '../../components/bottom'
 	import RightNav from '../../components/rightNav'
-	export default {
+  import Service from '../../assets/service/service.js'
+  export default {
 		components: {
 			Bottom,
 			Header,
@@ -223,7 +224,7 @@
 
 <style>
 .star-products-yi{
-		max-width:75rem; 
+		max-width:75rem;
 		margin:0 auto;
 		position: relative;
 	}
@@ -510,6 +511,6 @@
 		width: 100%;
 	}
 	.star-products-si .f{
-		
+
 	}
 </style>

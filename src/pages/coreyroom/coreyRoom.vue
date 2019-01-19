@@ -56,11 +56,11 @@
 					</div>
 				</div>
 				<div class="bottom-page">
-					<el-pagination 
-					@current-change="getPage" 
-					prev-text="上一页" 
-					next-text="下一页" 
-					background 
+					<el-pagination
+					@current-change="getPage"
+					prev-text="上一页"
+					next-text="下一页"
+					background
 					layout="prev, pager, next"
 					 :total="total*10">
 					</el-pagination>
@@ -86,7 +86,8 @@
 	import Bottom from '../../components/bottom'
 	import RightNav from '../../components/rightNav'
 	import Swiper from 'swiper'
-	export default {
+  import Service from '../../assets/service/service.js'
+  export default {
 		components: {
 			Header,
 			Bottom,

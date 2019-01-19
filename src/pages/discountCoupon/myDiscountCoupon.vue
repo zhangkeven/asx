@@ -31,7 +31,7 @@
 										<p class="use_coupons">立即使用</p>
 									</div>
 								</div>
-								
+
 								<div class="bottom-page" style="margin-top: 1.25rem;">
 									<!-- <div class="page-count">
 										<p @click="prevPage">上一页</p>
@@ -41,11 +41,11 @@
 										</div>
 										<p @click="nextPage">下一页</p>
 									</div> -->
-									<el-pagination 
-									@current-change="getPage" 
-									prev-text="上一页" 
-									next-text="下一页" 
-									background 
+									<el-pagination
+									@current-change="getPage"
+									prev-text="上一页"
+									next-text="下一页"
+									background
 									layout="prev, pager, next"
 									 :total="total*10">
 									</el-pagination>
@@ -66,14 +66,14 @@
 											<img src="../../assets/img/yiyongyouhui.png" alt="">
 										</div>
 									</div>
-								</div>	
-								
+								</div>
+
 								<div class="bottom-page" style="margin-top: 1.25rem;">
-									<el-pagination 
-									@current-change="getPage" 
-									prev-text="上一页" 
-									next-text="下一页" 
-									background 
+									<el-pagination
+									@current-change="getPage"
+									prev-text="上一页"
+									next-text="下一页"
+									background
 									layout="prev, pager, next"
 									 :total="total*10">
 									</el-pagination>
@@ -95,13 +95,13 @@
 										</div>
 									</div>
 								</div>
-								
+
 								<div class="bottom-page" style="margin-top: 1.25rem;">
-									<el-pagination 
-									@current-change="getPage" 
-									prev-text="上一页" 
-									next-text="下一页" 
-									background 
+									<el-pagination
+									@current-change="getPage"
+									prev-text="上一页"
+									next-text="下一页"
+									background
 									layout="prev, pager, next"
 									 :total="total*10">
 									</el-pagination>
@@ -124,13 +124,13 @@
 										</div>
 									</div>
 								</div>
-								
+
 								<div class="bottom-page" style="margin-top: 1.25rem;">
-									<el-pagination 
-									@current-change="getPage" 
-									prev-text="上一页" 
-									next-text="下一页" 
-									background 
+									<el-pagination
+									@current-change="getPage"
+									prev-text="上一页"
+									next-text="下一页"
+									background
 									layout="prev, pager, next"
 									 :total="total*10">
 									</el-pagination>
@@ -154,6 +154,7 @@ import Bottom from '../../components/bottom';
 import LeftNav from '../../components/leftNav';
 import RightNav from '../../components/rightNav';
 import location from '../../assets/js/city-data.js';
+import Service from '../../assets/service/service.js'
 export default {
 	components: {
 		Bottom,

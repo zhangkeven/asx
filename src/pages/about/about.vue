@@ -335,11 +335,11 @@
 						</div>
 						<p @click="newsnextPage">下一页</p>
 					</div> -->
-					<el-pagination 
-					@current-change="getPage" 
-					prev-text="上一页" 
-					next-text="下一页" 
-					background 
+					<el-pagination
+					@current-change="getPage"
+					prev-text="上一页"
+					next-text="下一页"
+					background
 					layout="prev, pager, next"
 					 :total="total*10">
 					</el-pagination>
@@ -387,6 +387,7 @@
 	import Bottom from '../../components/bottom'
 	import RightNav from '../../components/rightNav'
 	import AMap from 'AMap'
+  import Service from '../../assets/service/service.js'
 	var map
 	export default {
 		name: "about",
@@ -717,6 +718,7 @@
 		},
 		mounted() {
 			console.log('上个页面传来的id', this.$route.params.id);
+      console.log('url',Service.url);
 			if (this.$route.params.id) {
 				this.activeNav = this.$route.params.id;
 			}

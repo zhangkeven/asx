@@ -147,7 +147,8 @@
 	import Bottom from '../../components/bottom'
 	import LeftNav from '../../components/leftNav'
 	import RightNav from '../../components/rightNav'
-	export default {
+  import Service from '../../assets/service/service.js'
+  export default {
 		components: {
 			Bottom,
 			Header,
@@ -167,17 +168,17 @@
 				}, {
 					price: '3000',
 					number: '2',
-				
+
 					chooseBtn:true
 				}, {
 					price: '4000',
 					number: '3',
-					
+
 					chooseBtn:true
 				}, {
 					price: '5000',
 					number: '4',
-					
+
 					chooseBtn:true
 				},
 				{
@@ -187,17 +188,17 @@
 				}, {
 					price: '3000',
 					number: '2',
-				
+
 					chooseBtn:true
 				}, {
 					price: '4000',
 					number: '3',
-					
+
 					chooseBtn:true
 				}, {
 					price: '5000',
 					number: '4',
-					
+
 					chooseBtn:true
 				}],
 				allMoney: '',
@@ -284,7 +285,7 @@
 			},
 		},
 		mounted() {
-			
+
 		},
 		computed: {
 			//计算并获取总价
@@ -295,7 +296,7 @@
 						let item = this.list[i];
 						total += item.price * item.number;
 					}
-					
+
 				}
 				return total.toString().replace(/\B(?=(\d{3})+$)/g, ',')
 			},

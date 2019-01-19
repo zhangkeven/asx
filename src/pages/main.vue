@@ -341,6 +341,7 @@
 	import Swiper3 from 'swiper';
 	import Bottom from '../components/bottom'
 	import RightNav from '../components/rightNav'
+  import Service from '../assets/service/service.js'
 	export default {
 		// name: 'Main',
 		components: {
@@ -394,7 +395,7 @@
 				}).then(function(data) {
 					console.log(data.body)
 				}, function(error) {})
-			
+
 			},
 			showUserModal() {
 				this.showUsermodal = true;
@@ -457,13 +458,13 @@
 				this.$router.push({
 					name: 'MyCollect',
 					params: {}
-				})	
+				})
 			},
 			goMylocation(){
 				this.$router.push({
 					name: 'AddLocation',
 					params: {}
-				})	
+				})
 			},
 			goCart() {
 				this.$router.push({
@@ -554,6 +555,7 @@
 			// this.getData();
 		},
 		mounted() {
+		  console.log('url',Service.url);
 			this.getData();
 			window.addEventListener('scroll', this.handleScroll);
 			//初始化swiper
@@ -666,7 +668,7 @@
 				padding: 0.2rem 2%;
 			}
 		}
-	} 
+	}
 
 	.goShoppBg {
 		width: 32%;
@@ -682,7 +684,7 @@
 			color: #ffffff;
 			margin-right: 1rem;
 		}
-	} 
+	}
 
 	.recommendCh {
 		font-size: 1.875rem;

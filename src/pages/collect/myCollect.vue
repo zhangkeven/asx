@@ -63,6 +63,7 @@ import Bottom from '../../components/bottom';
 import LeftNav from '../../components/leftNav';
 import RightNav from '../../components/rightNav';
 import location from '../../assets/js/city-data.js';
+import Service from '../../assets/service/service.js'
 export default {
 	components: {
 		Bottom,
@@ -277,7 +278,7 @@ export default {
 								flex-direction: row;
 								border-top:0.125rem solid #EEEEEE;
 								margin-top: 0.625rem;
-								
+
 								div:first-child{
 									border-right:0.125rem solid #EEEEEE;
 								}

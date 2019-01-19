@@ -80,7 +80,8 @@
 	import LeftNav from '../../components/leftNav'
 	import RightNav from '../../components/rightNav'
 	import location from '../../assets/js/city-data.js'
-	export default {
+  import Service from '../../assets/service/service.js'
+  export default {
 		components: {
 			Bottom,
 			Header,
@@ -170,7 +171,7 @@
 				width: 100%;
 				background-color: #FFFFFF;
 				display: flex;
-				flex-direction: column;	
+				flex-direction: column;
 				div.product-detail {
 					width: 100%;
 					display: flex;
@@ -349,7 +350,7 @@
 						flex-direction: row;
 						align-items: center;
 						justify-content: center;
-						
+
 						p{
 							background: #852833;
 							color: #FFFFFF;
@@ -364,5 +365,5 @@
 			}
 		}
 	}
-	
+
 </style>

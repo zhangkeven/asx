@@ -122,7 +122,8 @@
 	import Header from '../../components/header'
 	import Bottom from '../../components/bottom'
 	import RightNav from '../../components/rightNav'
-	export default {
+  import Service from '../../assets/service/service.js'
+  export default {
 		name: "recommend",
 		components: {
 			Header,
@@ -415,7 +416,7 @@
 		box-shadow: 0.3125rem 0.3125rem 0.3125rem #eee, 0.3125rem -0.3125rem 0.3125rem #eee, -0.3125rem 0.3125rem 0.3125rem #eee, -0.3125rem -0.3125rem 0.3125rem #eee;
 		border-radius: 1rem;
 		cursor: pointer;
-		
+
 	}
 	div.main>div.bottom-recommend>div.bottom-list>div.greens>div:nth-child(1) {
 		display: flex;

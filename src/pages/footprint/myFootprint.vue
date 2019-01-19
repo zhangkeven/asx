@@ -54,6 +54,7 @@ import Bottom from '../../components/bottom';
 import LeftNav from '../../components/leftNav';
 import RightNav from '../../components/rightNav';
 import location from '../../assets/js/city-data.js';
+import Service from '../../assets/service/service.js'
 export default {
 	components: {
 		Bottom,

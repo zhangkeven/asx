@@ -107,7 +107,8 @@
 	import LeftNav from '../../components/leftNav'
 	import RightNav from '../../components/rightNav'
 	import Swiper from 'swiper'
-	export default {
+  import Service from '../../assets/service/service.js'
+  export default {
 		components: {
 			Bottom,
 			Header,
@@ -159,7 +160,7 @@
 		/*height: 100%;*/
 		cursor: pointer;
 	}
-	
+
 	.product-main {
 		margin-top: 7.5rem;
 		width: 100%;
@@ -222,7 +223,7 @@
 		font-size: 0.75rem;
 		margin-left: 5%;
 	}
-	
+
 	.order-code>p:nth-child(4) {
 		color: #666666;
 		font-size: 0.75rem;

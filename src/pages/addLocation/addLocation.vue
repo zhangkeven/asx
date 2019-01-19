@@ -49,7 +49,7 @@
 								<p>个</p>
 							</div>
 							<div class="locationListBg">
-								
+
 								<div class="locationDetail" v-for="item in list">
 									<span>x</span>
 									<div class="handleBg">
@@ -61,7 +61,7 @@
 										</p>
 									</div>
 									<p class="name">王芳</p>
-									
+
 										<div>
 											<p>收货人:</p>
 											<p>王芳</p>
@@ -93,11 +93,11 @@
 									</div>
 									<p @click="nextPage">下一页</p>
 								</div> -->
-								<el-pagination 
-								@current-change="getPage" 
-								prev-text="上一页" 
-								next-text="下一页" 
-								background 
+								<el-pagination
+								@current-change="getPage"
+								prev-text="上一页"
+								next-text="下一页"
+								background
 								layout="prev, pager, next"
 								 :total="total*10">
 								</el-pagination>
@@ -107,7 +107,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="bottom-background" @mouseenter="clearDropDown()">
 			<Bottom />
 		</div>
@@ -121,6 +121,7 @@
 	import LeftNav from '../../components/leftNav'
 	import RightNav from '../../components/rightNav'
 	import location from '../../assets/js/city-data.js'
+  import Service from '../../assets/service/service.js'
 	export default {
 		components: {
 			Bottom,
@@ -186,11 +187,11 @@
 			}
 		},
 		computed: {
-			
+
 		},
 		mounted(){
 			this.$refs.leftnav.activeId=4;
-			
+
 		},
 		updated(){
 			if(this.ckeckVal==false){
@@ -305,29 +306,29 @@
 					margin-bottom: 0;
 					div.bottom-page {
 						@include page-main(flex-end);
-					
+
 						div.page-count {
 							@include page-bg;
-					
+
 							p {
 								@include page-next;
 							}
-					
+
 							p:hover {
 								@include page-text-hover;
 							}
-					
+
 							div {
 								@include page-bg;
-					
+
 								p {
 									@include page-text;
 								}
-					
+
 								p.activePage {
 									@include page-text-hover;
 								}
-					
+
 								p:hover {
 									@include page-text-hover;
 								}
@@ -447,7 +448,7 @@
 				}
 			}
 		}
-		
+
 	}
 }
 </style>

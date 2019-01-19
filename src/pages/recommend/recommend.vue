@@ -56,11 +56,11 @@
 						</div>
 						<p @click="nextPage">下一页</p>
 					</div> -->
-					<el-pagination 
-					@current-change="getPage" 
-					prev-text="上一页" 
-					next-text="下一页" 
-					background 
+					<el-pagination
+					@current-change="getPage"
+					prev-text="上一页"
+					next-text="下一页"
+					background
 					layout="prev, pager, next"
 					 :total="total*10">
 					</el-pagination>
@@ -78,7 +78,8 @@
 	import Bottom from '../../components/bottom'
 	import RightNav from '../../components/rightNav'
 	import global from '../../assets/Global/global.js'
-	export default {
+  import Service from '../../assets/service/service.js'
+  export default {
 		name: "recommend",
 		components: {
 			Header,

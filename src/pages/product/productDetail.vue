@@ -237,7 +237,7 @@
 														<p>有用</p>
 														<p>(0)</p>
 													</div>
-													
+
 												</div>
 											</div>
 											<div class="add-evaluate">
@@ -263,7 +263,7 @@
 									</div>
 									<p @click="nextPage">下一页</p>
 								</div>
-							</div>	
+							</div>
 						</div>
 					</div>
 					<p class="for-you">
@@ -305,7 +305,8 @@
 	import LeftNav from '../../components/leftNav'
 	import RightNav from '../../components/rightNav'
 	import location from '../../assets/js/city-data.js'
-	export default {
+  import Service from '../../assets/service/service.js'
+  export default {
 		components: {
 			Bottom,
 			Header,
@@ -384,7 +385,7 @@
 				this.$router.push({
 					name: 'Payment',
 					params: {}
-				})	
+				})
 			},
 			searchInput(e) {
 				console.log('子组件中触发购物车页面', e); //子组件输入框触发,e代表输入框中的值
@@ -440,7 +441,7 @@
 			},
 			choosePage(e) {
 				if (e.currentTarget.dataset.id == this.pageCount) {
-			
+
 				} else {
 					this.pageCount = e.currentTarget.dataset.id
 				}
@@ -1211,7 +1212,7 @@
 		width: 100%;
 		display: flex;
 		flex-direction: column;
-		align-items: flex-end;	
+		align-items: flex-end;
 	}
 	.product-evaluate-detail-text{
 		width: 77%;
@@ -1229,7 +1230,7 @@
 		flex-direction: row;
 		align-items: center;
 		flex-wrap: wrap;
-		margin-bottom: 1.25rem;	
+		margin-bottom: 1.25rem;
 	}
 	.product-evaluate-detail-img>img{
 		width: 15%;
@@ -1265,7 +1266,7 @@
 		font-size: 0.75rem;
 	}
 	.product-size>div:first-child>p:first-child{
-		flex: 0.3;	
+		flex: 0.3;
 	}
 	.product-size>div:first-child>p:last-child{
 		margin-left: 3%;
@@ -1292,10 +1293,10 @@
 	}
 	.product-size>div:last-child>div>p{
 		font-size: 0.75rem;
-		
+
 	}
 	.product-size>div:last-child>div>p:first-child{
-		color: #095dc4;	
+		color: #095dc4;
 	}
 	.product-size>div:last-child>div>p:last-child{
 		color: #c3c3c3;
@@ -1308,12 +1309,12 @@
 		justify-content: flex-end;
 		margin-top: 0.3125rem;
 	}
-	
+
 	.product-evaluate>div.bottom-page>div.page-count {
 		display: flex;
 		flex-direction: row;
 	}
-	
+
 	.product-evaluate>div.bottom-page>div.page-count>p {
 		padding: 0.625rem 1rem;
 		display: flex;
@@ -1326,17 +1327,17 @@
 		border-radius: 0.3rem;
 		cursor: pointer;
 	}
-	
+
 	.product-evaluate>div.bottom-page>div.page-count>p:hover {
 		background-color: #852833;
 		color: #FFFFFF;
 	}
-	
+
 	.product-evaluate>div.bottom-page>div.page-count>div {
 		display: flex;
 		flex-direction: row;
 	}
-	
+
 	.product-evaluate>div.bottom-page>div.page-count>div>p {
 		padding: 0.625rem 1rem;
 		display: flex;
@@ -1349,12 +1350,12 @@
 		border-radius: 0.3rem;
 		cursor: pointer;
 	}
-	
+
 	.product-evaluate>div.bottom-page>div.page-count>div>p:hover {
 		background-color: #852833;
 		color: #FFFFFF;
 	}
-	
+
 	.product-evaluate>div.bottom-page>div.page-count>div>p.activePage {
 		background-color: #852833;
 		color: #FFFFFF;
@@ -1382,18 +1383,18 @@
 		box-sizing: border-box;
 		cursor: pointer;
 	}
-	
+
 	.bottom-product-you>.pot-detail>img {
 		width: 81%;
 	}
-	
+
 	.bottom-product-you>.pot-detail>p {
 		width: 94%;
 		padding: 0 3%;
 		color: #666;
 		font-size: 0.875rem;
 	}
-	
+
 	.bottom-product-you>.pot-detail>.money-bg {
 		width: 94%;
 		padding: 0 3%;
@@ -1403,32 +1404,32 @@
 		justify-content: space-between;
 		margin-bottom: 1.25rem;
 	}
-	
+
 	.bottom-product-you>.pot-detail>.money-bg>img {
 		width: 1.25rem;
 		height: 1.25rem;
 	}
-	
+
 	.bottom-product-you>.pot-detail>.money-bg>.money-text {
 		display: flex;
 		flex-direction: row;
 		align-items: flex-end;
 	}
-	
+
 	.bottom-product-you>.pot-detail>.money-bg>.money-text>.now-price {
 		display: flex;
 		flex-direction: row;
 	}
-	
+
 	.bottom-product-you>.pot-detail>.money-bg>.money-text>.now-price>p {
 		color: #ff0606;
 		font-size: 1.125rem;
 	}
-	
+
 	.bottom-product-you>.pot-detail>.money-bg>.money-text>.now-price>p:nth-child(2) {
 		margin-left: 0.3125rem;
 	}
-	
+
 	.bottom-product-you>.pot-detail>.money-bg>.money-text>.before-price>p {
 		color: #999999;
 		font-size: 0.75rem;

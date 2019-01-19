@@ -66,7 +66,7 @@
 							<p>最受欢迎菜系</p>
 						</div>
 						<div>
-							<div v-bind:class="[{activeMenu:activeMenu==index},'']" v-for="(item,index) in list" :key="index" 
+							<div v-bind:class="[{activeMenu:activeMenu==index},'']" v-for="(item,index) in list" :key="index"
 							 @click="chooseMenu(index)">
 								<p>{{item}}</p>
 							</div>
@@ -86,7 +86,8 @@
 	import Bottom from '../../components/bottom'
 	import RightNav from '../../components/rightNav'
 	import Swiper from 'swiper'
-	export default {
+  import Service from '../../assets/service/service.js'
+  export default {
 		components: {
 			Header,
 			Bottom,
@@ -215,19 +216,19 @@
 			border-bottom: 0.0625rem solid #EEEEEE;
 			padding: 0.625rem 0;
 		}
-		
+
 		div.roomdetail-nav>p {}
-		
+
 		div.roomdetail-nav>p:last-child {
 			color: #852833;
 		}
-		
+
 		div.roomdetail-conent {
 			width: 100%;
 			display: flex;
 			flex-direction: column;
 		}
-		
+
 		div.roomdetail-conent>div.roomdetail-conent-title {
 			width: 62%;
 			display: flex;
@@ -236,7 +237,7 @@
 			align-items: center;
 			padding: 1.125rem 0;
 		}
-		
+
 		div.roomdetail-conent>div.conent-particular {
 			width: 100%;
 			display: flex;
@@ -244,13 +245,13 @@
 			justify-content: space-between;
 			align-items: flex-start;
 		}
-		
+
 		div.roomdetail-conent>div.conent-particular>div:nth-child(1) {
 			width: 62%;
 			display: flex;
 			flex-direction: column;
 		}
-		
+
 		div.roomdetail-conent>div.conent-particular>div:nth-child(1)>div:nth-child(2) {
 			width: 100%;
 			display: flex;
@@ -258,7 +259,7 @@
 			align-items: center;
 			margin-top: 2.25rem;
 		}
-		
+
 		div.roomdetail-conent>div.conent-particular>div:nth-child(1)>div:nth-child(2)>div.around {
 			width: 0.75rem;
 			height: 0.75rem;
@@ -266,24 +267,24 @@
 			border: 0.5rem solid #852833;
 			margin-right: 0.625rem;
 		}
-		
+
 		div.roomdetail-conent>div.conent-particular>div:nth-child(1)>img {
 			width: 100%;
 		}
-		
+
 		div.roomdetail-conent>div.conent-particular>div:nth-child(1)>div:nth-child(3) {
 			width: 100%;
 			display: flex;
 			flex-direction: column;
 		}
-		
+
 		div.roomdetail-conent>div.conent-particular>div:nth-child(1)>div:nth-child(3)>div.materials-bg {
 			width: 100%;
 			display: flex;
 			flex-direction: row;
 			flex-wrap: wrap;
 		}
-		
+
 		div.roomdetail-conent>div.conent-particular>div:nth-child(1)>div:nth-child(3)>div.materials-bg>div {
 			width: 8%;
 			display: flex;
@@ -291,20 +292,20 @@
 			align-items: center;
 			margin: 2rem 8.5%;
 		}
-		
+
 		div.roomdetail-conent>div.conent-particular>div:nth-child(1)>div:nth-child(4) {
 			width: 100%;
 			display: flex;
 			flex-direction: column;
 		}
-		
+
 		div.roomdetail-conent>div.conent-particular>div:nth-child(1)>div:nth-child(4)>div.materials-bg {
 			width: 100%;
 			display: flex;
 			flex-direction: row;
 			flex-wrap: wrap;
 		}
-		
+
 		div.roomdetail-conent>div.conent-particular>div:nth-child(1)>div:nth-child(4)>div.materials-bg>div {
 			width: 8%;
 			display: flex;
@@ -312,22 +313,22 @@
 			align-items: center;
 			margin: 2rem 8.5%;
 		}
-		
+
 		div.roomdetail-conent>div.conent-particular>div:nth-child(2) {
 			width: 35%;
 			display: flex;
 			flex-direction: column;
 		}
-		
+
 		div.roomdetail-conent>div.conent-particular>div:nth-child(2)>img {
 			width: 100%;
 		}
-		
+
 		div.roomdetail-conent>div.conent-particular>div:nth-child(2)>div:nth-child(2) {
 			width: 100%;
 			border-bottom: 0.125rem solid #EEEEEE;
 		}
-		
+
 		div.roomdetail-conent>div.conent-particular>div:nth-child(2)>div:nth-child(2)>p {
 			width: 30%;
 			padding: 0.625rem 0;
@@ -335,7 +336,7 @@
 			border-bottom: 0.125rem solid #852833;
 			font-size: 1.125rem;
 		}
-		
+
 		div.roomdetail-conent>div.conent-particular>div:nth-child(2)>div:nth-child(3) {
 			margin-top: 1.25rem;
 			display: flex;
@@ -343,7 +344,7 @@
 			justify-content: space-between;
 			flex-wrap: wrap;
 		}
-		
+
 		div.roomdetail-conent>div.conent-particular>div:nth-child(2)>div:nth-child(3)>div {
 			display: flex;
 			flex-direction: row;
@@ -358,12 +359,12 @@
 			font-size: 0.875rem;
 			cursor: pointer;
 		}
-		
+
 		div.roomdetail-conent>div.conent-particular>div:nth-child(2)>div:nth-child(3)>div:hover {
 			color: #852833;
 			border: 0.125rem solid #852833;
 		}
-		
+
 		div.roomdetail-conent>div.conent-particular>div:nth-child(2)>div:nth-child(3)>div.activeMenu {
 			color: #852833;
 			border: 0.125rem solid #852833;

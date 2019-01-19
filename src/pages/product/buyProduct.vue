@@ -64,11 +64,11 @@
 			</div>
 			<div v-bind:class="chooseProduct" v-show="showProductModal">
 				 <!-- <Anchor show-ink>
-					  <AnchorLink href="#Anchor_props" v-for="(item,index) in productList" :title="item" /> 
-					 
+					  <AnchorLink href="#Anchor_props" v-for="(item,index) in productList" :title="item" />
+
 					 </AnchorLink>
 				 </Anchor> -->
-				
+
 				<a v-for="(item,index) in productList">{{item}}</a>
 				<!-- </Anchor> -->
 			</div>
@@ -162,7 +162,8 @@
 	import Swiper from 'swiper';
 	import Bottom from '../../components/bottom'
 	import RightNav from '../../components/rightNav'
-	export default {
+  import Service from '../../assets/service/service.js'
+  export default {
 		components: {
 			Bottom,
 			RightNav
@@ -494,13 +495,13 @@
 				this.$router.push({
 					name: 'MyCollect',
 					params: {}
-				})	
+				})
 			},
 			goMylocation(){
 				this.$router.push({
 					name: 'AddLocation',
 					params: {}
-				})	
+				})
 			},
 			goMyOrder(){
 				this.$router.push({

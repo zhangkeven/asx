@@ -105,6 +105,7 @@ import Bottom from '../../components/bottom';
 import LeftNav from '../../components/leftNav';
 import RightNav from '../../components/rightNav';
 import location from '../../assets/js/city-data.js';
+import Service from '../../assets/service/service.js'
 export default {
 	components: {
 		Bottom,
@@ -141,7 +142,7 @@ export default {
 		},
 		chooseCause(index){
 			if(this.imgid==index){
-				
+
 			}else{
 				this.imgid=index
 			}
@@ -163,7 +164,7 @@ export default {
 }
 #applySalesReturn {
 	margin-top: 6.875rem;
-	
+
 	div.applySalesReturn-title {
 		width: 96%;
 		padding: 0.5rem 2%;
@@ -287,7 +288,7 @@ export default {
 					}
 				}
 			}
-			
+
 		}
 	}
 	div.serverBg{

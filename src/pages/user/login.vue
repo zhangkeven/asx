@@ -46,7 +46,8 @@
 <script>
 	import Topnav from '../../components/topnav'
 	import Bottom from '../../components/bottom'
-	export default {
+  import Service from '../../assets/service/service.js'
+  export default {
 		components: {
 			Topnav,
 			Bottom

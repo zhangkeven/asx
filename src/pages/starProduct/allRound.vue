@@ -15,7 +15,8 @@
 	import Header from '../../components/header'
 	import Bottom from '../../components/bottom'
 	import RightNav from '../../components/rightNav'
-	export default {
+  import Service from '../../assets/service/service.js'
+  export default {
 		components: {
 			Bottom,
 			Header,

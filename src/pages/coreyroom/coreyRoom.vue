@@ -56,14 +56,22 @@
 					</div>
 				</div>
 				<div class="bottom-page">
-					<div class="page-count">
+					<el-pagination 
+					@current-change="getPage" 
+					prev-text="上一页" 
+					next-text="下一页" 
+					background 
+					layout="prev, pager, next"
+					 :total="total*10">
+					</el-pagination>
+					<!-- <div class="page-count">
 						<p @click="greensprevPage">上一页</p>
 						<div>
 							<p @click="choosegreensPage" :data-id="index" v-bind:class="[{activePage:greenspageCount==index}, ' ']" v-for="(item,index) in greenspage"
 							 :key="index">{{item}}</p>
 						</div>
 						<p @click="greensnextPage">下一页</p>
-					</div>
+					</div> -->
 				</div>
 			</div>
 		</div>
@@ -87,6 +95,7 @@
 		data() {
 			return {
 				navTitle: '',
+				total:10,
 				imgs: [{
 						imgUrl: 'http://www.kevenzhang.com/img/banner1.png'
 					},
@@ -120,6 +129,9 @@
 			};
 		},
 		methods: {
+			getPage(e) {
+				console.log(e);
+			},
 			clearDropDown() {
 				this.$refs.data.showstartdrop = false;
 				this.$refs.data.showModal = false;
@@ -206,6 +218,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+
 		div.room-conent {
 			width: 62.5%;
 			min-width: 65rem;

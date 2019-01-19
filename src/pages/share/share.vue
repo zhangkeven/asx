@@ -49,14 +49,22 @@
 			</div>
 		</div>
 		<div class="bottom-page" @mouseenter="clearDropDown()">
-			<div class="page-count">
+			<!-- <div class="page-count">
 				<p @click="prevPage">上一页</p>
 				<div>
 					<p @click="choosePage" :data-id="index" v-bind:class="[{activePage:pageCount==index}, ' ']" v-for="(item,index) in page"
 					 :key="index">{{item}}</p>
 				</div>
 				<p @click="nextPage">下一页</p>
-			</div>
+			</div> -->
+				<el-pagination 
+				@current-change="getPage" 
+				prev-text="上一页" 
+				next-text="下一页" 
+				background 
+				layout="prev, pager, next"
+				 :total="total*10">
+				</el-pagination>
 		</div>
 		<div class="bottom-bg-img" @mouseenter="clearDropDown()">
 			<img src="../../assets/img/kefu.png" alt="">
@@ -80,6 +88,7 @@
 		},
 		data() {
 			return {
+				total:10,
 				imgs: [{
 						imgUrl: 'http://www.kevenzhang.com/img/banner1.png'
 					},
@@ -102,6 +111,9 @@
 			};
 		},
 		methods: {
+			getPage(e) {
+				console.log(e);
+			},
 			clearDropDown(){
 				this.$refs.data.showstartdrop = false;
 				this.$refs.data.showModal = false;

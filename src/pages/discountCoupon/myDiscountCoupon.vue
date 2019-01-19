@@ -33,14 +33,22 @@
 								</div>
 								
 								<div class="bottom-page" style="margin-top: 1.25rem;">
-									<div class="page-count">
+									<!-- <div class="page-count">
 										<p @click="prevPage">上一页</p>
 										<div>
 											<p @click="choosePage" :data-id="index" v-bind:class="[{activePage:pageCount==index}, ' ']" v-for="(item,index) in page"
 											 :key="index">{{item}}</p>
 										</div>
 										<p @click="nextPage">下一页</p>
-									</div>
+									</div> -->
+									<el-pagination 
+									@current-change="getPage" 
+									prev-text="上一页" 
+									next-text="下一页" 
+									background 
+									layout="prev, pager, next"
+									 :total="total*10">
+									</el-pagination>
 								</div>
 							</div>
 							<div class="Used_coupons" v-show="activeId==1">
@@ -61,14 +69,14 @@
 								</div>	
 								
 								<div class="bottom-page" style="margin-top: 1.25rem;">
-									<div class="page-count">
-										<p @click="prevPage">上一页</p>
-										<div>
-											<p @click="choosePage" :data-id="index" v-bind:class="[{activePage:pageCount==index}, ' ']" v-for="(item,index) in page"
-											 :key="index">{{item}}</p>
-										</div>
-										<p @click="nextPage">下一页</p>
-									</div>
+									<el-pagination 
+									@current-change="getPage" 
+									prev-text="上一页" 
+									next-text="下一页" 
+									background 
+									layout="prev, pager, next"
+									 :total="total*10">
+									</el-pagination>
 								</div>
 							</div>
 							<div class="Expired_coupons" v-show="activeId==2">
@@ -89,14 +97,14 @@
 								</div>
 								
 								<div class="bottom-page" style="margin-top: 1.25rem;">
-									<div class="page-count">
-										<p @click="prevPage">上一页</p>
-										<div>
-											<p @click="choosePage" :data-id="index" v-bind:class="[{activePage:pageCount==index}, ' ']" v-for="(item,index) in page"
-											 :key="index">{{item}}</p>
-										</div>
-										<p @click="nextPage">下一页</p>
-									</div>
+									<el-pagination 
+									@current-change="getPage" 
+									prev-text="上一页" 
+									next-text="下一页" 
+									background 
+									layout="prev, pager, next"
+									 :total="total*10">
+									</el-pagination>
 								</div>
 							</div>
 							<div class="Delete_coupons" v-show="activeId==3">
@@ -118,14 +126,14 @@
 								</div>
 								
 								<div class="bottom-page" style="margin-top: 1.25rem;">
-									<div class="page-count">
-										<p @click="prevPage">上一页</p>
-										<div>
-											<p @click="choosePage" :data-id="index" v-bind:class="[{activePage:pageCount==index}, ' ']" v-for="(item,index) in page"
-											 :key="index">{{item}}</p>
-										</div>
-										<p @click="nextPage">下一页</p>
-									</div>
+									<el-pagination 
+									@current-change="getPage" 
+									prev-text="上一页" 
+									next-text="下一页" 
+									background 
+									layout="prev, pager, next"
+									 :total="total*10">
+									</el-pagination>
 								</div>
 							</div>
 						</div>
@@ -155,6 +163,7 @@ export default {
 	},
 	data() {
 		return {
+			total:10,
 			location: location.CityInfo,
 			activeId: 0,
 			pageCount: 0,
@@ -163,6 +172,9 @@ export default {
 		};
 	},
 	methods: {
+		getPage(e) {
+			console.log(e);
+		},
 		searchInput(e) {
 			console.log('子组件中触发购物车页面', e); //子组件输入框触发,e代表输入框中的值
 		},

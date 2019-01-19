@@ -63,7 +63,14 @@
 				</div>
 			</div>
 			<div v-bind:class="chooseProduct" v-show="showProductModal">
-				<p v-for="(item,index) in productList">{{item}}</p>
+				 <!-- <Anchor show-ink>
+					  <AnchorLink href="#Anchor_props" v-for="(item,index) in productList" :title="item" /> 
+					 
+					 </AnchorLink>
+				 </Anchor> -->
+				
+				<a v-for="(item,index) in productList">{{item}}</a>
+				<!-- </Anchor> -->
 			</div>
 		</div>
 		<!--<div class="banner">-->
@@ -561,23 +568,25 @@
 		flex-wrap: wrap;
 	}
 
-	.chooseProduct>p {
+	.chooseProduct>a {
 		cursor: pointer;
 		margin-left: 6%;
 		margin-bottom: 1.875rem;
+		font-size: 1rem;
 	}
 
-	.chooseProduct>p:hover {
+	.chooseProduct>a:hover {
 		color: #852833;
 	}
 
-	.chooseProduct1>p {
+	.chooseProduct1>a {
 		cursor: pointer;
 		margin-left: 6%;
 		margin-bottom: 1.875rem;
+		font-size: 1rem;
 	}
 
-	.chooseProduct1>p:hover {
+	.chooseProduct1>a:hover {
 		color: #852833;
 	}
 

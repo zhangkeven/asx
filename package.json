@@ -16,6 +16,7 @@
   "dependencies": {
     "element-ui": "^2.4.11",
     "install": "^0.12.2",
+    "iview": "^3.2.2",
     "jquery": "^2.2.1",
     "moment": "^2.23.0",
     "npm": "^6.6.0",

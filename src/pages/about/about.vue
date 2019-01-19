@@ -327,14 +327,22 @@
 					</div>
 				</div>
 				<div class="bottom-page">
-					<div class="page-count">
+					<!-- <div class="page-count">
 						<p @click="newsprevPage">上一页</p>
 						<div>
 							<p @click="choosenewsPage" :data-id="index" v-bind:class="[{activePage:newspageCount==index}, ' ']" v-for="(item,index) in newspage"
 							 :key="index">{{item}}</p>
 						</div>
 						<p @click="newsnextPage">下一页</p>
-					</div>
+					</div> -->
+					<el-pagination 
+					@current-change="getPage" 
+					prev-text="上一页" 
+					next-text="下一页" 
+					background 
+					layout="prev, pager, next"
+					 :total="total*10">
+					</el-pagination>
 				</div>
 			</div>
 		</div>
@@ -391,6 +399,7 @@
 			return {
 				bgHeight: '',
 				roll: 0,
+				total:10,
 				newspageCount: 0,
 				newspage: [
 					'1', '2', '3', '4', '5', '6'
@@ -550,6 +559,9 @@
 			}
 		},
 		methods: {
+			getPage(e) {
+				console.log(e);
+			},
 			clearDropDown() {
 				this.$refs.data.showstartdrop = false;
 				this.$refs.data.showModal = false;

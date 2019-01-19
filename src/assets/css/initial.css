@@ -630,11 +630,13 @@ div.user-photo>p {
 .nav a {
 	font-size: 1rem;
 	transition: color linear .5s;
+	color: #333333;
 }
 
 .nav1 a {
 	font-size: 1rem;
 	transition: color linear .5s;
+	color: #333333;
 }
 
 .nav a:hover,

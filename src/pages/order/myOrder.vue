@@ -66,8 +66,8 @@
 									<div>
 										<p>
 											全能平低锅介绍名称全能平低锅介绍名称全能平低锅介绍名称
-											
-										
+
+
 										</p>
 										<div>
 											<p>颜色:</p>
@@ -106,14 +106,22 @@
 						</div>
 					</div>
 					<div class="bottom-page">
-						<div class="page-count">
+						<!-- <div class="page-count">
 							<p @click="prevPage">上一页</p>
 							<div>
 								<p @click="choosePage" :data-id="index" v-bind:class="[{activePage:pageCount==index}, ' ']" v-for="(item,index) in page"
 								 :key="index">{{item}}</p>
 							</div>
 							<p @click="nextPage">下一页</p>
-						</div>
+						</div> -->
+						<el-pagination 
+						@current-change="getPage" 
+						prev-text="上一页" 
+						next-text="下一页" 
+						background 
+						layout="prev, pager, next"
+						 :total="total*10">
+						</el-pagination>
 					</div>
 				</div>
 			</div>
@@ -138,57 +146,62 @@
 		},
 		data() {
 			return {
+				total: 10,
 				pageCount: 0,
 				page: [
 					'1', '2', '3', '4', '5', '6'
 				],
 				activeTap: 0,
 				list: [{
-					active: '2'
-				},{
-					active: '1'
-				},
-				{
-					active: '2'
-				},
-				{
-					active: '3'
-				},
-				{
-					active: '4'
-				},
-				{
-					active: '5'
-				},
-				{
-					active: '6'
-				},]
+						active: '2'
+					}, {
+						active: '1'
+					},
+					{
+						active: '2'
+					},
+					{
+						active: '3'
+					},
+					{
+						active: '4'
+					},
+					{
+						active: '5'
+					},
+					{
+						active: '6'
+					},
+				]
 			};
 		},
 		methods: {
-			gosaleReturn(){
+			getPage(e) {
+				console.log(e);
+			},
+			gosaleReturn() {
 				this.$router.push({
 					name: 'ApplySalesReturn',
 					params: {}
-				})	
+				})
 			},
-			payment(){
+			payment() {
 				this.$router.push({
 					name: 'Payment',
 					params: {}
-				})	
+				})
 			},
-			goevaluate(){
+			goevaluate() {
 				this.$router.push({
 					name: 'Evaluate',
 					params: {}
-				})	
+				})
 			},
-			goAddtoEvaluate(){
+			goAddtoEvaluate() {
 				this.$router.push({
 					name: 'AddtoEvaluate',
 					params: {}
-				})	
+				})
 			},
 			clearDropDown() {
 				this.$refs.data.showstartdrop = false;
@@ -532,6 +545,7 @@
 		color: #666666;
 		font-size: 0.75rem;
 	}
+
 	.order-list-conent>div:nth-child(2)>p:first-child {
 		font-size: 0.875rem;
 
@@ -545,9 +559,11 @@
 	.order-list-conent>div:nth-child(5)>p {
 		cursor: pointer;
 	}
-	.order-list-conent>div:nth-child(5)>p:nth-last-child(2){
+
+	.order-list-conent>div:nth-child(5)>p:nth-last-child(2) {
 		color: #999999;
 	}
+
 	.order-list-conent>div:last-child>p {
 		width: 70%;
 		max-width: 4.0625rem;
@@ -560,7 +576,8 @@
 		align-items: center;
 		cursor: pointer;
 	}
-	.order-list-conent>div:last-child>p:nth-last-child(2){
+
+	.order-list-conent>div:last-child>p:nth-last-child(2) {
 		margin-bottom: 0.625rem;
 	}
 </style>

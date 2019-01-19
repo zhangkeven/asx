@@ -8,12 +8,15 @@ import router from './router'
 import './assets/css/initial.css'
 import './assets/scss/initial.scss'
 import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
+import './assets/theme-chalk/index.css'
 Vue.use(ElementUI);
 import VueResource from 'vue-resource'
 Vue.use(VueResource)
 import VueMeta from 'vue-meta'
 Vue.use(VueMeta)
+import iView from 'iview';
+import 'iview/dist/styles/iview.css';
+Vue.use(iView);
 // import MetaInfo from 'vue-meta-info'
 //
 // Vue.use(MetaInfo)
